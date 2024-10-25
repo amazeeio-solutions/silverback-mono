@@ -71,6 +71,7 @@ export const plugin: PluginFunction<any, string> = async (
   const idMap = new Map<string, string>();
   visit(allAst, {
     OperationDefinition(node) {
+      const id = queryId(node, print(inlineFragments(node, fragmentMap)));
       const query = [
         print(
           config.fragments === 'inline'
@@ -87,7 +88,6 @@ export const plugin: PluginFunction<any, string> = async (
         });
       }
       const queryString = query.join('\n');
-      const id = queryId(node, queryString);
       operationMap.set(id, queryString);
       if (node.name) {
         idMap.set(node.name.value, id);

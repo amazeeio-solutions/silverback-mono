@@ -247,7 +247,7 @@ describe('mode: map', () => {
     );
     expect(JSON.parse(result)).toMatchInlineSnapshot(`
       {
-        "HomeQuery:c25b93055bb9dce4d474a8e9031df3842a686ad4ad1b3ce2806ef528eb5b1c47": "query Home {
+        "HomeQuery:9e615243c0c61d86531091aa395544df99db822d94d50a761c2809d61caf3164": "query Home {
         loadPage(path: "/") {
           ...Page
           related {
@@ -328,7 +328,7 @@ describe('mode: map', () => {
     );
     expect(JSON.parse(result)).toMatchInlineSnapshot(`
       {
-        "HomeQuery:fe7f24087d5deae03464a1e58e1c5a50cd6dbbbf4b4e68c41e5f6b9f2f947d3c": "query Home {
+        "HomeQuery:7f81601e1df0c179be7354f3f834201b9615d0ea191d4ba5f83bb45b0bfe052d": "query Home {
         loadPage(path: "/") {
           ...Page
         }
