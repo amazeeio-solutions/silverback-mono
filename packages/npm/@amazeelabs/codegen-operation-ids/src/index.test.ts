@@ -1,6 +1,6 @@
 import { Types } from '@graphql-codegen/plugin-helpers';
 import { buildSchema, parse } from 'graphql';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, test } from 'vitest';
 
 import { plugin } from './';
 
@@ -446,7 +446,7 @@ describe('mode: ids', () => {
     ]);
     expect(result).toMatchInlineSnapshot(`
       "import type { OperationId } from '@amazeelabs/codegen-operation-ids';
-      export const HomeQuery = "HomeQuery:37d40553a898c4026ba372c8f42af3df9c3451953b65695b823a8e1e7b5fd90d" as OperationId<HomeQuery,HomeQueryVariables | undefined>;"
+      export const HomeQuery = "HomeQuery:dc086da112964a8f85ae0520dab3fa68a84e067ee6aa8b0e06305f4cb5e9898a" as OperationId<HomeQuery,HomeQueryVariables | undefined>;"
     `);
   });
 
@@ -467,4 +467,46 @@ describe('mode: ids', () => {
       export const LoginMutation = "LoginMutation:10f1c5ac787ce93e9fe860ec9bb4a552967778d3873fbec2ce15fad2164da315" as OperationId<LoginMutation,LoginMutationVariables>;"
     `);
   });
+});
+
+test('identical id generation', async () => {
+  const documents = [
+    {
+      location: 'queries.gql',
+      document: parse(`
+        fragment Page on Page { title }
+        query Home { loadPage(path: "/") { ... Page } }
+        `),
+      schema,
+    },
+  ];
+  const typescript = await plugin(
+    schema,
+    documents,
+    {},
+    { outputFile: 'output.ts' },
+  );
+  const key =
+    'HomeQuery:dc086da112964a8f85ae0520dab3fa68a84e067ee6aa8b0e06305f4cb5e9898a';
+  expect(typescript).toContain(key);
+
+  expect(
+    await plugin(schema, documents, {}, { outputFile: 'map.json' }),
+  ).toContain(key);
+  expect(
+    await plugin(
+      schema,
+      documents,
+      { fragments: 'attach' },
+      { outputFile: 'map.json' },
+    ),
+  ).toContain(key);
+  expect(
+    await plugin(
+      schema,
+      documents,
+      { fragments: 'inline' },
+      { outputFile: 'map.json' },
+    ),
+  ).toContain(key);
 });

@@ -14,6 +14,7 @@ import { inlineFragments } from './inline';
 import { scanFragments } from './scan';
 
 class OperationIdVisitor extends ClientSideBaseVisitor {
+  public idMap: Record<string, string> = {};
   _extractFragments() {
     return [];
   }
@@ -28,11 +29,9 @@ class OperationIdVisitor extends ClientSideBaseVisitor {
       suffix: operationTypeSuffix + 'Variables',
     });
     const hasRequiredVariables = this.checkVariablesRequirements(node);
+    const id = this.idMap[print(node)];
 
-    return `export const ${operationResultType} = "${queryId(
-      node,
-      print(node),
-    )}" as OperationId<${operationResultType},${operationVariablesTypes}${
+    return `export const ${operationResultType} = "${id}" as OperationId<${operationResultType},${operationVariablesTypes}${
       hasRequiredVariables ? '' : ' | undefined'
     }>;`;
   }
@@ -51,6 +50,7 @@ export const plugin: PluginFunction<any, string> = async (
   info,
 ) => {
   const outputMap = info?.outputFile?.match(/\.json$/);
+  const visitor = new OperationIdVisitor(schema, [], config, {}, documents);
 
   function isNotEmpty<T extends any>(obj: T | undefined): obj is T {
     return obj !== undefined;
@@ -72,6 +72,7 @@ export const plugin: PluginFunction<any, string> = async (
   visit(allAst, {
     OperationDefinition(node) {
       const id = queryId(node, print(inlineFragments(node, fragmentMap)));
+      visitor.idMap[print(node)] = id;
       const query = [
         print(
           config.fragments === 'inline'
@@ -103,7 +104,6 @@ export const plugin: PluginFunction<any, string> = async (
     `import type { OperationId } from '@amazeelabs/codegen-operation-ids';`,
   ];
 
-  const visitor = new OperationIdVisitor(schema, [], config, {}, documents);
   const visitorResult = oldVisit(allAst, {
     // TODO: Remove @ts-ignore once the issue is fixed.
     // @ts-ignore Looks like graphql v16 is not fully supported yet: https://github.com/dotansimha/graphql-code-generator/issues/7519
