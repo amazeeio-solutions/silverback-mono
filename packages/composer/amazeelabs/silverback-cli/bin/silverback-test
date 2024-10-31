@@ -13,8 +13,6 @@ _cleanup
 # If there is no node modules directory, run yarn.
 [[ -d node_modules ]] || yarn
 
-source .envrc
-
 # Initial setup, so drush bootstrap doesn't fail.
 [[ -d web/sites/default/files/.sqlite ]] || (vendor/bin/silverback setup && vendor/bin/drush en cypress -y)
 
