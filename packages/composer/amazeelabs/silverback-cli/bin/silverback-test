@@ -13,6 +13,9 @@ _cleanup
 # If there is no node modules directory, run yarn.
 [[ -d node_modules ]] || yarn
 
+# Source env vars in the same way as it would be done by .envrc.
+set -o allexport; source .env.local.example; set +o allexport
+
 # Initial setup, so drush bootstrap doesn't fail.
 [[ -d web/sites/default/files/.sqlite ]] || (vendor/bin/silverback setup && vendor/bin/drush en cypress -y)
 

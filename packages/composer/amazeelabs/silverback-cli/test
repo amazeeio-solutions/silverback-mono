@@ -61,6 +61,9 @@ function install_silverback_and_test {
 
   composer require amazeelabs/silverback-cli:@dev --no-interaction
 
+  # Source env vars in the same way as it would be done by .envrc.
+  set -o allexport; source .env.local.example; set +o allexport
+
   if ./vendor/bin/silverback setup; then
     echo 'Error: `silverback setup` should fail if there is no install cache.';
     exit 1;
