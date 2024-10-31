@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.14](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-cli@2.9.13...@-amazeelabs/silverback-cli@2.9.14) (2024-10-31)
+
+
+### Bug Fixes
+
+* get rid of `source .envrc` ([3cf00ba](https://github.com/AmazeeLabs/silverback-mono/commit/3cf00bafedac7585c3a4b6d7033fb434c12d23d3))
+* loads env vars directly after removing `source .envrc` ([9cddcb0](https://github.com/AmazeeLabs/silverback-mono/commit/9cddcb02c55631b6b1377f7640b946897f41a59d))
+
+
+### Reverts
+
+* Revert "chore: check if source_up_if_exists command exists" ([b0334e9](https://github.com/AmazeeLabs/silverback-mono/commit/b0334e94a590ada12c4fbf5346506c8755ec676f))
+
+
+
+
+
 ## [2.9.13](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-cli@2.9.12...@-amazeelabs/silverback-cli@2.9.13) (2024-09-10)
 
 **Note:** Version bump only for package @-amazeelabs/silverback-cli
