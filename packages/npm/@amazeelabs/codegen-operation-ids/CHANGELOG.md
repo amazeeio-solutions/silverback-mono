@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/codegen-operation-ids@0.2.2...@amazeelabs/codegen-operation-ids@0.2.3) (2024-11-05)
+
+
+### Bug Fixes
+
+* missing and duplicated fragments in attached query builds ([4b5e876](https://github.com/AmazeeLabs/silverback-mono/commit/4b5e8765b5fed082e4678436866f375622b3e0cc))
+
+
+
+
+
 ## [0.2.2](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/codegen-operation-ids@0.2.1...@amazeelabs/codegen-operation-ids@0.2.2) (2024-10-25)
 
 
