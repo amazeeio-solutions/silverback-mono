@@ -80,11 +80,13 @@ export const plugin: PluginFunction<any, string> = async (
             : node,
         ),
       ];
+      const addedFragments = new Set<string>();
       if (config.fragments === 'attach') {
         scanFragments(node, fragmentMap).forEach((name) => {
           const fragment = fragmentMap.get(name);
-          if (fragment) {
+          if (fragment && !addedFragments.has(name)) {
             query.push(print(fragment));
+            addedFragments.add(name);
           }
         });
       }

@@ -155,23 +155,27 @@ describe('mode: map', () => {
   });
 
   it('attaches used fragments', async () => {
-    const result = await runPlugin([
-      {
-        location: 'a.gql',
-        document: parse(`
+    const result = await runPlugin(
+      [
+        {
+          location: 'a.gql',
+          document: parse(`
         fragment Page on Page { title }
         query Home { loadPage(path: "/") { ...Page } }
         `),
-      },
-    ]);
+        },
+      ],
+      'attach',
+    );
     expect(JSON.parse(result)).toMatchInlineSnapshot(`
       {
         "HomeQuery:dc086da112964a8f85ae0520dab3fa68a84e067ee6aa8b0e06305f4cb5e9898a": "query Home {
         loadPage(path: "/") {
-          ... on Page {
-            title
-          }
+          ...Page
         }
+      }
+      fragment Page on Page {
+        title
       }",
       }
     `);
@@ -229,15 +233,12 @@ describe('mode: map', () => {
         {
           location: 'a.gql',
           document: parse(`
-        fragment Page on Page { title, related { path } }
-        fragment Teaser on Page { path }
+        fragment Page on Page { title, related { path, ...on Page { ...Teaser } } }
+        fragment Teaser on Page { ...TeaserPath }
+        fragment TeaserPath on Page { path }
         query Home {
           loadPage(path: "/") {
-            ...Page,
-            related {
               ...Page
-              ...Teaser
-            }
           }
         }
         `),
@@ -247,28 +248,24 @@ describe('mode: map', () => {
     );
     expect(JSON.parse(result)).toMatchInlineSnapshot(`
       {
-        "HomeQuery:9e615243c0c61d86531091aa395544df99db822d94d50a761c2809d61caf3164": "query Home {
+        "HomeQuery:ca1e9a10f732bfd85d49679859a8f0aeb39c6911838b6e740115c6021dc21ccc": "query Home {
         loadPage(path: "/") {
           ...Page
-          related {
-            ...Page
+        }
+      }
+      fragment Page on Page {
+        title
+        related {
+          path
+          ... on Page {
             ...Teaser
           }
         }
       }
-      fragment Page on Page {
-        title
-        related {
-          path
-        }
-      }
-      fragment Page on Page {
-        title
-        related {
-          path
-        }
-      }
       fragment Teaser on Page {
+        ...TeaserPath
+      }
+      fragment TeaserPath on Page {
         path
       }",
       }

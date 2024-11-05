@@ -87,11 +87,24 @@ fragment B on B {
   }
 }
 fragment B on B {
+  ...C
+}
+fragment C on B {
+  ...D
+}
+fragment D on B {
+  ...E
+}
+fragment E on B {
   propC
-}`);
+}
+`);
     const [query] = doc.definitions.filter(isOperationDefinitionNode);
-    const [B] = doc.definitions.filter(isFragmentDefinitionNode);
-    const fragments = scanFragments(query, new Map(Object.entries({ B })));
-    expect(fragments).toEqual(['B']);
+    const [B, C, D, E] = doc.definitions.filter(isFragmentDefinitionNode);
+    const fragments = scanFragments(
+      query,
+      new Map(Object.entries({ B, C, D, E })),
+    );
+    expect(fragments).toEqual(['B', 'C', 'D', 'E']);
   });
 });
