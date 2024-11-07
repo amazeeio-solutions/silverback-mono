@@ -91,6 +91,7 @@ function DelayedOperation<T extends any>({
   const [error, setError] = useState<unknown>();
 
   useEffect(() => {
+    setState('loading');
     operation()
       .then((result) => {
         setData(result);
@@ -101,7 +102,7 @@ function DelayedOperation<T extends any>({
         setError(error);
         setState('error');
       });
-  }, [operation]);
+  }, [operation, setData, setError, setState]);
 
   return <>{children({ state, error, data: data! })}</>;
 }
