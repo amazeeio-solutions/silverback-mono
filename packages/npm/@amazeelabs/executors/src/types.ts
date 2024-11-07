@@ -79,10 +79,6 @@ export type ExecutionState<T extends any> =
       error: unknown;
     }
   | {
-      state: 'updating';
-      data: T;
-    }
-  | {
       state: 'success';
       data: T;
     };
