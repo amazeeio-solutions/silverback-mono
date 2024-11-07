@@ -87,15 +87,13 @@ export function Calc({
   return (
     <Operation id={AddOperation} variables={{ a, b }}>
       {(props) => {
-        if (props.state === 'loading') {
-          return <p data-testid={label}>Loading...</p>;
-        }
         if (props.state === 'error') {
           return <p data-testid={label}>Error: {`${props.error}`}</p>;
         }
         return (
           <p data-testid={label}>
-            {label}: {a} + {b} = {props.data.result}
+            {label}: {a} + {b} ={' '}
+            {props.state === 'loading' ? '...' : props.data.result}
           </p>
         );
       }}
