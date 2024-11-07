@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.7](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.6...@amazeelabs/executors@3.1.7) (2024-11-07)
+
+
+### Bug Fixes
+
+* **executors:** fall back into "loading" state if arguments change ([2acc857](https://github.com/AmazeeLabs/silverback-mono/commit/2acc8574a665e41456d1af6c7ff00ecff36a929a))
+
+
+
+
+
 ## [3.1.6](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.5...@amazeelabs/executors@3.1.6) (2024-11-05)
 
 **Note:** Version bump only for package @amazeelabs/executors
