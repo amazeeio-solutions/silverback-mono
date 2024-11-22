@@ -15,7 +15,9 @@ export const createLimitOffsetPaginationAdapter = (
     };
   },
   next(state, page) {
-    const limit = Number(state.variables.limit) ?? DEFAULT_PAGE_SIZE;
+    const limit = state.variables.limit
+      ? Number(state.variables.limit)
+      : DEFAULT_PAGE_SIZE;
     const offset = Number(state.variables.offset) + limit;
     return {
       variables: { limit, offset },

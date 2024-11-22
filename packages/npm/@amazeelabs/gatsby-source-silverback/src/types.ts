@@ -11,5 +11,7 @@ export type SilverbackPageContext = {
   }>;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SilverbackResolver = GraphQLFieldResolver<any, any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SilverbackSource<T = any> = () => Array<[string, T]>;

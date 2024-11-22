@@ -11,13 +11,13 @@
   },
   "scripts": {
     "build": "rm -rf build && tsc",
-    "test:static": "tsc --noEmit && eslint '**/*.{ts,tsx,js,jsx}' --ignore-path='./.gitignore'"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "dependencies": {
     "website-scraper": "^5.3.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@types/website-scraper": "1.2.10",
     "typescript": "5.4.5"
   },

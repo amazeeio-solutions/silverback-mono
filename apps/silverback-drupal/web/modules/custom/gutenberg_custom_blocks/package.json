@@ -10,11 +10,5 @@
     "drupal-gutenberg-translations": "1.1.0",
     "drupal-js-build": "https://github.com/AmazeeLabs/drupal-js-build"
   },
-  "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
-    "@types/jest": "29.5.12",
-    "eslint": "8.57.0",
-    "prettier": "3.2.5",
-    "typescript": "5.4.5"
-  }
+  "devDependencies": {}
 }

@@ -24,7 +24,7 @@ export default defineConfig({
       formats: ['cjs', 'es'],
     },
   },
-  // @ts-ignore
+  // @ts-expect-error `test` is not defined in the Vite config.
   test: {
     environment: 'happy-dom',
   },

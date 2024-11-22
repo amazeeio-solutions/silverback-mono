@@ -119,9 +119,11 @@ async function runWorkflow(args: {
           (current === 'success' || current === 'failure')
         ) {
           subscription.unsubscribe();
-          current === 'success'
-            ? core.output$.next('Workflow succeeded', 'success')
-            : core.output$.next('Workflow failed or cancelled', 'error');
+          if (current === 'success') {
+            core.output$.next('Workflow succeeded', 'success');
+          } else {
+            core.output$.next('Workflow failed or cancelled', 'error');
+          }
           core.output$.next('Logs: ' + core.state.workflowRunUrl);
 
           clearTimeout(timeout);

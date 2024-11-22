@@ -31,6 +31,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     // also the input types), then parts of the code bellow and the entire code
     // above could be removed.
     const responsiveImages: Array<GatsbyGraphQLObjectType> = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     args.store.getState().schemaCustomization.types.map((schemaType: any) => {
       // If the type def does not have a config or fields (for example unions), we
       // are not interested in altering anything.
@@ -46,7 +47,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         if (
           fieldsObject[fieldKey].type === responsiveImageResultType ||
           fieldsObject[fieldKey].type === `${responsiveImageResultType}!` ||
-          // @ts-ignore
+          // @ts-expect-error For some reason we are sure this is an array.
           responsiveImageFields.includes(fullFieldName)
         ) {
           responsiveImages.push(
@@ -80,7 +81,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
                           })
                         : null;
                     } catch (e) {
-                      // @ts-ignore
+                      // @ts-expect-error Hopefully it fits.
                       reporter.error(e);
                       return null;
                     }

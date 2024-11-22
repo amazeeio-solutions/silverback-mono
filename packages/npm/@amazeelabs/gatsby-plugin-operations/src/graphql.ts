@@ -18,6 +18,7 @@ export function initialize(
 /**
  * Execute a graphql query against gatsby.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function graphqlQuery(id: string, vars?: any): any {
   if (!_graphql || !_operations) {
     throw new Error(

@@ -12,9 +12,15 @@
   "keywords": [],
   "author": "Amazee Labs <development@amazeelabs.com>",
   "license": "ISC",
+  "scripts": {
+    "test:static": "eslint . --quiet"
+  },
   "dependencies": {
     "react-intl": "^6.6.5",
     "react-server-dom-webpack": "19.0.0-rc.0"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*"
   },
   "exports": {
     ".": {

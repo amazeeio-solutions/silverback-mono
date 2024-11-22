@@ -12,13 +12,13 @@
   },
   "scripts": {
     "build": "rm -rf build && swc ./src -d ./build && tsc --emitDeclarationOnly",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "peerDependencies": {
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.5",
     "@types/react": "^18.3.1",

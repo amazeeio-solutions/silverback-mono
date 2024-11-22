@@ -77,7 +77,7 @@ export const useAllOperationExecutors: AllHookType = <
   );
 };
 
-function DelayedOperation<T extends any>({
+function DelayedOperation<T>({
   children,
   operation,
 }: {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-function-type */
+
 import type { GraphQLFieldResolver, GraphQLSchema } from 'graphql';
 import { buildSchema, getArgumentValues, isObjectType } from 'graphql';
 import { flow, isString } from 'lodash-es';

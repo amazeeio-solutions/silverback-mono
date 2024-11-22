@@ -1,12 +1,13 @@
-jest.mock('tar');
-
-import tar from 'tar';
-import * as composer from '../composer';
-import fs from 'fs-extra';
-import { isGitPackage, proxyTarball, pushToGit } from '../package';
 import { IUploadTarball, Logger } from '@verdaccio/types';
+import fs from 'fs-extra';
 import mock from 'mock-fs';
 import { SimpleGit } from 'simple-git';
+import tar from 'tar';
+
+import * as composer from '../composer';
+import { isGitPackage, proxyTarball, pushToGit } from '../package';
+
+jest.mock('tar');
 
 afterEach(mock.restore);
 
@@ -87,7 +88,6 @@ describe('proxyTarball', () => {
 
   it('it logs an error if one happens', () => {
     process.mockReturnValue(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars-experimental
       new Promise((resolve, reject) => {
         reject('BOOM!');
       }),
@@ -136,7 +136,6 @@ describe('pushToGit', () => {
     expect(logger.warn).toHaveBeenCalledTimes(1);
     expect(logger.info).toHaveBeenCalledTimes(1);
     expect(composerSpy).toHaveBeenCalledTimes(0);
-    // @ts-ignore https://github.com/DefinitelyTyped/DefinitelyTyped/pull/47020#issuecomment-737165941
     expect(extractSpy).toHaveBeenCalledWith({
       sync: true,
       file: 'test/test-1.0.1.tar.gz',
@@ -192,7 +191,6 @@ describe('pushToGit', () => {
     expect(git.push).toHaveBeenCalledWith('origin', 'bar');
     expect(git.pushTags).toHaveBeenCalledWith('origin');
     expect(composerSpy).toHaveBeenCalledWith('test/package');
-    // @ts-ignore https://github.com/DefinitelyTyped/DefinitelyTyped/pull/47020#issuecomment-737165941
     expect(extractSpy).toHaveBeenCalledWith({
       sync: true,
       file: 'test/test-1.0.1.tar.gz',

@@ -1,3 +1,6 @@
+import fs, { readJSONSync } from 'fs-extra';
+import mock from 'mock-fs';
+
 import {
   cleanNpmDependencies,
   isComposerPackage,
@@ -7,8 +10,6 @@ import {
   setComposerDependencyVersions,
   setComposerPackageVersion,
 } from '../composer';
-import mock from 'mock-fs';
-import fs, { readJSONSync } from 'fs-extra';
 
 afterEach(() => {
   mock.restore();

@@ -7,7 +7,7 @@ export const BlockTeaser: React.FC<BlockTeaserFragment> = ({
   subtitle,
   url,
 }) => (
-  <div className="border-solid border-4">
+  <div className="border-4 border-solid">
     <a href={url}>
       {image?.localImage?.childImageSharp?.fixed && (
         <Image fixed={image.localImage.childImageSharp.fixed} />

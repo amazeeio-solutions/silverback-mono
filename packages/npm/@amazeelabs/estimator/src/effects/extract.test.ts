@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { FileSystem } from '@effect/platform';
 import { Effect } from 'effect';
 import { isFailure, isSuccess } from 'effect/Exit';

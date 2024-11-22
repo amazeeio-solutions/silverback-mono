@@ -26,7 +26,7 @@
     "prep": "tsc",
     "watch": "tsc --watch",
     "build": "pnpm prep",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "dependencies": {
     "react-server-dom-webpack": "19.0.0-rc.0",
@@ -38,11 +38,10 @@
   },
   "devDependencies": {
     "@amazeelabs/bridge": "^1.5.17",
-    "@amazeelabs/eslint-config": "1.4.43",
     "@amazeelabs/prettier-config": "1.1.3",
+    "@internal/eslint-config": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "eslint": "8.57.0",
     "prettier": "3.2.5",
     "typescript": "5.4.5",
     "waku": "0.21.1"

@@ -71,16 +71,20 @@ const parseUrls = (html: string, baseUrl: string): Urls[] => {
   return result;
 };
 
-const getHtml = (object: any, path: string[], str = ''): string => {
+const getHtml = (
+  object: Record<string, unknown>,
+  path: string[],
+  str = '',
+): string => {
   const [propName, ...rest] = path;
   if (object && object[propName]) {
     const prop = object[propName];
     if (rest.length) {
       return Array.isArray(prop)
         ? prop.map((it) => getHtml(it, rest, str)).join()
-        : getHtml(prop, rest, str);
+        : getHtml(prop as Record<string, unknown>, rest, str);
     } else {
-      return Array.isArray(prop) ? prop.join() : prop;
+      return Array.isArray(prop) ? prop.join() : (prop as string);
     }
   }
   return str;

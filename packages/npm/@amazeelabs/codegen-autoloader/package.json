@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test:static": "tsc --noEmit",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@graphql-codegen/core": "4.0.2",
+    "@internal/eslint-config": "workspace:*",
     "typescript": "5.4.5",
     "vitest": "1.6.0"
   },

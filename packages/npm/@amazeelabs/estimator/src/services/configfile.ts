@@ -31,10 +31,22 @@ const loadConfigFile = (directory: string) =>
         }
       );
     },
-    catch: (error: any) => {
+    catch: (error) => {
       return new ConfigFileError({
-        msg: error.message,
-        filepath: error.filepath,
+        msg:
+          typeof error === 'object' &&
+          error !== null &&
+          'message' in error &&
+          typeof error.message === 'string'
+            ? error.message
+            : `${error}`,
+        filepath:
+          typeof error === 'object' &&
+          error !== null &&
+          'filepath' in error &&
+          typeof error.filepath === 'string'
+            ? error.filepath
+            : '[unknown]',
       });
     },
   });

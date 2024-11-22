@@ -30,15 +30,22 @@ async function prepareFile(src: string) {
     try {
       const fd = await open(tmpFileName);
       await fd.close();
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       try {
         const result = await fetch(url);
         const fileStream = createWriteStream(tmpFileName, { flags: 'wx' });
         if (result.body) {
-          await finished(Readable.fromWeb(result.body as any).pipe(fileStream));
+          await finished(
+            Readable.fromWeb(
+              // @ts-expect-error Some type conflict.
+              result.body,
+            ).pipe(fileStream),
+          );
         } else {
           throw `Unable to download ${url}.`;
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         throw `Unable to download ${url}.`;
       }
@@ -67,6 +74,7 @@ async function createDerivative(
   try {
     const fd = await open(derivative);
     await fd.close();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     const img = await readFile(filename);
     const pipeline = sharp(img);

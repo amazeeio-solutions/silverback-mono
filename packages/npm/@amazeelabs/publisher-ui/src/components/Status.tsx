@@ -25,18 +25,16 @@ export default function Status({
   }
 
   return (
-    <div className={'p-4 h-screen'}>
-      <div
-        className={'bg-gray-900 w-full h-full flex items-center justify-center'}
-      >
+    <div className={'h-screen p-4'}>
+      <div className={'flex size-full items-center justify-center bg-gray-900'}>
         <div
           className={
-            'w-full mx-auto max-w-[90%] md:max-w-lg shadow-sm text-gray-200 bg-white'
+            'mx-auto w-full max-w-[90%] bg-white text-gray-200 shadow-sm md:max-w-lg'
           }
         >
           <div
             className={clsx(
-              'font-bold text-lg md:text-2xl px-6 text-center font-alt uppercase relative',
+              'relative px-6 text-center font-alt text-lg font-bold uppercase md:text-2xl',
               {
                 'pt-32 pb-16 md:pb-20': inProgress,
                 'pt-36 pb-12 md:pb-16': !inProgress,
@@ -52,7 +50,7 @@ export default function Status({
                 y="0px"
                 viewBox="0 0 100 100"
                 enableBackground="new 0 0 0 0"
-                className={'w-20 absolute left-8 right-0 top-7 mx-auto'}
+                className={'absolute left-8 right-0 top-7 mx-auto w-20'}
               >
                 <rect x="20" y="50" width="3" height="14" fill="#00a29a">
                   <animateTransform
@@ -92,7 +90,7 @@ export default function Status({
             {status === ApplicationState.Ready ? (
               <svg
                 version="1.1"
-                className="w-16 absolute inset-x-0 top-14 mx-auto"
+                className="absolute inset-x-0 top-14 mx-auto w-16"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 x="0px"
@@ -126,24 +124,24 @@ export default function Status({
             ) : null}
             {status === ApplicationState.Error ? (
               <svg
-                className="-rotate-90 w-16 stroke-[1.5] absolute inset-x-0 top-12 mx-auto"
+                className="absolute inset-x-0 top-12 mx-auto w-16 -rotate-90 stroke-[1.5]"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 52 52"
               >
                 <circle
-                  className="stroke-red-500 cross-circle"
+                  className="cross-circle stroke-red-500"
                   cx="26"
                   cy="26"
                   r="25"
                   fill="none"
                 />
                 <path
-                  className="stroke-red-500 cross-path"
+                  className="cross-path stroke-red-500"
                   fill="none"
                   d="M16,16 l20,20"
                 />
                 <path
-                  className="stroke-red-500 cross-path"
+                  className="cross-path stroke-red-500"
                   fill="none"
                   d="M16,36 l20,-20"
                 />
@@ -156,14 +154,14 @@ export default function Status({
             {status === ApplicationState.Ready ? <span>Ready!</span> : null}
           </div>
           <div
-            className={clsx('w-full h-[3px] overflow-hidden', {
+            className={clsx('h-[3px] w-full overflow-hidden', {
               'bg-yellow-500': inProgress,
               'bg-green-500': status === ApplicationState.Ready,
               'bg-red-500': status === ApplicationState.Error,
             })}
           >
             {inProgress ? (
-              <div className="h-[3px] bg-turquoise-500 animate-bounce"></div>
+              <div className="h-[3px] animate-bounce bg-turquoise-500"></div>
             ) : null}
           </div>
         </div>

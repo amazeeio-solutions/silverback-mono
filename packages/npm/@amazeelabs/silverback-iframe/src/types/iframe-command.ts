@@ -25,24 +25,36 @@ export type IframeCommand =
   | IframeCommandOther
   | IframeCommandScroll;
 
-export const isIframeCommand = (variable: any): variable is IframeCommand => {
-  if (typeof variable === 'object' && typeof variable.action === 'string') {
+export const isIframeCommand = (
+  variable: unknown,
+): variable is IframeCommand => {
+  if (
+    typeof variable === 'object' &&
+    variable !== null &&
+    'action' in variable &&
+    typeof variable.action === 'string'
+  ) {
     if (variable.action === 'init') {
       return true;
     }
-    if (variable.action === 'scroll' && typeof variable.scroll === 'string') {
+    if (
+      variable.action === 'scroll' &&
+      'scroll' in variable &&
+      typeof variable.scroll === 'string'
+    ) {
       return true;
     }
     if (
       variable.action === 'redirect' &&
+      'path' in variable &&
       typeof variable.path === 'string' &&
-      (typeof variable.messages === 'undefined' ||
-        isArrayOfStrings(variable.messages))
+      (!('messages' in variable) || isArrayOfStrings(variable.messages))
     ) {
       return true;
     }
     if (
       ['replaceWithMessages', 'displayMessages'].includes(variable.action) &&
+      'messages' in variable &&
       isArrayOfStrings(variable.messages)
     ) {
       return true;
@@ -51,5 +63,5 @@ export const isIframeCommand = (variable: any): variable is IframeCommand => {
   return false;
 };
 
-const isArrayOfStrings = (variable: any): variable is Array<string> =>
+const isArrayOfStrings = (variable: unknown): variable is Array<string> =>
   Array.isArray(variable) && !variable.find((item) => typeof item !== 'string');

@@ -9,12 +9,13 @@
     "access": "public"
   },
   "scripts": {
-    "test": "tsc --noEmit"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
     "gatsby": "5.13.4",
     "typescript": "5.4.5"
   },

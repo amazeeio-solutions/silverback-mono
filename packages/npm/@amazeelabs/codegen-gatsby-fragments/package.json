@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "swc ./src -d ./build",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run"
   },
   "dependencies": {
@@ -24,10 +24,9 @@
   "keywords": [],
   "author": "AmazeeLabs <development@amazeelabs.com>",
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.5",
-    "eslint": "8.57.0",
     "typescript": "5.4.5"
   }
 }

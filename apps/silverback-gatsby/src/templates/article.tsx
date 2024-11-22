@@ -74,32 +74,38 @@ const Article: React.FC<
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Title',
+              id: 'LhxcMC',
               description: 'article title',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Tags',
+              id: '1EYCdR',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Body',
+              id: '1NdqJf',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Image',
+              id: '+0zv6g',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Responsive image',
+              id: '09iYI2',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Other languages',
+              id: 'OAPKo2',
             })}
           </Row>
         </tr>
@@ -116,7 +122,7 @@ const Article: React.FC<
               {article.body && renderHtml(article.body, imageSets)}
             </div>
           </Row>
-          <td className="border-solid border-4">
+          <td className="border-4 border-solid">
             {article.image?.localImage?.childImageSharp?.fixed && (
               <Image
                 alt={article.image.alt}

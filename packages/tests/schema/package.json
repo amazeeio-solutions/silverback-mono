@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "pnpm run --filter @-amazeelabs/silverback-drupal start:silent",
-    "test:static": "tsc --noEmit && eslint '**/*.{ts,tsx,js,jsx}' --ignore-path='./.gitignore'",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:integration": "start-server-and-test http://127.0.0.1:8888/user/login test:run",
     "test:run": "pnpm test:readonly && pnpm test:mutating",
     "test:readonly": "CI=true pnpm vitest --dir specs",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@-amazeelabs/silverback-drupal": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
     "@types/node": "18.19.33",
     "@vitest/ui": "1.6.0",
     "got": "14.2.1",

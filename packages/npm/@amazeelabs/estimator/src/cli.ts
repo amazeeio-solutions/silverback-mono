@@ -16,10 +16,7 @@ import { makeStorage, Storage } from './services/storage.js';
 
 program.name('amazeelabs-estimator');
 
-const config = Layer.effect(
-  ConfigFile,
-  makeConfigFile(process.cwd()),
-) satisfies Layer.Layer<any, never>;
+const config = Layer.effect(ConfigFile, makeConfigFile(process.cwd()));
 
 const storage = Layer.effect(
   Storage,
@@ -28,19 +25,14 @@ const storage = Layer.effect(
     Effect.provide(NodeContext.layer),
     Effect.provide(HttpClient.client.layer),
   ),
-) satisfies Layer.Layer<never, any>;
+);
 
 const git = Layer.effect(
   Git,
   makeGit.pipe(Effect.provide(config), Effect.provide(NodeContext.layer)),
-) satisfies Layer.Layer<never, any>;
+);
 
-const environment = Layer.mergeAll(
-  config,
-  NodeContext.layer,
-  storage,
-  git,
-) satisfies Layer.Layer<never, any>;
+const environment = Layer.mergeAll(config, NodeContext.layer, storage, git);
 
 program.command('analyze').action(async () => {
   const result = await Effect.runPromiseExit(

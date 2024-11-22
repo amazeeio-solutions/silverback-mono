@@ -15,12 +15,11 @@
     "gatsby-plugin-sharp": "^5.13.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@types/isomorphic-fetch": "0.0.39",
     "@types/lodash-es": "4.17.12",
     "@types/react": "18.3.1",
-    "eslint": "8.57.0",
     "gatsby": "5.13.4",
     "gatsby-plugin-sharp": "5.13.1",
     "gatsby-source-filesystem": "5.13.1",
@@ -30,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.dist.json",
-    "test:static": "tsc --noEmit && eslint \"src/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest --run --passWithNoTests"
   },
   "dependencies": {

@@ -28,7 +28,6 @@ export function extractSourceMapping(schema: GraphQLSchema) {
         if (directive.name.value === 'sourceFrom') {
           const values = getArgumentValues(sourceFrom, directive);
           sources[type.name] = values.fn as string;
-          values['fn'];
         }
       }
     }

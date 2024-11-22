@@ -13,13 +13,14 @@
     "watch": "pnpm build --watch",
     "publisher": "node ./dist/cli.js",
     "start": "nodemon ./dist/cli.js",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run --retry=3",
     "test:integration": "exit 0"
   },
   "dependencies": {
     "@amazeelabs/publisher-shared": "workspace:*",
     "@amazeelabs/publisher-ui": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
     "@slack/webhook": "^7.0.2",
     "cookie-parser": "1.4.6",
     "cors": "^2.8.5",
@@ -43,7 +44,6 @@
     "zustand": "4.5.2"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
     "@types/cookie-parser": "1.4.7",
     "@types/cors": "2.8.17",
     "@types/express": "4.17.21",
@@ -53,7 +53,6 @@
     "@types/node": "16.18.97",
     "@types/simple-oauth2": "5.0.7",
     "esbuild": "0.21.1",
-    "eslint": "8.57.0",
     "nodemon": "3.1.0",
     "rollup": "4.17.2",
     "rollup-plugin-dts": "6.1.0",

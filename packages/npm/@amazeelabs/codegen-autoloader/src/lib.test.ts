@@ -1,14 +1,15 @@
-import { expect, describe, it } from 'vitest';
 import { buildSchema } from 'graphql';
+import { describe, expect, it } from 'vitest';
+
 import {
+  contextSuggestions,
   extractDocstrings,
   extractImplementations,
-  selectImplementation,
-  printJsAutoload,
-  printDrupalAutoload,
   generateAutoloader,
-  contextSuggestions,
+  printDrupalAutoload,
+  printJsAutoload,
   printJSONAutoload,
+  selectImplementation,
 } from './lib';
 
 describe('extractDocstrings', () => {

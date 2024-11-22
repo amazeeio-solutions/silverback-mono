@@ -31,9 +31,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "^1.4.43",
     "@amazeelabs/prettier-config": "^1.1.3",
     "@effect/vitest": "^0.4.3",
+    "@internal/eslint-config": "workspace:*",
     "@types/glob": "^8.1.0",
     "@types/micromatch": "4.0.7",
     "@types/react": "18.3.2",
@@ -46,7 +46,7 @@
   "scripts": {
     "build": "tsup src/cli.ts --format esm && tsup src/index.ts --dts --format esm",
     "watch": "tsup src/cli.ts --format esm --watch",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "estimator": "cd test/full && node ../../cli.js"

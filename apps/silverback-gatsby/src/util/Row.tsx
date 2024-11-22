@@ -5,5 +5,5 @@ type Props = PropsWithChildren<{
 }>;
 
 export const Row = ({ children, className }: Props) => (
-  <td className={`border-solid border-4 ${className}`}>{children}</td>
+  <td className={`border-4 border-solid ${className}`}>{children}</td>
 );

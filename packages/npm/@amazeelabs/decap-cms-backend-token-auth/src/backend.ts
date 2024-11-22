@@ -9,6 +9,7 @@ import { AuthComponent } from './ui.js';
  * Helper type to extract argument types from the `Implementation` interface.
  */
 type Arg<TMethod extends keyof Implementation> =
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Implementation[TMethod] extends ((...args: any) => any) | undefined
     ? Parameters<Exclude<Implementation[TMethod], undefined>>
     : never;
@@ -63,7 +64,8 @@ export class TokenAuthBackend implements Implementation {
         login: status.id,
         useOpenAuthoring: false,
       };
-    } catch (e: unknown) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (e) {
       // User does not have a valid session.
       throw new Error('Invalid session.');
     }
@@ -98,7 +100,8 @@ export class TokenAuthBackend implements Implementation {
   async getToken() {
     try {
       return (await this.client.status()).token;
-    } catch (e: unknown) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (e) {
       return null;
     }
   }

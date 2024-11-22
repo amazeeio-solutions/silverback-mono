@@ -53,13 +53,13 @@ const Landscape = {
 };
 
 const FluidContainer: Decorator = (story) => (
-  <div className="w-96 p-4 border-dotted border-2 border-gray-400">
+  <div className="w-96 border-2 border-dotted border-gray-400 p-4">
     {story()}
   </div>
 );
 
 const FixedContainer: Decorator = (story) => (
-  <div className="w-96 h-32 p-4 border-dotted border-2 border-gray-400">
+  <div className="h-32 w-96 border-2 border-dotted border-gray-400 p-4">
     {story()}
   </div>
 );

@@ -1,4 +1,4 @@
-import type { Context, Config } from '@netlify/edge-functions';
+import type { Context } from '@netlify/edge-functions';
 
 // For some reason pnpm package imports break in edge handlers.
 import {

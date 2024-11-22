@@ -7,16 +7,15 @@
   "private": true,
   "devDependencies": {
     "@-amazeelabs/silverback-drupal": "workspace:*",
-    "@amazeelabs/eslint-config": "1.4.43",
     "@amazeelabs/silverback-iframe": "workspace:*",
     "@amazeelabs/silverback-playwright": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
     "@playwright/test": "1.44.0",
     "@types/node": "20.12.11",
-    "eslint": "8.57.0",
     "typescript": "5.4.5"
   },
   "scripts": {
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:integration": "playwright install chromium && pnpm test:readonly && pnpm test:mutating",
     "test:readonly": "playwright test --pass-with-no-tests",
     "test:mutating": "playwright test --pass-with-no-tests -c playwright.config.mutating.ts",

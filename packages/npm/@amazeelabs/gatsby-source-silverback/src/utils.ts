@@ -20,15 +20,17 @@ export type Options = {
   // Path to a graphql schema configuration file.
   schema_configuration?: string;
   // A dictionary of resolver functions that will be available as directvies.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   directives?: Record<string, Function>;
   // A list of functions that will be available as data source.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   sources?: Record<string, Function>;
   // Request timeout for GraphQL queries in milliseconds. Defaults to 60_000.
   request_timeout?: number;
 };
 
 export const validOptions = (options: {
-  [key: string]: any;
+  [key: string]: unknown;
 }): options is Options => true;
 
 export const typePrefix = (options: Options) =>

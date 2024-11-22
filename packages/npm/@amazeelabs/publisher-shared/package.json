@@ -10,10 +10,10 @@
   "scripts": {
     "build": "rollup -c rollup.config.ts --configPlugin typescript",
     "watch": "pnpm build --watch",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "rollup": "4.17.2",
     "rollup-plugin-dts": "6.1.0",
     "rollup-plugin-esbuild": "6.1.1",

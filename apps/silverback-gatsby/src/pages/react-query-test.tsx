@@ -20,6 +20,7 @@ function usePersistedQuery<T extends AnyOperationId>(
   id: T,
   variables: OperationVariables<T>,
   options?: Omit<
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     UseQueryOptions<OperationResult<T>, any, OperationResult<T>, any>,
     'queryKey' | 'queryFn'
   >,
@@ -53,6 +54,7 @@ function usePersistedMutation<T extends AnyOperationId>(
     OperationVariables<T>
   >,
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return useMutation<OperationResult<T>, any, OperationVariables<T>>(
     async (variables) => {
       return (

@@ -51,6 +51,7 @@ export const ReadyPicture: Exclude<ImageProps['Picture'], undefined> = ({
   ...props
 }) => {
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onLoad?.(undefined as any);
   }, [onLoad]);
   return <picture {...props} />;
@@ -75,6 +76,7 @@ export const ErrorPicture: Exclude<ImageProps['Picture'], undefined> = ({
   ...props
 }) => {
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError?.(undefined as any);
   }, [onError]);
   return <picture {...omit(props, 'onLoad')} />;
@@ -90,6 +92,7 @@ export const DelayedReadyPicture: Exclude<ImageProps['Picture'], undefined> = ({
 }) => {
   useEffect(() => {
     window.setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onLoad?.(undefined as any);
     }, 1000);
   }, [onLoad]);
@@ -106,6 +109,7 @@ export const DelayedErrorPicture: Exclude<ImageProps['Picture'], undefined> = ({
 }) => {
   useEffect(() => {
     window.setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onError?.(undefined as any);
     }, 1000);
   }, [onError]);
