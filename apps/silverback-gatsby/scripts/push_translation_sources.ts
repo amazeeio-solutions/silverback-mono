@@ -36,7 +36,7 @@ const pushTranslationSources = async (translationSourcesPath) => {
   } catch (e) {
     console.warn(
       'Warning: Cannot call the create translations endpoint.',
-      (e as any).toString(),
+      e.toString(),
     );
     console.debug(e);
   }

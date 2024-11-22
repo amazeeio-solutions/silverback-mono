@@ -16,12 +16,12 @@ const makeTestEnv = (dir: string) => {
   const configFile = Layer.effect(
     ConfigFile,
     makeConfigFile(dir).pipe(Effect.provide(NodeContext.layer)),
-  ) satisfies Layer.Layer<any, any>;
+  );
 
   const git = Layer.effect(
     Git,
     makeGit.pipe(Effect.provide(configFile), Effect.provide(NodeContext.layer)),
-  ) satisfies Layer.Layer<any, any>;
+  );
 
   const storage = Layer.effect(
     Storage,
@@ -30,15 +30,9 @@ const makeTestEnv = (dir: string) => {
       Effect.provide(configFile),
       Effect.provide(HttpClient.client.layer),
     ),
-  ) satisfies Layer.Layer<any, any>;
+  );
 
-  return Layer.mergeAll(
-    layer,
-    NodeContext.layer,
-    configFile,
-    git,
-    storage,
-  ) satisfies Layer.Layer<any, any>;
+  return Layer.mergeAll(layer, NodeContext.layer, configFile, git, storage);
 };
 
 declare module 'vitest' {

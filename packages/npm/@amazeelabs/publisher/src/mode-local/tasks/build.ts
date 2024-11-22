@@ -49,6 +49,7 @@ export const buildTask: () => TaskJob = () => (controller) => {
     queue.add({ job: buildDeployTask });
 
     queue.run();
+    // eslint-disable-next-line promise/catch-or-return,promise/always-return
     queue.whenIdle.then(() => {
       core.state.setBuildState('Done');
       saveBuildLogs();

@@ -9,8 +9,12 @@ export const extractDocstrings = (
   Object.fromEntries(
     schema
       .getDirectives()
-      .filter((dir) => dir.astNode?.description?.value)
-      .map((dir) => [dir.name, dir.astNode?.description?.value!]),
+      .map((dir) =>
+        dir.astNode?.description?.value
+          ? [dir.name, dir.astNode.description.value]
+          : null,
+      )
+      .filter(<T>(val: T | null): val is T => !!val),
   );
 
 /**
@@ -25,7 +29,7 @@ export const extractImplementations = (
     [
       ...docstring.matchAll(/^implementation(?:\(([^)]+)\))?:\s*([^\s]+)$/gm),
     ].map((match) => {
-      const [_, ctx, impl] = match;
+      const [, ctx, impl] = match;
       return [ctx ?? '', impl];
     }),
   );

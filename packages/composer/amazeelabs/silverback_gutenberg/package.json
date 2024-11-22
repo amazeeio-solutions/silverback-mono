@@ -9,15 +9,9 @@
     "branch": "main"
   },
   "scripts": {
-    "version": "sync-composer-version",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
-    "test:unit": "./test.sh"
+    "version": "sync-composer-version"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
-    "@amazeelabs/sync-composer-version": "workspace:*",
-    "@types/jest": "29.5.12",
-    "eslint": "8.57.0",
-    "typescript": "5.4.5"
+    "@amazeelabs/sync-composer-version": "workspace:*"
   }
 }

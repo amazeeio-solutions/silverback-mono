@@ -7,8 +7,8 @@ import { isMatch } from 'lodash-es';
 import { Executor, RegistryEntry } from './types.js';
 
 type VariablesMatcher =
-  | Record<string, any>
-  | ((vars: Record<string, any>) => boolean);
+  | Record<string, unknown>
+  | ((vars: Record<string, unknown>) => boolean);
 
 export function mergeExecutors(
   oldExecutors: RegistryEntry[],
@@ -19,6 +19,7 @@ export function mergeExecutors(
 
 export function matchVariables(
   matcher: VariablesMatcher | undefined,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   variables: any,
 ) {
   if (typeof matcher === 'undefined') {

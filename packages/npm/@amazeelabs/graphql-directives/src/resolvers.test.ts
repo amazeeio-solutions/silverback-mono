@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { readFileSync } from 'fs';
 import { buildSchema, graphql, GraphQLFieldResolver } from 'graphql';
 import { describe, expect, it } from 'vitest';

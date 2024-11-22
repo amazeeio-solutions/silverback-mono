@@ -104,12 +104,11 @@ export const cleanNpmDependencies = (path: string) => {
   const npm = readJSONSync(`${path}/package.json`);
   if (npm.dependencies) {
     const deps: { [key: string]: string } = {};
-    npm.dependencies &&
-      Object.keys(npm.dependencies).forEach((key) => {
-        if (key.substr(0, 2) !== '@-') {
-          deps[key] = npm.dependencies[key];
-        }
-      });
+    Object.keys(npm.dependencies).forEach((key) => {
+      if (key.substr(0, 2) !== '@-') {
+        deps[key] = npm.dependencies[key];
+      }
+    });
     npm.dependencies = deps;
     outputJSONSync(`${path}/package.json`, npm, { spaces: 2 });
   }

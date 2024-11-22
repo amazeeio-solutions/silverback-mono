@@ -70,7 +70,7 @@ expectType<RegistryEntryWithoutVariables>({
   executor: { hasVariables: false },
 });
 
-export type ExecutionState<T extends any> =
+export type ExecutionState<T> =
   | {
       state: 'loading';
     }

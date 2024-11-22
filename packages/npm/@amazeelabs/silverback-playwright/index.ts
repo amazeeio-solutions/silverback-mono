@@ -23,7 +23,9 @@ export const waitForGatsby = async () => {
       const response = await (
         await fetch(gatsby.baseUrl + '/build.json')
       ).json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       gatsbyBuildId = (response as any).drupalBuildId.toString();
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       gatsbyBuildId = null;
     }
@@ -60,6 +62,7 @@ export const waitForGatsby = async () => {
           method: 'post',
         });
         break;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
         console.warn(`Could not trigger a build on attempt ${attempt}`);
         if (attempt < maxAttempts) {

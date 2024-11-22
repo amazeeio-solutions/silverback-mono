@@ -25,8 +25,7 @@ async function app() {
   // Fully optional inputs can be undefined.
   await graphqlFetch(ListPagesQuery, undefined);
 
-  // Missing input will throw a type error.
-  // @ts-expect-error
+  // @ts-expect-error Missing input will throw a type error.
   await graphqlFetch(LoadPageQuery);
 
   // Invalid input will throw a type error.

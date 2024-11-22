@@ -1,5 +1,5 @@
-import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 import { imagetools } from 'vite-imagetools';
 
 const config: StorybookConfig = {

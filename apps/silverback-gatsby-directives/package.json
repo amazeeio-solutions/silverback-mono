@@ -14,10 +14,9 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@types/node": "16.18.97",
     "@types/react": "18.3.1",
-    "eslint": "8.57.0",
     "husky": "9.0.11",
     "typescript": "5.4.5"
   },
@@ -30,7 +29,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve -p 9001",
     "clean": "gatsby clean",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,7 @@ import got from 'got';
 export const fetch = (
   query: string,
   server = 'silverback-gatsby',
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Promise<any> =>
   got
     .post(`http://127.0.0.1:8888/${server}`, {

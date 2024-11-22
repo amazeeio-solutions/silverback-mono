@@ -26,7 +26,7 @@
     }
   },
   "scripts": {
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\"",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run --passWithNoTests",
     "prep": "rm -rf build && tsc -p tsconfig.build.json",
     "build": "pnpm prep",
@@ -44,7 +44,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@octokit/types": "13.5.0",
     "@types/js-cookie": "3.0.6",
     "@types/node": "18.19.33",

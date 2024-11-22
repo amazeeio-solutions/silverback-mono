@@ -89,27 +89,32 @@ const IndexPage: React.FC<PageProps> = () => {
           <Row>
             {intl.formatMessage({
               defaultMessage: 'ID',
+              id: 'qlcuNQ',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Title',
+              id: 'mtG9Hr',
               description: 'table title',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Language',
+              id: 'y1Z3or',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Path',
+              id: 'Qp1beM',
             })}
           </Row>
           <Row>
             {intl.formatMessage({
               defaultMessage: 'Body',
+              id: '1NdqJf',
             })}
           </Row>
         </tr>

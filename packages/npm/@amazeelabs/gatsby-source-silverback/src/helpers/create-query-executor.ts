@@ -88,7 +88,7 @@ export function createNetworkQueryExecutor(
           `Full query: ${logQuery(query)}\n`,
       );
     }
-    const result: any = await response.json();
+    const result = await response.json();
 
     if (result.data && result.errors?.length) {
       console.warn(
@@ -108,6 +108,7 @@ const logQuery = (query: string): string => {
   try {
     writeFileSync(filename, query);
     return filename;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return '[could not store query as file]';
   }

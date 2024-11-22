@@ -170,7 +170,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async (
           continue;
         }
         gatsbyApi.reporter.info(`Sourcing "${type}" from "${sources[type]}".`);
-        resolver().forEach(([id, node]: [string, any]) => {
+        resolver().forEach(([id, node]: [string, { id?: unknown }]) => {
           const nodeMeta = {
             id: `${type}:${id}`,
             parent: null,

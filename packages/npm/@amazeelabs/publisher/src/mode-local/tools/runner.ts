@@ -98,6 +98,7 @@ export const run = (options: {
       try {
         await terminate(process.pid, signal, { timeout: 1000 });
         return;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
         // Ignore.
       }

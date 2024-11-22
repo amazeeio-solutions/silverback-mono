@@ -73,6 +73,7 @@ export const useAllOperationExecutors: AllHookType = <
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Promisify<T extends (...args: any) => any> = (
   ...args: Parameters<T>
 ) => Promise<ReturnType<T>>;

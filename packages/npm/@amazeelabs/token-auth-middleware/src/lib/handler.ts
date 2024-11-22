@@ -40,6 +40,7 @@ export class TokenInvalidError extends Error {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Info = Record<string, any>;
 
 export interface TokenEncoderInterface {
@@ -74,6 +75,7 @@ export class TokenAuthHandler {
   constructor(
     protected basePath: string,
     protected encoder: TokenEncoderInterface,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     protected backend: AuthenticationBackendInterface<any>,
     options: TokenAuthHandlerOptions = {},
   ) {
@@ -169,6 +171,7 @@ export class TokenAuthHandler {
                 if (destinationUrl.hostname === url.hostname) {
                   destination = rawDestination;
                 }
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
               } catch (e) {
                 // Ignore, just don't set a destination.
               }
@@ -189,6 +192,7 @@ export class TokenAuthHandler {
               );
             }
           }
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (e) {
           return new Response('', {
             status: 401,
@@ -255,6 +259,7 @@ export class TokenAuthHandler {
             return response;
           }
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
         // Do nothing, just treat it as if there was no cookie.
       }

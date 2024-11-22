@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // Take types for all the untyped stuff in Decap.
 declare module 'decap-cms-ui-default' {
   export const AuthenticationPage;

@@ -10,7 +10,7 @@ export default {
 } as Meta<typeof HeightTransition>;
 
 const content = (
-  <div className={'text-lg bg-indigo-200 p-2'}>
+  <div className={'bg-indigo-200 p-2 text-lg'}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

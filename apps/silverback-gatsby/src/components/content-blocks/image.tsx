@@ -5,7 +5,7 @@ export const BlockImage: React.FC<BlockImageFragment> = ({
   caption,
   image,
 }) => (
-  <div className="border-solid border-4">
+  <div className="border-4 border-solid">
     {image?.localImage?.childImageSharp?.fixed && (
       <Image fixed={image.localImage.childImageSharp.fixed} />
     )}

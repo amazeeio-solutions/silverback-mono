@@ -37,8 +37,10 @@ export const gatsbyNodes: SilverbackResolver = async (
 };
 
 export const responsiveImageSharp: SilverbackResolver = async (
-  originalImage: any,
+  originalImage: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: any,
 ) => {
   const responsiveImage = JSON.parse(originalImage);

@@ -7,7 +7,7 @@ type Options = {
   prettifyUrls?: boolean;
   request?: {
     headers: {
-      [key: string]: any;
+      [key: string]: unknown;
     };
   };
   recursive?: boolean;

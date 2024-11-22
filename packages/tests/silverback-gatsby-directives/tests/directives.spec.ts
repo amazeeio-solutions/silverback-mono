@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('page created from directives schema', async ({ page }) => {
   await page.goto(`http://localhost:9001/contacts`);

@@ -2,11 +2,12 @@ import {
   PluginFunction,
   PluginValidateFn,
 } from '@graphql-codegen/plugin-helpers';
+
 import {
   generateAutoloader,
   printDrupalAutoload,
-  printJSONAutoload,
   printJsAutoload,
+  printJSONAutoload,
 } from './lib';
 
 type Config = {

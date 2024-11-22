@@ -22,8 +22,14 @@ type BabelParserError = {
   };
 };
 
-function isBabelParserError(error: any): error is BabelParserError {
-  return error.code && error.code.startsWith('BABEL');
+function isBabelParserError(error: unknown): error is BabelParserError {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'code' in error &&
+    typeof error.code === 'string' &&
+    error.code.startsWith('BABEL')
+  );
 }
 
 /**

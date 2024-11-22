@@ -9,7 +9,7 @@ export async function githubProxy(
   const response = await fetch('https://api.github.com' + path + url.search, {
     method: request.method,
     body: request.body,
-    // @ts-ignore: "duplex" is not in the RequestInit type yet.
+    // @ts-expect-error: "duplex" is not in the RequestInit type yet.
     duplex: 'half',
     headers: {
       ...request.headers,

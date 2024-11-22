@@ -1,9 +1,9 @@
 import type { LocationProviderType, useLocationType } from '@amazeelabs/bridge';
 import serverContext from 'server-only-context';
 
-// @ts-ignore: Typing issue in server-only-context
+// @ts-expect-error: Typing issue in server-only-context
 const [getPath, setPath] = serverContext('/');
-// @ts-ignore: Typing issue in server-only-context
+// @ts-expect-error: Typing issue in server-only-context
 const [getParams, setParams] = serverContext(new URLSearchParams());
 
 export { createLinkComponent } from './link.js';

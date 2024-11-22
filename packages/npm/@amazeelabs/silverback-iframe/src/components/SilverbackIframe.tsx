@@ -86,12 +86,11 @@ export const SilverbackIframe = ({
             ) {
               // If the component received a scroll handler, then just call it.
               // Otherwise we fallback to a very simple scroll implementation.
-              scroll
-                ? scroll(message.scroll, silverbackIframeReference.current)
-                : scrollIframe(
-                    message.scroll,
-                    silverbackIframeReference.current,
-                  );
+              if (scroll) {
+                scroll(message.scroll, silverbackIframeReference.current);
+              } else {
+                scrollIframe(message.scroll, silverbackIframeReference.current);
+              }
             }
           }}
         />

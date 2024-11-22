@@ -16,7 +16,7 @@
     "preview": "vite preview",
     "build": "pnpm prep",
     "prep": "vite build && pnpm graphql-codegen",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run --passWithNoTests"
   },
   "dependencies": {
@@ -27,12 +27,11 @@
     "graphql": "> 14"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/typescript": "4.0.6",
     "@graphql-codegen/typescript-operations": "4.2.0",
+    "@internal/eslint-config": "workspace:*",
     "change-case-all": "2.1.0",
-    "eslint": "8.57.0",
     "graphql": "16.8.1",
     "typescript": "5.4.5",
     "vite": "5.2.11",

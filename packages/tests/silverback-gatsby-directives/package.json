@@ -7,14 +7,14 @@
   "private": true,
   "devDependencies": {
     "@-amazeelabs/silverback-gatsby-directives": "workspace:*",
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@playwright/test": "1.44.0",
     "@types/node": "20.12.11",
-    "eslint": "8.57.0",
     "typescript": "5.4.5"
   },
   "scripts": {
     "serve": "pnpm run --filter @-amazeelabs/silverback-gatsby-directives serve",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:integration": "playwright install chromium && playwright test"
   }
 }

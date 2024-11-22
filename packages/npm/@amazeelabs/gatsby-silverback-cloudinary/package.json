@@ -9,10 +9,9 @@
   },
   "devDependencies": {
     "@amazeelabs/cloudinary-responsive-image": "workspace:*",
-    "@amazeelabs/eslint-config": "1.4.43",
     "@amazeelabs/gatsby-source-silverback": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
     "@types/node": "16.18.97",
-    "eslint": "8.57.0",
     "gatsby": "5.13.4",
     "typescript": "5.4.5",
     "vite": "5.2.11",
@@ -20,7 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run --passWithNoTests",
     "test:integration": "exit 0",
     "test:watch": "vitest --watch",

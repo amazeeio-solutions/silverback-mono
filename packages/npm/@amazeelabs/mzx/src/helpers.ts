@@ -37,7 +37,9 @@ export async function prompt(variable: string, prompt: PromptObject) {
 
 export function file(
   filename: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   processor: (data: any) => any = (data) => data,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any {
   const content = fs.existsSync(filename)
     ? fs.readFileSync(filename).toString()

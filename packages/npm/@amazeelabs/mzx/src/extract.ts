@@ -72,7 +72,7 @@ function isCodeBlock(content: Content): content is Code & { lang: string } {
   return content.type === 'code' && !!content.lang && !!content.value;
 }
 
-function isDefined<T extends any>(input: T | undefined): input is T {
+function isDefined<T>(input: T | undefined): input is T {
   return typeof input !== 'undefined';
 }
 

@@ -19,7 +19,7 @@ type Customer = {
   id: string;
 } & Contact;
 
-export const echo: SilverbackResolver = (_: any, { msg }: { msg: string }) =>
+export const echo: SilverbackResolver = (_, { msg }: { msg: string }) =>
   new Promise((resolve) => resolve(msg));
 
 export const sourceEmployees: SilverbackSource<Employee> = () => {

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "rm -rf build && swc ./src -d ./build && tsc --emitDeclarationOnly",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "dependencies": {
     "@amazeelabs/bridge": "workspace:*",
@@ -28,12 +28,11 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.5",
     "@types/hast": "^2.3.4",
     "@types/react": "^18.3.1",
-    "eslint": "^8.57.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },

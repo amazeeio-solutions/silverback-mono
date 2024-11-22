@@ -1,4 +1,7 @@
 // @vitest-environment jsdom
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { AnyOperationId, OperationId } from '@amazeelabs/codegen-operation-ids';
 import {
   act,

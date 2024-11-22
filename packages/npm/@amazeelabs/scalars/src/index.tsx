@@ -34,7 +34,7 @@ type LinkDisplayProps = {
   activeClassName?: string;
 };
 
-function isUrl(input: any): input is Url {
+function isUrl(input: unknown): input is Url {
   return typeof input === 'string';
 }
 
@@ -321,7 +321,7 @@ export type Markup = string & {
 const rehypeAddClasses: Plugin<[{ [key: string]: string }], Element> =
   (settings) =>
   (
-    // @ts-ignore TODO (Philipp): Take a look at this.
+    // @ts-expect-error TODO (Philipp): Take a look at this.
     tree,
   ) => {
     Object.keys(settings || {}).forEach((matcher) => {

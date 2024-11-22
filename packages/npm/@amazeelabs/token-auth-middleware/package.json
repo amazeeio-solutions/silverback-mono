@@ -9,7 +9,7 @@
     "access": "public"
   },
   "scripts": {
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\"",
+    "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run -r src --passWithNoTests",
     "test:integration": "playwright install chromium && playwright test",
     "serve": "netlify dev -d site -p 8887",
@@ -18,7 +18,7 @@
     "watch": "tsup --watch"
   },
   "devDependencies": {
-    "@amazeelabs/eslint-config": "1.4.43",
+    "@internal/eslint-config": "workspace:*",
     "@netlify/edge-functions": "2.7.0",
     "@playwright/test": "1.44.0",
     "@types/jsrsasign": "10.5.14",

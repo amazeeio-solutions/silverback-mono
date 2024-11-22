@@ -6,10 +6,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "devDependencies": {
     "@amazeelabs/gatsby-source-silverback": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
     "typescript": "5.4.5"
   }
 }

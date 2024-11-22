@@ -84,21 +84,23 @@ export function HeightTransition({
               return tween;
             }
             const timeline = gsap.timeline();
-            getState().initialState
-              ? timeline
-                  .to(el, { opacity: 1, duration: delayLeave })
-                  .to(el, {
-                    height: 0,
-                    duration: duration,
-                  })
-                  .to(el, { opacity: 1, duration: delayEnter })
-              : timeline
-                  .to(el, { opacity: 1, duration: delayEnter })
-                  .to(el, {
-                    height: 'auto',
-                    duration: duration,
-                  })
-                  .to(el, { opacity: 1, duration: delayLeave });
+            if (getState().initialState) {
+              timeline
+                .to(el, { opacity: 1, duration: delayLeave })
+                .to(el, {
+                  height: 0,
+                  duration: duration,
+                })
+                .to(el, { opacity: 1, duration: delayEnter });
+            } else {
+              timeline
+                .to(el, { opacity: 1, duration: delayEnter })
+                .to(el, {
+                  height: 'auto',
+                  duration: duration,
+                })
+                .to(el, { opacity: 1, duration: delayLeave });
+            }
             set({ tween: timeline });
             return timeline;
           }

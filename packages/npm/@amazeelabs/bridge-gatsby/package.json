@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "rm -rf build && swc ./src -d ./build && tsc --emitDeclarationOnly",
-    "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\" --fix"
+    "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "peerDependencies": {
     "gatsby": ">=5.13.4",
@@ -20,8 +20,7 @@
   },
   "devDependencies": {
     "@amazeelabs/bridge": "workspace:*",
-    "@amazeelabs/eslint-config": "1.4.43",
-    "@amazeelabs/prettier-config": "1.1.3",
+    "@internal/eslint-config": "workspace:*",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.4.14",
     "@types/reach__router": "1.3.15",

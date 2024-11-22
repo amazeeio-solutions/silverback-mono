@@ -5,30 +5,11 @@ import { Dialog, Disclosure, Transition } from '@headlessui/react';
 import { bind } from '@react-rxjs/core';
 import clsx from 'clsx';
 import React, { ComponentProps, Fragment, useState } from 'react';
-import { flushSync } from 'react-dom';
 import { ajax } from 'rxjs/ajax';
 
 import { createWebsocketUrl, useStatus } from '../utils/status';
 import Collapsible from './Collapsible';
 import SimpleLog from './SimpleLog';
-
-// Disable React batched updates to fix
-// https://github.com/melloware/react-logviewer/pull/22 without moving from
-// react-lazylog to @melloware/react-logviewer
-// TODO: Once https://github.com/melloware/react-logviewer/pull/22 and
-//  https://github.com/melloware/react-logviewer/issues/14 are solved:
-//    - Remove this workaround
-//    - Switch from react-lazylog to @melloware/react-logviewer
-//    - Adjust the styling (the "Auto scroll" checkbox might move around)
-//    - Use new cool features from @melloware/react-logviewer (e.g. enableLinks)
-const origSetState = React.Component.prototype.setState;
-React.Component.prototype.setState = function () {
-  flushSync(() => {
-    // @ts-ignore
-    // eslint-disable-next-line prefer-rest-params
-    origSetState.apply(this, arguments);
-  });
-};
 
 const clean$ = ajax({
   url: '/___status/clean',
@@ -52,7 +33,7 @@ function History({
   }>;
 }) {
   return (
-    <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
         <div className="overflow-hidden">
           <table className="min-w-full divide-y divide-black">
@@ -60,31 +41,31 @@ function History({
               <tr>
                 <th
                   scope="col"
-                  className="py-5 pl-0 pr-3 text-left text-turquoise-500 font-alt font-normal text-sm"
+                  className="py-5 pl-0 pr-3 text-left font-alt text-sm font-normal text-turquoise-500"
                 >
                   Id
                 </th>
                 <th
                   scope="col"
-                  className="px-3 py-5 text-left text-turquoise-500 font-alt font-normal text-sm"
+                  className="px-3 py-5 text-left font-alt text-sm font-normal text-turquoise-500"
                 >
                   Type
                 </th>
                 <th
                   scope="col"
-                  className="px-3 py-5 text-left text-turquoise-500 font-alt font-normal text-sm"
+                  className="px-3 py-5 text-left font-alt text-sm font-normal text-turquoise-500"
                 >
                   Date
                 </th>
                 <th
                   scope="col"
-                  className="px-3 py-3.5 text-left text-turquoise-500 font-alt font-normal text-sm"
+                  className="px-3 py-3.5 text-left font-alt text-sm font-normal text-turquoise-500"
                 >
                   Status
                 </th>
                 <th
                   scope="col"
-                  className="px-3 py-3.5 text-left text-turquoise-500 font-alt font-normal text-sm"
+                  className="px-3 py-3.5 text-left font-alt text-sm font-normal text-turquoise-500"
                 >
                   Log
                 </th>
@@ -115,7 +96,7 @@ function History({
                       {({ open }) => (
                         <>
                           <tr>
-                            <td className="whitespace-nowrap pr-3 py-5">
+                            <td className="whitespace-nowrap py-5 pr-3">
                               {item.id}
                             </td>
                             <td className="whitespace-nowrap px-3 py-5 capitalize">
@@ -131,7 +112,7 @@ function History({
                             <td className="whitespace-nowrap px-3 py-5">
                               <span
                                 className={clsx(
-                                  'inline-flex rounded-full px-2 text-sm leading-5 font-medium',
+                                  'inline-flex rounded-full px-2 text-sm font-medium leading-5',
                                   {
                                     'bg-green-100 text-green-500':
                                       item.success == true,
@@ -153,9 +134,9 @@ function History({
                                     fill="currentColor"
                                     stroke="currentColor"
                                     className={clsx(
-                                      'ml-2.5 inline -mt-0.5 cursor-pointer transition',
+                                      '-mt-0.5 ml-2.5 inline cursor-pointer transition',
                                       {
-                                        'rotate-180 transform': open,
+                                        'rotate-180': open,
                                       },
                                     )}
                                     viewBox="0 0 16 16"
@@ -169,10 +150,10 @@ function History({
                               </Disclosure.Button>
                             </td>
                           </tr>
-                          <tr className={'!border-0 p-0 m-0'}>
+                          <tr className={'m-0 !border-0 p-0'}>
                             <td
                               colSpan={5}
-                              className={'pre-container p-0 m-0 !border-0'}
+                              className={'pre-container m-0 !border-0 p-0'}
                             >
                               <Collapsible
                                 show={open}
@@ -228,7 +209,7 @@ function CleanButton() {
 
   return (
     <>
-      <button className={'mb-3 button-secondary'} onClick={openModal}>
+      <button className={'button-secondary mb-3'} onClick={openModal}>
         Clean
       </button>
       <Transition appear show={isOpen} as={Fragment}>
@@ -256,8 +237,8 @@ function CleanButton() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <p className="text-sm text-gray-500">
+                <Dialog.Panel className="w-full max-w-md overflow-hidden rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <p className="text-gray-500 text-sm">
                     Please confirm that you definitely want to clean the build:
                   </p>
 
@@ -327,8 +308,8 @@ export default function Info({
   return (
     <div className={'md:m-4'}>
       <div className={'max-w-full bg-gray-900 pb-16 md:pb-24'}>
-        <div className={'pt-20 pb-[12.5rem]'}>
-          <div className="flex justify-between max-w-screen-2xl mx-auto px-4 md:px-6 lg:px-10 xl:px-14">
+        <div className={'pb-[12.5rem] pt-20'}>
+          <div className="mx-auto flex max-w-screen-2xl justify-between px-4 md:px-6 lg:px-10 xl:px-14">
             <div>
               <BuildButton />
               <CleanButton />
@@ -336,12 +317,12 @@ export default function Info({
             <a
               onClick={scrollToBuildHistory}
               className={
-                'shrink-0 text-center font-medium text-purple-500 text-sm cursor-pointer hover:text-purple focus:text-white focus:outline-none transition'
+                'hover:text-purple shrink-0 cursor-pointer text-center text-sm font-medium text-purple-500 transition focus:text-white focus:outline-none'
               }
             >
               <span className={'block'}>Build History</span>
               <svg
-                className="ml-2 inline w-5 h-5"
+                className="ml-2 inline size-5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -360,7 +341,7 @@ export default function Info({
               height="14"
               viewBox="0 0 158 14"
               fill="none"
-              className={'absolute top-8 md:top-28 inset-x-0 mx-auto'}
+              className={'absolute inset-x-0 top-8 mx-auto md:top-28'}
             >
               <path
                 d="M59.5351 2.532V0.931458H48.9348V3.12237H56.0454L48.4756 11.7942V13.421H59.7319V11.2563H51.9522L59.5351 2.532Z"
@@ -410,21 +391,21 @@ export default function Info({
           </div>
         </div>
         <div
-          className={'mb-8 px-4 md:px-6 lg:px-10 xl:px-14 max-w-7xl mx-auto'}
+          className={'mx-auto mb-8 max-w-7xl px-4 md:px-6 lg:px-10 xl:px-14'}
         >
           <Disclosure defaultOpen>
             {({ open }) => (
               <>
-                <div className={'w-full -mt-[7.4rem] mb-8'}>
-                  <div className={'relative text-left w-full'}>
+                <div className={'-mt-[7.4rem] mb-8 w-full'}>
+                  <div className={'relative w-full text-left'}>
                     <div
                       className={
-                        'lg:flex lg:justify-between lg:items-baseline pr-9'
+                        'pr-9 lg:flex lg:items-baseline lg:justify-between'
                       }
                     >
                       <h2
                         className={
-                          'font-alt font-medium text-4xl text-black tracking-widest mb-6'
+                          'mb-6 font-alt text-4xl font-medium tracking-widest text-black'
                         }
                       >
                         Logs
@@ -434,7 +415,7 @@ export default function Info({
                       </h3>
                       <Disclosure.Button
                         className={
-                          'absolute top-3.5 right-0 text-right text-turquoise-500'
+                          'absolute right-0 top-3.5 text-right text-turquoise-500'
                         }
                       >
                         <svg
@@ -443,9 +424,9 @@ export default function Info({
                           height="17"
                           fill="currentColor"
                           className={clsx(
-                            'ml-2.5 inline -mt-0.5 cursor-pointer transition',
+                            '-mt-0.5 ml-2.5 inline cursor-pointer transition',
                             {
-                              'rotate-180 transform': open,
+                              'rotate-180': open,
                             },
                           )}
                           viewBox="0 0 16 16"
@@ -476,16 +457,16 @@ export default function Info({
             )}
           </Disclosure>
         </div>
-        <div className={'px-4 md:px-6 lg:px-10 xl:px-14 max-w-7xl mx-auto'}>
+        <div className={'mx-auto max-w-7xl px-4 md:px-6 lg:px-10 xl:px-14'}>
           <div className={'pre-container'} id="build-history">
             <h2
               className={
-                'font-alt font-medium text-4xl text-black tracking-widest mb-6'
+                'mb-6 font-alt text-4xl font-medium tracking-widest text-black'
               }
             >
               Build History
             </h2>
-            <div className={'bg-white py-4 pl-8 pr-6 overflow-hidden'}>
+            <div className={'overflow-hidden bg-white py-4 pl-8 pr-6'}>
               <History historyItems={historyItems} />
             </div>
           </div>
