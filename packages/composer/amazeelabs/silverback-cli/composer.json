@@ -24,7 +24,10 @@
     "drupal-scaffold": {
       "file-mapping": {
         "[project-root]/.env.local.example": "assets/.env.local.example",
-        "[project-root]/.envrc": "assets/.envrc",
+        "[project-root]/.envrc": {
+          "path": "assets/.envrc",
+          "override": false
+        },
         "[project-root]/.gitignore": {
           "append": "assets/.gitignore.append.txt",
           "force-append": true
