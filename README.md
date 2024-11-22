@@ -30,3 +30,8 @@ cd silverback-mono
 pnpm i
 pnpm build
 ```
+
+## Notes
+
+- `.envrc` is created automatically via composer install, however it won't be
+  overwritten If it already exists.
