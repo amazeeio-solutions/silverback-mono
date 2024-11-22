@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-cli@2.9.14...@-amazeelabs/silverback-cli@2.10.0) (2024-11-22)
+
+
+### Features
+
+* `.envrc` set to `"override": false` for composer scaffolding ([3626414](https://github.com/AmazeeLabs/silverback-mono/commit/362641469bb2740667516a86e740633b5ea357ab))
+
+
+
+
+
 ## [2.9.14](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-cli@2.9.13...@-amazeelabs/silverback-cli@2.9.14) (2024-10-31)
 
 
