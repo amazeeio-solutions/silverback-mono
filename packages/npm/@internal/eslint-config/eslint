@@ -1,0 +1,7 @@
+#!/bin/sh
+
+basedir=$(cd "$(dirname "$0")" && pwd)
+
+# Re-share our eslint bin to avoid collisions with other eslint versions in the
+# project.
+$basedir/node_modules/.bin/eslint "$@"

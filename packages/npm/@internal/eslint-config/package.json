@@ -5,7 +5,7 @@
     ".": "./index.mjs"
   },
   "bin": {
-    "eslint": "./node_modules/.bin/eslint"
+    "eslint": "./eslint"
   },
   "scripts": {
     "test:static": "eslint . --quiet"
