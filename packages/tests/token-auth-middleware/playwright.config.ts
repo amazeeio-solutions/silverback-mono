@@ -40,7 +40,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm run serve',
+    command: 'pnpm --filter @amazeelabs/token-auth-middleware run serve',
     url: 'http://127.0.0.1:8887',
     timeout: 360 * 1000,
     reuseExistingServer: !process.env.CI,
