@@ -15,7 +15,7 @@
     "scripts": {
       "clean": [
         "rm -rf node_modules",
-        "git clean -dxff -e '_local' -e '.idea'",
+        "git clean -dxff -e '/_local' -e '/.idea'",
         "find . -type d -empty -delete",
         "direnv reload"
       ]
