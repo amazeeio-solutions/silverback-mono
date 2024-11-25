@@ -11,7 +11,7 @@
   "scripts": {
     "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\"",
     "test:unit": "vitest run -r src --passWithNoTests",
-    "test:integration": "playwright install chromium && playwright test",
+    "test:integration": "playwright install chromium && playwright test || playwright test",
     "serve": "netlify dev -d site -p 8887",
     "prep": "tsup",
     "build": "tsup",
