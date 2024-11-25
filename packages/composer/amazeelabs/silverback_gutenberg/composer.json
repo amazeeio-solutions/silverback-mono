@@ -1,7 +1,7 @@
 {
   "name": "amazeelabs/silverback_gutenberg",
   "type": "drupal-module",
-  "version": "2.5.19",
+  "version": "2.5.20",
   "description": "Adjusts Gutenberg for Amazee Labs needs.",
   "homepage": "https://github.com/AmazeeLabs/silverback-mono/tree/development/packages/composer/amazeelabs/silverback_gutenberg#readme",
   "license": "GPL-2.0+",

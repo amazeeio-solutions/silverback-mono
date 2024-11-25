@@ -1,6 +1,6 @@
 {
   "name": "@-silverback-drupal/gutenberg_custom_blocks",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "private": true,
   "scripts": {
     "start": "pnpm drupal-js-build --css && pnpm drupal-js-build watch --css",
@@ -9,6 +9,5 @@
   "dependencies": {
     "drupal-gutenberg-translations": "1.1.0",
     "drupal-js-build": "https://github.com/AmazeeLabs/drupal-js-build"
-  },
-  "devDependencies": {}
+  }
 }

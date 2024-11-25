@@ -1,7 +1,7 @@
 {
   "name": "@amazeelabs/token-auth-middleware",
   "description": "Middleware for token based authentication",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "type": "module",
   "main": "build/index.js",
   "types": "build/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/estimator",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Estimate projects based on GraphQL definitions.",
   "main": "index.js",
   "license": "MIT",

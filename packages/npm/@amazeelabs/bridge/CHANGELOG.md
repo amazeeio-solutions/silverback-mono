@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.18](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/bridge@1.5.17...@amazeelabs/bridge@1.5.18) (2024-11-25)
+
+**Note:** Version bump only for package @amazeelabs/bridge
+
+
+
+
+
 ## [1.5.17](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/bridge@1.5.16...@amazeelabs/bridge@1.5.17) (2024-07-30)
 
 

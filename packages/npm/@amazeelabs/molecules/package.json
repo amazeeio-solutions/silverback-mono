@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/molecules",
-  "version": "0.5.50",
+  "version": "0.5.51",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",

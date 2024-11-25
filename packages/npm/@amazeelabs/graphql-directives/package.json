@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/graphql-directives",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Library for interpreting GraphQL directives.",
   "type": "module",
   "main": "./build/index.js",

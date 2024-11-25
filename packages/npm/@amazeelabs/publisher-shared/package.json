@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/publisher-shared",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "type": "module",
   "publishConfig": {
     "access": "public"

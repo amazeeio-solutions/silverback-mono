@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/bridge-gatsby",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "description": "Bridge implementation for gatsby.",
   "type": "module",
   "main": "./build/src/index.js",

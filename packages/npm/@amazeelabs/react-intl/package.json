@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/react-intl",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Minimal RSC-compatible wrapper around react-intl",
   "main": "client.js",
   "types": "index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "verdaccio-git",
-  "version": "0.1.100",
+  "version": "0.1.101",
   "description": "Publish packages to git repositories.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

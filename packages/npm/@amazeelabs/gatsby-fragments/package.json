@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/gatsby-fragments",
-  "version": "1.2.18",
+  "version": "1.2.19",
   "description": "Generates fragment.ts files from .gql files to append vendor prefix.",
   "author": "Amazee Labs",
   "main": "index.cjs",
