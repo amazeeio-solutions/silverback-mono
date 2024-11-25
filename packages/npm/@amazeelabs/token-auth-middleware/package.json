@@ -11,7 +11,6 @@
   "scripts": {
     "test:static": "tsc --noEmit && eslint . --quiet",
     "test:unit": "vitest run -r src --passWithNoTests",
-    "test:integration": "playwright install chromium && playwright test",
     "serve": "netlify dev -d site -p 8887",
     "prep": "tsup",
     "build": "tsup",
@@ -20,7 +19,6 @@
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@netlify/edge-functions": "2.7.0",
-    "@playwright/test": "1.44.0",
     "@types/jsrsasign": "10.5.14",
     "@types/node": "20.12.11",
     "jsrsasign": "11.1.0",

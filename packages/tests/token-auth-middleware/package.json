@@ -1,0 +1,15 @@
+{
+  "name": "@-amazeelabs/token-auth-middleware-test",
+  "private": true,
+  "description": "E2E tests for @amazeelabs/token-auth-middleware",
+  "scripts": {
+    "test:static": "tsc --noEmit && eslint . --quiet",
+    "test:integration": "playwright install chromium && playwright test"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@playwright/test": "1.44.0",
+    "@types/node": "20.12.11",
+    "typescript": "5.4.5"
+  }
+}
