@@ -12,7 +12,7 @@
     "test:static": "tsc --noEmit && eslint \"**/*.{ts,tsx,js,jsx}\" --ignore-path=\"./.gitignore\"",
     "test:unit": "vitest run -r src --passWithNoTests",
     "test:integration": "pnpm playwright install chromium && pnpm playwright test || pnpm playwright test",
-    "serve": "netlify dev -d site -p 8887",
+    "serve": "pnpm netlify dev -d site -p 8887",
     "prep": "tsup",
     "build": "tsup",
     "watch": "tsup --watch"
