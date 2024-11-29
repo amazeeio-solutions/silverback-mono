@@ -49,6 +49,12 @@ const runServer = async (): Promise<HttpTerminator> => {
   // Authentication middleware based on the configuration.
   const authMiddleware = getAuthenticationMiddleware(getConfig());
 
+  // Prevent indexing.
+  app.use((_, res, next) => {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
+
   // Allow cross-origin requests
   // @TODO see if we need to lock this down
   // Default config:
