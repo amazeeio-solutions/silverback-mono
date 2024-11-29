@@ -1,0 +1,6 @@
+silverback_image_ai.alt_ai_settings:
+  title: Silverback Image AI settings
+  description: Settings for the Silverback image AI utilities.
+  parent: silverback_ai.admin_config_ai
+  route_name: silverback_image_ai.settings
+  weight: 10

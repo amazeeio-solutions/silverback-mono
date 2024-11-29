@@ -1,0 +1,19 @@
+silverback_image_ai.settings:
+  type: config_object
+  label: 'Silverback Image AI settings'
+  mapping:
+    ai_model:
+      label: 'Model'
+      type: string
+    words_length:
+      label: 'Number of ALT text words to generate'
+      type: integer
+    alt_ai_context:
+      label: 'Context'
+      type: text
+    debug_mode:
+      label: 'Debug mode'
+      type: boolean
+    alt_disclaimer:
+      label: 'Disclaimer text'
+      type: text

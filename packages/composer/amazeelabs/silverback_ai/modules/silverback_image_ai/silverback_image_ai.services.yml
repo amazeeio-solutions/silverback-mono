@@ -1,0 +1,8 @@
+services:
+  silverback_image_ai.utilities:
+    class: Drupal\silverback_image_ai\ImageAiUtilities
+    arguments: ['@logger.factory','@config.factory', '@http_client', '@silverback_ai.token.usage', '@silverback_ai.openai_http_client', '@entity_type.manager']
+  silverback_image_ai.batch.updater:
+    class: 'Drupal\silverback_image_ai\MediaUpdaterBatch'
+    arguments:
+      - '@logger.factory'

@@ -1,0 +1,5 @@
+silverback_image_ai.config:
+  title: 'Silverback Image AI settings'
+  base_route_name: silverback_image_ai.settings
+  names:
+    - silverback_image_ai.settings

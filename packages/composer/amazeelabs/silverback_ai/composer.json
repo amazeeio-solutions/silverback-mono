@@ -1,0 +1,7 @@
+{
+  "name": "amazeelabs/silverback_ai",
+  "type": "drupal-module",
+  "description": "Silverback AI functionality.",
+  "license": "GPL-2.0-or-later",
+  "version": "1.0.0"
+}

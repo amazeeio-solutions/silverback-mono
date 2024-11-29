@@ -1,0 +1,6 @@
+services:
+  silverback_image_ai.commands:
+    class: \Drupal\silverback_image_ai\Drush\Commands\SilverbackImageAiCommands
+    arguments: ['@entity_type.manager', '@silverback_image_ai.batch.updater', '@silverback_image_ai.utilities']
+    tags:
+      - { name: drush.command }

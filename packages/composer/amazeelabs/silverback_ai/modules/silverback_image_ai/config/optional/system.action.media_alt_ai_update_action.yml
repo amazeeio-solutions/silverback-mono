@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media_alt_ai_update_action
+label: 'Alt text update (imaged only)'
+type: media
+plugin: entity:alt_ai_update_action:media
+configuration: {  }

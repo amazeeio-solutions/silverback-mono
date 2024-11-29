@@ -1,0 +1,7 @@
+name: 'Silverback Image AI'
+type: module
+description: 'Silverback AI utilities for media images.'
+package: Silverback
+core_version_requirement: ^10 || ^11
+dependencies:
+  - silverback_ai:silverback_ai
