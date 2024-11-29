@@ -1,0 +1,5 @@
+silverback_image_ai.settings:
+  title: 'Settings'
+  weight: 0
+  route_name: silverback_image_ai.settings
+  base_route: silverback_image_ai.settings

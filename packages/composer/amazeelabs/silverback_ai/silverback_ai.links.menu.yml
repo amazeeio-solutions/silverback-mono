@@ -1,0 +1,17 @@
+silverback.ai.reports_usage:
+  title: 'Silverback AI usage'
+  parent: system.admin_reports
+  description: 'Overview of usage of Silverback AI plugins.'
+  route_name: silverback_ai.ai_usage
+silverback_ai.admin_config_ai:
+  title: Silverback AI
+  parent: system.admin_config
+  description: 'Silverback AI settings.'
+  route_name: system.admin_config
+  weight: 0
+silverback_ai.ai_settings:
+  title: Silverback AI settings
+  description: Settings for the Silverback AI module.
+  parent: silverback_ai.admin_config_ai
+  route_name: silverback_ai.ai_settings
+  weight: 0

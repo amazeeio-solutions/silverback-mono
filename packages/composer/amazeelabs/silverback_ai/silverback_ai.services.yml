@@ -1,0 +1,7 @@
+services:
+  silverback_ai.token.usage:
+    class: Drupal\silverback_ai\TokenUsage
+    arguments: ['@database', '@current_user', '@logger.factory', '@config.factory', '@entity_type.manager']
+  silverback_ai.openai_http_client:
+    class: Drupal\silverback_ai\HttpClient\OpenAiHttpClient
+    arguments: ['@http_client_factory', '@config.factory']

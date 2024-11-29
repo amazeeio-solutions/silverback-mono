@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Silverback AI module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function silverback_ai_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.silverback_ai':
+      $output = '';
+      $output .= '<h2>' . t('About') . '</h2>';
+      $output .= '<p>' . t('..');
+      $output .= '<h2>' . t('Uses') . '</h2>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Monitoring tokens usage') . '</dt>';
+      $output .= '</dl>';
+      return $output;
+
+    case 'silverback_ai.overview':
+      return '<p>' . t('The Silverback AI  module provides AI functionality for use with the Silverback framework.') . '</p>';
+  }
+}
