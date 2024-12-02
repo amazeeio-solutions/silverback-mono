@@ -346,6 +346,12 @@ importers:
         specifier: workspace:*
         version: link:../../../npm/@amazeelabs/sync-composer-version
 
+  packages/composer/amazeelabs/silverback_ai:
+    devDependencies:
+      '@amazeelabs/sync-composer-version':
+        specifier: workspace:*
+        version: link:../../../npm/@amazeelabs/sync-composer-version
+
   packages/composer/amazeelabs/silverback_autosave:
     devDependencies:
       '@amazeelabs/sync-composer-version':
