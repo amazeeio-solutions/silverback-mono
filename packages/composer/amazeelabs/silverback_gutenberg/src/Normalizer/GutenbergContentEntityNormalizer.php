@@ -12,6 +12,7 @@ use Drupal\gutenberg\Parser\BlockParser;
 use Drupal\node\Entity\Node;
 use Drupal\silverback_gutenberg\BlockMutator\BlockMutatorManagerInterface;
 use Drupal\silverback_gutenberg\BlockSerializer;
+use Drupal\silverback_gutenberg\LinkedContentExtractor;
 use Drupal\silverback_gutenberg\Utils;
 
 /**
@@ -66,6 +67,21 @@ class GutenbergContentEntityNormalizer extends ContentEntityNormalizer {
         $blocks = (new BlockParser())->parse($normalized[$field][0]['value']);
         $this->blockMutatorManager->mutateExport($blocks, $this->dependencies);
         $normalized[$field][0]['value'] = (new BlockSerializer())->serialize_blocks($blocks);
+
+        // Register linked content as dependencies.
+        // This is required to make the entity usage tracking work during the
+        // default content import - the target entity should already exist at
+        // the moment the referencing entity is imported.
+        $linkExtractor = new LinkedContentExtractor();
+        $references = $linkExtractor->getTargetEntities($normalized[$field][0]['value']);
+        foreach ($references as $entityType => $uuids) {
+          foreach ($uuids as $uuid) {
+            $targetEntity = $this->entityRepository->loadEntityByUuid($entityType, $uuid);
+            if ($targetEntity instanceof ContentEntityInterface) {
+              $this->addDependency($targetEntity);
+            }
+          }
+        }
       }
     }
 
