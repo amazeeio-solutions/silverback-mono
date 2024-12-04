@@ -7,6 +7,7 @@ _meta:
   depends:
     378fdfc0-05fa-4d50-aaed-3342cd5f844c: media
     fd3a7238-807a-483d-a703-c9b1b6b4a8e8: media
+    c997198a-a4a5-484a-8567-46ca6a24301a: node
 default:
   revision_uid:
     -
