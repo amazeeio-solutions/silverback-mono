@@ -21,7 +21,7 @@ import type {
 import { findExecutor, findExecutors, mergeExecutors } from './lib.js';
 import type {
   ExecutionState,
-  ExecutorFunction,
+  Executor,
   OperationProps,
   RegistryEntry,
 } from './types.js';
@@ -56,13 +56,13 @@ export const useOperationExecutor: HookType = <
 >(
   id: TOperation,
   variables?: OperationVariables<TOperation>,
-): ExecutorFunction<TOperation> => {
+): Executor<TOperation> => {
   const { executors } = useContext(ExecutorsContext);
   const executor = findExecutor(executors, id, variables);
   if (executor instanceof Function) {
     return (vars?: OperationVariables<TOperation>) => executor(id, vars);
   }
-  return () => executor;
+  return executor;
 };
 
 export const useAllOperationExecutors: AllHookType = <
