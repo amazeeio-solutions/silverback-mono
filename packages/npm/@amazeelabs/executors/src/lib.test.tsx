@@ -30,7 +30,7 @@ function Consumer({
 }) {
   const executor = useOperationExecutor(id as AnyOperationId, variables);
   return (
-    <p>{typeof executor === 'function' ? executor(variables) : executor}</p>
+    <p>{typeof executor === 'function' ? executor(id, variables) : executor}</p>
   );
 }
 
@@ -38,7 +38,7 @@ function MultiConsumer({
   id,
   variables,
 }: {
-  id: string;
+  id: AnyOperationId;
   variables?: Record<string, any>;
 }) {
   const executors = useAllOperationExecutors(id as AnyOperationId, variables);
@@ -47,7 +47,7 @@ function MultiConsumer({
   ) : (
     executors.map((executor, index) => (
       <p key={index}>
-        {typeof executor === 'function' ? executor(variables) : executor}
+        {typeof executor === 'function' ? executor(id, variables) : executor}
       </p>
     ))
   );

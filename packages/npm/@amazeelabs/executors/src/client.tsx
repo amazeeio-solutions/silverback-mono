@@ -58,11 +58,7 @@ export const useOperationExecutor: HookType = <
   variables?: OperationVariables<TOperation>,
 ): Executor<TOperation> => {
   const { executors } = useContext(ExecutorsContext);
-  const executor = findExecutor(executors, id, variables);
-  if (executor instanceof Function) {
-    return (vars?: OperationVariables<TOperation>) => executor(id, vars);
-  }
-  return executor;
+  return findExecutor(executors, id, variables);
 };
 
 export const useAllOperationExecutors: AllHookType = <
@@ -72,9 +68,7 @@ export const useAllOperationExecutors: AllHookType = <
   variables?: OperationVariables<TOperation>,
 ) => {
   const { executors } = useContext(ExecutorsContext);
-  return findExecutors(executors, id, variables).map((exec) =>
-    exec instanceof Function ? (vars) => exec(id, vars) : () => exec,
-  );
+  return findExecutors(executors, id, variables);
 };
 
 function DelayedOperation<T>({
