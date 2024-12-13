@@ -56,10 +56,7 @@ export const useOperationExecutor: HookType = <
   id: TOperation,
   variables: OperationVariables<TOperation>,
 ): ExecutorFunction<TOperation> => {
-  const executor = findExecutor(getRegistry(), id, variables);
-  return executor instanceof Function
-    ? (vars) => executor(id, vars)
-    : () => executor;
+  return findExecutor(getRegistry(), id, variables);
 };
 
 export const useAllOperationExecutors: AllHookType = <
@@ -68,9 +65,7 @@ export const useAllOperationExecutors: AllHookType = <
   id: TOperation,
   variables: OperationVariables<TOperation>,
 ): Array<ExecutorFunction<TOperation>> => {
-  return findExecutors(getRegistry(), id, variables).map((exec) =>
-    exec instanceof Function ? (vars) => exec(id, vars) : () => exec,
-  );
+  return findExecutors(getRegistry(), id, variables);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

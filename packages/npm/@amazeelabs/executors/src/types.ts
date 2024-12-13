@@ -14,15 +14,13 @@ type TestWithoutVariables = OperationId<
 >;
 
 export type ExecutorFunction<TOperation extends AnyOperationId> = (
+  id: TOperation,
   variables: OperationVariables<TOperation>,
 ) => Promise<OperationResult<TOperation>>;
 
 export type Executor<TOperation extends AnyOperationId> =
   | OperationResult<TOperation>
-  | ((
-      id: TOperation,
-      variables: OperationVariables<TOperation>,
-    ) => Promise<OperationResult<TOperation>>);
+  | ExecutorFunction<TOperation>;
 
 type ExecutorWithVariables = Executor<TestWithVariables>;
 type ExecutorWithoutVariables = Executor<TestWithoutVariables>;
