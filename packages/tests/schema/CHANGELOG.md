@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.36](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/schema-tests@1.0.35...@-amazeelabs/schema-tests@1.0.36) (2024-12-18)
+
+**Note:** Version bump only for package @-amazeelabs/schema-tests
+
+
+
+
+
 ## [1.0.35](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/schema-tests@1.0.34...@-amazeelabs/schema-tests@1.0.35) (2024-12-04)
 
 **Note:** Version bump only for package @-amazeelabs/schema-tests
