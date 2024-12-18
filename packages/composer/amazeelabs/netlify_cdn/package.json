@@ -6,7 +6,7 @@
   "publishConfig": {
     "access": "public",
     "registry": "http://127.0.0.1:4873",
-    "repository": "git@github.com:AmazeeLabs/silverback_cdn.git",
+    "repository": "git@github.com:AmazeeLabs/netlify_cdn.git",
     "branch": "main"
   },
   "devDependencies": {
