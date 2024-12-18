@@ -1,0 +1,8 @@
+{
+  "name": "amazeelabs/netlify_cdn",
+  "type": "drupal-module",
+  "version": "1.0.0",
+  "description": "Integration with Netlify for purging the CDN (assets) cache.",
+  "homepage": "https://github.com/AmazeeLabs/silverback-mono/tree/development/packages/composer/amazeelabs/netlify_cdn#readme",
+  "license": "GPL-2.0+"
+}

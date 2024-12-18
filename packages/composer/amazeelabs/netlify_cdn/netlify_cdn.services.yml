@@ -1,0 +1,5 @@
+services:
+  netlify_cdn.purge:
+    class: Drupal\netlify_cdn\EventSubscriber\NetlifyCdnPurge
+    tags:
+      - { name: event_subscriber }

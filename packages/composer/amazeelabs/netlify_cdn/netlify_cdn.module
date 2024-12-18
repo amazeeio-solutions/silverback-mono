@@ -1,0 +1,40 @@
+<?php
+
+use Drupal\image\ImageStyleInterface;
+
+/**
+ * @file
+ *
+ * Integration with Netlify for purging the CDN (assets) cache.
+ */
+
+/**
+ * Implements hook_image_style_flush()
+ * @param \Drupal\image\ImageStyleInterface $style
+ * @param $path
+ *
+ * @return void
+ */
+function netlify_cdn_image_style_flush(ImageStyleInterface $style, $path = NULL) {
+  $cacheTagsToInvalidate = &drupal_static(__FUNCTION__, []);
+  // If there is no path, then we invalidate the entire image style.
+  if (empty($path)) {
+    $cacheTagsToInvalidate[] = $style->id();
+  } else {
+    // If we have a path, then we invalidate only the combination of the image
+    // style and the path. In order to compute the tag for a file path, the
+    // netlify edge function is stripping everything from the path, except the
+    // file name, without any extensions, and then replaces all the spaces and
+    // '+' signs to '_', and on top of that lowers the case of all the letters.
+    // Here is an example of an implementation for the netlify edge function:
+    // https://github.com/AmazeeLabs/nuklear9_cdn (the proxy edge function).
+    $fileNameParts = explode('/', $path);
+    $fileName = array_pop($fileNameParts);
+    $fileNameBase = str_replace([' ', '+'], ['_', '_'], rawurldecode(explode('.', $fileName)[0]));
+    // To make the file name a valid value for a response header, we use the
+    // rawurlencode() which should be the PHP equivalent of encodeURIComponent()
+    // from Javascript.
+    $lowerCaseFilename = strtolower(rawurlencode($fileNameBase));
+    $cacheTagsToInvalidate[] = $style->id() . '_' . $lowerCaseFilename;
+  }
+}

@@ -1,0 +1,4 @@
+name: Netlify CDN
+type: module
+description: 'Integration with Netlify for purging the CDN (assets) cache.'
+core_version_requirement: ^9 || ^10
