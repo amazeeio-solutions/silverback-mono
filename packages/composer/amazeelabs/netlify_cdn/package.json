@@ -1,6 +1,6 @@
 {
   "name": "@-amazeelabs/netlify_cdn",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Amazee Labs <development@amazeelabs.com>",
   "license": "GPL-2.0+",
   "publishConfig": {
