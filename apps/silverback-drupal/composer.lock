@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a28904dcdfe011b75200503dc9f8ecc8",
+    "content-hash": "3ae9e2f7d380aedd521c81a38783e520",
     "packages": [
         {
             "name": "amazeelabs/default-content",
-            "version": "1.2.17",
+            "version": "1.2.18",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/default-content",
-                "reference": "2c5dd8945b29004b424434c91a7bb7dff399a779"
+                "reference": "d02b6f0b8bc091d3c0a9157e14f8b45b3dc250fb"
             },
             "require": {
                 "cweagans/composer-patches": "^1.7.3",
@@ -71,12 +71,30 @@
             }
         },
         {
+            "name": "amazeelabs/netlify_cdn",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../../packages/composer/amazeelabs/netlify_cdn",
+                "reference": "214986015c99882eeacc48ef807095e155d773e5"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Integration with Netlify for purging the CDN (assets) cache.",
+            "homepage": "https://github.com/AmazeeLabs/silverback-mono/tree/development/packages/composer/amazeelabs/netlify_cdn#readme",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "amazeelabs/silverback-cli",
-            "version": "2.9.13",
+            "version": "2.10.0",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback-cli",
-                "reference": "eb99db602108cce01911f48c33bd24e3bdd926a3"
+                "reference": "ddf27b5e686f3e647ed5abc383c66fb0bd68b405"
             },
             "require": {
                 "drush/drush": "^10 || ^11 || ^12 || ^13",
@@ -94,7 +112,10 @@
                 "drupal-scaffold": {
                     "file-mapping": {
                         "[project-root]/.env.local.example": "assets/.env.local.example",
-                        "[project-root]/.envrc": "assets/.envrc",
+                        "[project-root]/.envrc": {
+                            "path": "assets/.envrc",
+                            "override": false
+                        },
                         "[project-root]/.gitignore": {
                             "append": "assets/.gitignore.append.txt",
                             "force-append": true
@@ -215,11 +236,11 @@
         },
         {
             "name": "amazeelabs/silverback_gatsby",
-            "version": "3.6.3",
+            "version": "3.7.1",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_gatsby",
-                "reference": "99d7784e3028a13c39f2ec0b1032ba6bc6f15255"
+                "reference": "21665a7ce32418046c17af24b590f50177f73a55"
             },
             "type": "drupal-module",
             "extra": {
@@ -257,11 +278,11 @@
         },
         {
             "name": "amazeelabs/silverback_gutenberg",
-            "version": "2.5.19",
+            "version": "2.5.21",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_gutenberg",
-                "reference": "f12be43aace27168e7c07b8628bb6346c8ab8ac7"
+                "reference": "11a3e7f307b68b67f249d641b4e4fea3f6c734b6"
             },
             "require": {
                 "drupal/gutenberg": "^2.8.0"
@@ -14158,6 +14179,7 @@
         "amazeelabs/silverback_iframe": 20,
         "amazeelabs/silverback_iframe_theme": 20,
         "amazeelabs/silverback_translations": 20,
+        "amazeelabs/netlify_cdn": 20,
         "drupal/default_content": 15,
         "drupal/entity_usage": 10
     },

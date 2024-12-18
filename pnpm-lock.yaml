@@ -316,6 +316,12 @@ importers:
         specifier: workspace:*
         version: link:../../../npm/@amazeelabs/sync-composer-version
 
+  packages/composer/amazeelabs/netlify_cdn:
+    devDependencies:
+      '@amazeelabs/sync-composer-version':
+        specifier: workspace:*
+        version: link:../../../npm/@amazeelabs/sync-composer-version
+
   packages/composer/amazeelabs/proxy-default-content:
     devDependencies:
       '@amazeelabs/sync-composer-version':
@@ -20911,6 +20917,7 @@ packages:
 
   /err-code@2.0.3:
     resolution: {integrity: sha512-2bmlRpNKBxT/CRmPOlyISQpNj+qSeYvcym/uT0Jx2bMOlKLtSy1ZmLuVxSEKKyor/N5yhvp/ZiG1oE3DEYMSFA==}
+    requiresBuild: true
 
   /errno@0.1.8:
     resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
@@ -25929,6 +25936,7 @@ packages:
 
   /humanize-ms@1.2.1:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
+    requiresBuild: true
     dependencies:
       ms: 2.1.3
 
@@ -26378,6 +26386,7 @@ packages:
   /ip-address@9.0.5:
     resolution: {integrity: sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==}
     engines: {node: '>= 12'}
+    requiresBuild: true
     dependencies:
       jsbn: 1.1.0
       sprintf-js: 1.1.3
@@ -27919,6 +27928,7 @@ packages:
 
   /jsbn@1.1.0:
     resolution: {integrity: sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==}
+    requiresBuild: true
 
   /jscodeshift@0.15.2(@babel/preset-env@7.24.5):
     resolution: {integrity: sha512-FquR7Okgmc4Sd0aEDwqho3rEiKR3BdvuG9jfdHjLJ6JQoWSMpavug3AoIfnfWhxFlf+5pzQh8qjqz0DWFrNQzA==}
@@ -36570,6 +36580,7 @@ packages:
   /smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
+    requiresBuild: true
 
   /snake-case@3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
@@ -36894,6 +36905,7 @@ packages:
 
   /sprintf-js@1.1.3:
     resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==}
+    requiresBuild: true
 
   /sqlite3@5.1.7:
     resolution: {integrity: sha512-GGIyOiFaG+TUra3JIfkI/zGP8yZYLPQ0pl1bH+ODjiX57sPhrLU5sQJn1y9bDKZUFYkX1crlrPfSYt0BKKdkog==}

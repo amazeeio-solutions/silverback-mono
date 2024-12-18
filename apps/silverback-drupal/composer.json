@@ -33,6 +33,7 @@
     "amazeelabs/silverback_iframe": "@dev",
     "amazeelabs/silverback_iframe_theme": "@dev",
     "amazeelabs/silverback_translations": "@dev",
+    "amazeelabs/netlify_cdn": "@dev",
     "composer/installers": "^2.2.0",
     "cweagans/composer-patches": "^1.7.3",
     "drupal/admin_toolbar": "^3.4.2",
