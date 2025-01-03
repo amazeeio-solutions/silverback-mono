@@ -99,6 +99,9 @@ class DrupalView extends DataProducerPluginBase {
         foreach (Element::children($form) as $key) {
           if (isset($form[$key]['#options'])) {
             foreach ($form[$key]['#options'] as $value => $label) {
+              if (is_object($label) && isset($label->option)) {
+                $label = $label->option;
+              }
               $filters[$key][] = [
                 'value' => (string)$value,
                 'label' => (string)$label,
