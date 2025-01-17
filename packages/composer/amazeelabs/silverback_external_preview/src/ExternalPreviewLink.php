@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityMalformedException;
 use Drupal\Core\Entity\EntityPublishedInterface;
 use Drupal\Core\Entity\Exception\UndefinedLinkTemplateException;
 use Drupal\Core\Entity\RevisionableStorageInterface;
+use Drupal\Core\Entity\TranslatableRevisionableStorageInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
@@ -203,7 +205,15 @@ class ExternalPreviewLink {
       $revision_id = $revision->getRevisionId();
     }
     elseif ($route_match->getRouteName() === 'entity.node.latest_version') {
-      $revision_id = $storage->getLatestRevisionId($entity->id());
+      if ($entity->isTranslatable() && $storage instanceof TranslatableRevisionableStorageInterface) {
+        // The latest revision for the requested language.
+        $requestedLanguageId = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+        $revision_id = $storage->getLatestTranslationAffectedRevisionId($entity->id(), $requestedLanguageId);
+      }
+      if (empty($revision_id)) {
+        // Otherwise, just the latest revision.
+        $revision_id = $storage->getLatestRevisionId($entity->id());
+      }
     }
     else {
       throw new \Exception('Only node routes are currently supported for revision preview url.');
