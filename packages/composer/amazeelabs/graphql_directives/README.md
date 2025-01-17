@@ -405,7 +405,7 @@ Reserved keys:
 The rest of keys are taken as filters.
 
 Array values are allowed in the format of NPM `query-string` package with
-`arrayFormat` set to `bracket`, e.g. `tag[]=1&tag[]=2`.
+`arrayFormat` set to `bracket`, e.g. `tag[]=1&tag[]=2`. Ensure that the view filter Selection type is set to Dropdown not Autocomplete for entity references.
 
 #### Returning result
 
