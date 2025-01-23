@@ -1381,9 +1381,6 @@ importers:
       '@amazeelabs/publisher-ui':
         specifier: workspace:*
         version: link:../publisher-ui
-      '@internal/eslint-config':
-        specifier: workspace:*
-        version: link:../../@internal/eslint-config
       '@slack/webhook':
         specifier: ^7.0.2
         version: 7.0.2
@@ -1448,6 +1445,9 @@ importers:
         specifier: 4.5.2
         version: 4.5.2(@types/react@18.3.1)(react@18.3.1)
     devDependencies:
+      '@internal/eslint-config':
+        specifier: workspace:*
+        version: link:../../@internal/eslint-config
       '@types/cookie-parser':
         specifier: 1.4.7
         version: 1.4.7
