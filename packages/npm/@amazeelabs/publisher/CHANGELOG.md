@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.7](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.5.6...@amazeelabs/publisher@2.5.7) (2025-01-23)
+
+
+### Bug Fixes
+
+* move an internal package to devDependencies ([08806fa](https://github.com/AmazeeLabs/silverback-mono/commit/08806fa356f919f1ea4c2f287ba2562a95613761))
+
+
+
+
+
 ## [2.5.6](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.5.5...@amazeelabs/publisher@2.5.6) (2024-11-25)
 
 **Note:** Version bump only for package @amazeelabs/publisher
