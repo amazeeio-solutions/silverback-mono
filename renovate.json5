@@ -76,6 +76,12 @@
 
     // Package-specific rules.
     {
+      // TODO: Remove once we don't depend on Gatsby and can switch to React 19.
+      matchUpdateTypes: ['major'],
+      matchPackageNames: ['react**', '@types/react**'],
+      enabled: false,
+    },
+    {
       // TODO: Remove once https://www.drupal.org/project/webform is ready for
       //  Drupal 11.
       matchUpdateTypes: ['major'],
