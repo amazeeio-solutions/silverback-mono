@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ae9e2f7d380aedd521c81a38783e520",
+    "content-hash": "562c19c2af64169739b1a22bdab8fda3",
     "packages": [
         {
             "name": "amazeelabs/default-content",
@@ -44,11 +44,11 @@
         },
         {
             "name": "amazeelabs/graphql_directives",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/graphql_directives",
-                "reference": "11327e47c03f12ee1b252971a90698dc19726fac"
+                "reference": "21f0a3aa8abb493c3dc9772d1334e59fc079f314"
             },
             "require": {
                 "webmozart/glob": "^4.7.0"
@@ -72,11 +72,11 @@
         },
         {
             "name": "amazeelabs/netlify_cdn",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/netlify_cdn",
-                "reference": "214986015c99882eeacc48ef807095e155d773e5"
+                "reference": "294aa0212b5414648be2ef4e4a1ac689fdf4fb35"
             },
             "type": "drupal-module",
             "license": [
@@ -218,11 +218,11 @@
         },
         {
             "name": "amazeelabs/silverback_external_preview",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_external_preview",
-                "reference": "9fd6e749a8019f3c9db2316ea9c6363952a49384"
+                "reference": "4999433ea08a364560bfa491cc51ed713eef2893"
             },
             "type": "drupal-module",
             "license": [
@@ -282,10 +282,10 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_gutenberg",
-                "reference": "11a3e7f307b68b67f249d641b4e4fea3f6c734b6"
+                "reference": "28b9778e70dcfd345e7af3b1c74a210264ad2a0f"
             },
             "require": {
-                "drupal/gutenberg": "^2.8.0"
+                "drupal/gutenberg": "^3.0.6"
             },
             "type": "drupal-module",
             "license": [
@@ -3569,20 +3569,20 @@
         },
         {
             "name": "drupal/gutenberg",
-            "version": "2.11.0",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gutenberg.git",
-                "reference": "8.x-2.11"
+                "reference": "3.0.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gutenberg-8.x-2.11.zip",
-                "reference": "8.x-2.11",
-                "shasum": "d88d5969e96b493f46ed2355b66661a153582ff0"
+                "url": "https://ftp.drupal.org/files/projects/gutenberg-3.0.6.zip",
+                "reference": "3.0.6",
+                "shasum": "1810358286a21c19269b34f1aec92a806b6f89ff"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/core": "^9.5 || ^10 || ^11",
                 "ext-json": "*",
                 "php": ">=7.4"
             },
@@ -3592,8 +3592,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.11",
-                    "datestamp": "1723623338",
+                    "version": "3.0.6",
+                    "datestamp": "1737591143",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3774,20 +3774,20 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "6.1.4",
+            "version": "7.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "6.1.4"
+                "reference": "7.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-6.1.4.zip",
-                "reference": "6.1.4",
-                "shasum": "f5544a39d691af5efd1532bd5403862a7153f60b"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.2.zip",
+                "reference": "7.0.2",
+                "shasum": "939ead6e7feeb11c78596b470deaf9facad4c9e9"
             },
             "require": {
-                "drupal/core": "^10.1"
+                "drupal/core": "^10.1 || ^11"
             },
             "require-dev": {
                 "drupal/ckeditor": "*",
@@ -3796,8 +3796,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.4",
-                    "datestamp": "1715203830",
+                    "version": "7.0.2",
+                    "datestamp": "1734967499",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14168,6 +14168,7 @@
     "stability-flags": {
         "amazeelabs/default-content": 20,
         "amazeelabs/graphql_directives": 20,
+        "amazeelabs/netlify_cdn": 20,
         "amazeelabs/silverback-cli": 20,
         "amazeelabs/silverback_campaign_urls": 20,
         "amazeelabs/silverback_cdn_redirect": 20,
@@ -14179,7 +14180,6 @@
         "amazeelabs/silverback_iframe": 20,
         "amazeelabs/silverback_iframe_theme": 20,
         "amazeelabs/silverback_translations": 20,
-        "amazeelabs/netlify_cdn": 20,
         "drupal/default_content": 15,
         "drupal/entity_usage": 10
     },
@@ -14188,6 +14188,6 @@
     "platform": {
         "php": "^8.3 <8.4"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
