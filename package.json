@@ -33,7 +33,7 @@
     "lerna": "8.1.2",
     "prettier": "3.2.5",
     "typescript": "5.4.5",
-    "verdaccio": "5.30.3",
+    "verdaccio": "6.0.5",
     "verdaccio-git": "workspace:*"
   },
   "commitlint": {

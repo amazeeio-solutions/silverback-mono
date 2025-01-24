@@ -13,7 +13,7 @@
     "@amazeelabs/decap-cms-backend-token-auth": "workspace:*",
     "@amazeelabs/token-auth-middleware": "workspace:*",
     "@netlify/edge-functions": "2.7.0",
-    "@netlify/functions": "2.6.3",
+    "@netlify/functions": "3.0.0",
     "decap-cms-app": "3.1.10",
     "netlify-cli": "17.23.2",
     "react": "18.3.1",
@@ -25,6 +25,6 @@
     "@types/react-dom": "18.3.0",
     "@vitejs/plugin-react-swc": "3.6.0",
     "typescript": "5.4.5",
-    "vite": "5.2.11"
+    "vite": "6.0.5"
   }
 }
