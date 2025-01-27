@@ -1,7 +1,7 @@
 import { IUploadTarball, Logger } from '@verdaccio/types';
 import fs, { readJSONSync } from 'fs-extra';
 import { SimpleGit } from 'simple-git';
-import tar from 'tar';
+import * as tar from 'tar';
 
 import { processComposerPackage } from './composer';
 

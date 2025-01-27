@@ -2,7 +2,7 @@ import { IUploadTarball, Logger } from '@verdaccio/types';
 import fs from 'fs-extra';
 import mock from 'mock-fs';
 import { SimpleGit } from 'simple-git';
-import tar from 'tar';
+import * as tar from 'tar';
 
 import * as composer from '../composer';
 import { isGitPackage, proxyTarball, pushToGit } from '../package';

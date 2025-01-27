@@ -15,8 +15,8 @@ test('full', async ({ repo, effectValue }) => {
   await repo.write('schema/fragments/a.gql', '');
   const result = await effectValue(scan);
   expect(result.map((file) => file.substr(repo.directory.length))).toEqual([
-    '/schema/fragments/a.gql',
-    '/schema/schema.graphqls',
     '/src/something.ts',
+    '/schema/schema.graphqls',
+    '/schema/fragments/a.gql',
   ]);
 });
