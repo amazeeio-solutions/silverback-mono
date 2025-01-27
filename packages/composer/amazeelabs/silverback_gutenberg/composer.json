@@ -12,6 +12,6 @@
     }
   ],
   "require": {
-    "drupal/gutenberg": "^3.0.6"
+    "drupal/gutenberg": "^2.8.0"
   }
 }

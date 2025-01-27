@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "562c19c2af64169739b1a22bdab8fda3",
+    "content-hash": "a6b6cd038eb6542b79612056c8c03bd6",
     "packages": [
         {
             "name": "amazeelabs/default-content",
@@ -282,10 +282,10 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_gutenberg",
-                "reference": "28b9778e70dcfd345e7af3b1c74a210264ad2a0f"
+                "reference": "11a3e7f307b68b67f249d641b4e4fea3f6c734b6"
             },
             "require": {
-                "drupal/gutenberg": "^3.0.6"
+                "drupal/gutenberg": "^2.8.0"
             },
             "type": "drupal-module",
             "license": [
@@ -3569,20 +3569,20 @@
         },
         {
             "name": "drupal/gutenberg",
-            "version": "3.0.6",
+            "version": "2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gutenberg.git",
-                "reference": "3.0.6"
+                "reference": "8.x-2.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gutenberg-3.0.6.zip",
-                "reference": "3.0.6",
-                "shasum": "1810358286a21c19269b34f1aec92a806b6f89ff"
+                "url": "https://ftp.drupal.org/files/projects/gutenberg-8.x-2.14.zip",
+                "reference": "8.x-2.14",
+                "shasum": "c6610a940797ad6eadc19d1a279467a36560c9bd"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10 || ^11",
+                "drupal/core": "^9 || ^10 || ^11",
                 "ext-json": "*",
                 "php": ">=7.4"
             },
@@ -3592,8 +3592,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.6",
-                    "datestamp": "1737591143",
+                    "version": "8.x-2.14",
+                    "datestamp": "1728499573",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14168,7 +14168,6 @@
     "stability-flags": {
         "amazeelabs/default-content": 20,
         "amazeelabs/graphql_directives": 20,
-        "amazeelabs/netlify_cdn": 20,
         "amazeelabs/silverback-cli": 20,
         "amazeelabs/silverback_campaign_urls": 20,
         "amazeelabs/silverback_cdn_redirect": 20,
@@ -14180,6 +14179,7 @@
         "amazeelabs/silverback_iframe": 20,
         "amazeelabs/silverback_iframe_theme": 20,
         "amazeelabs/silverback_translations": 20,
+        "amazeelabs/netlify_cdn": 20,
         "drupal/default_content": 15,
         "drupal/entity_usage": 10
     },
@@ -14188,6 +14188,6 @@
     "platform": {
         "php": "^8.3 <8.4"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
