@@ -8,9 +8,9 @@
   "devDependencies": {
     "@-amazeelabs/silverback-gatsby-directives": "workspace:*",
     "@internal/eslint-config": "workspace:*",
-    "@playwright/test": "1.44.0",
-    "@types/node": "20.12.11",
-    "typescript": "5.4.5"
+    "@playwright/test": "1.50.0",
+    "@types/node": "22.10.10",
+    "typescript": "5.7.3"
   },
   "scripts": {
     "serve": "pnpm run --filter @-amazeelabs/silverback-gatsby-directives serve",

@@ -43,7 +43,6 @@
     "@graphql-codegen/typescript": "4.1.2",
     "@graphql-codegen/typescript-operations": "4.4.0",
     "@internal/eslint-config": "workspace:*",
-    "@types/classnames": "2.3.4",
     "@types/express": "5.0.0",
     "@types/node": "16.18.125",
     "@types/react": "18.3.18",
