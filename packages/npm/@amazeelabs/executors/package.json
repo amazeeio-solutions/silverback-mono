@@ -15,7 +15,7 @@
     "build": "pnpm prep",
     "test:unit": "vitest run",
     "test:static": "tsc --noEmit && eslint . --quiet",
-    "test:integration": "playwright test",
+    "test:integration": "playwright install chromium && playwright test",
     "test:cmd": "cd test && ../node_modules/waku/cli.js",
     "test:dev": "pnpm test:cmd dev",
     "test:start": "pnpm test:cmd build && pnpm test:cmd start",
