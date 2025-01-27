@@ -27,6 +27,7 @@ class GatsbyUpdateTriggerTest extends KernelTestBase {
     'user',
     'node',
     'graphql',
+    'file',
     'content_translation',
     'graphql_directives',
     'silverback_gatsby',
