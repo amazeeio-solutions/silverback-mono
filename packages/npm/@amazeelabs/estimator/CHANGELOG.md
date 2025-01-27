@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/estimator@1.2.5...@amazeelabs/estimator@1.2.6) (2025-01-27)
+
+**Note:** Version bump only for package @amazeelabs/estimator
+
+
+
+
+
 ## [1.2.5](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/estimator@1.2.4...@amazeelabs/estimator@1.2.5) (2024-11-25)
 
 **Note:** Version bump only for package @amazeelabs/estimator

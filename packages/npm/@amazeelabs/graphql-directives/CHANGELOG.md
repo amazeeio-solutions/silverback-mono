@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/graphql-directives@1.3.8...@amazeelabs/graphql-directives@1.3.9) (2025-01-27)
+
+**Note:** Version bump only for package @amazeelabs/graphql-directives
+
+
+
+
+
 ## [1.3.8](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/graphql-directives@1.3.7...@amazeelabs/graphql-directives@1.3.8) (2024-11-25)
 
 **Note:** Version bump only for package @amazeelabs/graphql-directives
