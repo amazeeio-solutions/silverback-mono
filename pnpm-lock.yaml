@@ -5,6 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@types/express': '4'
   sharp: 0.33.3
   '@graphql-tools/load': ^8.0.2
 
@@ -186,7 +187,7 @@ importers:
         version: 5.1.10(@types/react@18.3.1)(react@18.3.1)
       netlify-cli:
         specifier: 17.23.2
-        version: 17.23.2(@types/express@5.0.0)(@types/node@16.18.97)
+        version: 17.23.2(@types/express@4.17.21)(@types/node@16.18.97)
       postcss-import:
         specifier: 16.1.0
         version: 16.1.0(postcss@8.4.38)
@@ -234,8 +235,8 @@ importers:
         specifier: 2.3.1
         version: 2.3.1
       '@types/express':
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: '4'
+        version: 4.17.21
       '@types/node':
         specifier: 16.18.97
         version: 16.18.97
@@ -1455,8 +1456,8 @@ importers:
         specifier: 2.8.17
         version: 2.8.17
       '@types/express':
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: '4'
+        version: 4.17.21
       '@types/express-session':
         specifier: 1.18.0
         version: 1.18.0
@@ -1905,8 +1906,8 @@ importers:
         specifier: 1.0.6
         version: 1.0.6
       '@types/express':
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: '4'
+        version: 4.17.21
       '@types/fs-extra':
         specifier: 11.0.4
         version: 11.0.4
@@ -4089,7 +4090,7 @@ packages:
     resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
     requiresBuild: true
     dependencies:
-      tslib: 2.7.0
+      tslib: 2.8.1
     optional: true
 
   /@emotion/babel-plugin@11.12.0:
@@ -5470,7 +5471,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.7(supports-color@5.5.0)
+      debug: 4.4.0(supports-color@9.4.0)
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.2
@@ -6902,7 +6903,7 @@ packages:
     deprecated: Use @eslint/config-array instead
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
-      debug: 4.3.7(supports-color@5.5.0)
+      debug: 4.4.0(supports-color@9.4.0)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -7708,23 +7709,6 @@ packages:
       sort-object: 0.3.2
     dev: false
 
-  /@mapbox/node-pre-gyp@1.0.11:
-    resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
-    hasBin: true
-    dependencies:
-      detect-libc: 2.0.3
-      https-proxy-agent: 5.0.1
-      make-dir: 3.1.0
-      node-fetch: 2.7.0
-      nopt: 5.0.0
-      npmlog: 5.0.1
-      rimraf: 3.0.2
-      semver: 7.6.3
-      tar: 6.2.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
   /@mapbox/node-pre-gyp@1.0.11(supports-color@9.4.0):
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
@@ -8209,37 +8193,6 @@ packages:
       validate-npm-package-name: 4.0.0
       yargs: 17.7.2
 
-  /@netlify/edge-bundler@12.0.0:
-    resolution: {integrity: sha512-whAeq2gQxWz8Bt85XN8VJRBwhHpGlbmu7LRX4bFBgXPNWVi1a9UrQ+F51gHj9p+B01tsztVrKlxqA555Sg0dgg==}
-    engines: {node: ^14.16.0 || >=16.0.0}
-    dependencies:
-      '@import-maps/resolve': 1.0.1
-      '@vercel/nft': 0.26.5
-      ajv: 8.17.1
-      ajv-errors: 3.0.0(ajv@8.17.1)
-      better-ajv-errors: 1.2.0(ajv@8.17.1)
-      common-path-prefix: 3.0.0
-      env-paths: 3.0.0
-      esbuild: 0.20.2
-      execa: 6.1.0
-      find-up: 6.3.0
-      get-package-name: 2.2.0
-      get-port: 6.1.2
-      is-path-inside: 4.0.0
-      jsonc-parser: 3.3.1
-      node-fetch: 3.3.2
-      node-stream-zip: 1.15.0
-      p-retry: 5.1.2
-      p-wait-for: 4.1.0
-      path-key: 4.0.0
-      semver: 7.6.3
-      tmp-promise: 3.0.3
-      urlpattern-polyfill: 8.0.2
-      uuid: 9.0.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
   /@netlify/edge-bundler@12.0.0(supports-color@9.4.0):
     resolution: {integrity: sha512-whAeq2gQxWz8Bt85XN8VJRBwhHpGlbmu7LRX4bFBgXPNWVi1a9UrQ+F51gHj9p+B01tsztVrKlxqA555Sg0dgg==}
     engines: {node: ^14.16.0 || >=16.0.0}
@@ -8482,7 +8435,7 @@ packages:
       '@babel/types': 7.23.6
       '@netlify/binary-info': 1.0.0
       '@netlify/serverless-functions-api': 1.23.0
-      '@vercel/nft': 0.23.1
+      '@vercel/nft': 0.23.1(supports-color@9.4.0)
       archiver: 6.0.2
       common-path-prefix: 3.0.0
       cp-file: 10.0.0
@@ -12406,7 +12359,7 @@ packages:
   /@swc/helpers@0.4.14:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
     dependencies:
-      tslib: 2.7.0
+      tslib: 2.8.1
 
   /@swc/helpers@0.4.36:
     resolution: {integrity: sha512-5lxnyLEYFskErRPenYItLRSge5DjrJngYKdVjRSrWfza9G6KkgHEXi0vUZiyUeMU5JfXH1YnvXZzSp8ul88o2Q==}
@@ -12735,7 +12688,7 @@ packages:
   /@types/cookie-parser@1.4.7:
     resolution: {integrity: sha512-Fvuyi354Z+uayxzIGCwYTayFKocfV7TuDYZClCdIP9ckhvAu/ixDtCB6qx2TT0FKjPLf1f3P/J1rgf6lPs64mw==}
     dependencies:
-      '@types/express': 5.0.0
+      '@types/express': 4.17.21
     dev: true
 
   /@types/cookie@0.4.1:
@@ -12835,26 +12788,17 @@ packages:
       '@types/qs': 6.9.15
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
-    dev: true
-
-  /@types/express-serve-static-core@5.0.5:
-    resolution: {integrity: sha512-GLZPrd9ckqEBFMcVM/qRFAP0Hg3qiVEojgEFsx/N/zKXsBzbGF6z5FBDpZ0+Xhp1xr+qRZYjfGr1cWHB9oFHSA==}
-    dependencies:
-      '@types/node': 20.16.5
-      '@types/qs': 6.9.15
-      '@types/range-parser': 1.2.7
-      '@types/send': 0.17.4
 
   /@types/express-session@1.18.0:
     resolution: {integrity: sha512-27JdDRgor6PoYlURY+Y5kCakqp5ulC0kmf7y+QwaY+hv9jEFuQOThgkjyA53RP3jmKuBsH5GR6qEfFmvb8mwOA==}
     dependencies:
-      '@types/express': 5.0.0
+      '@types/express': 4.17.21
     dev: true
 
   /@types/express-ws@3.0.4:
     resolution: {integrity: sha512-Yjj18CaivG5KndgcvzttWe8mPFinPCHJC2wvyQqVzA7hqeufM8EtWMj6mpp5omg3s8XALUexhOu8aXAyi/DyJQ==}
     dependencies:
-      '@types/express': 5.0.0
+      '@types/express': 4.17.21
       '@types/express-serve-static-core': 4.19.5
       '@types/ws': 8.5.12
     dev: true
@@ -12864,15 +12808,6 @@ packages:
     dependencies:
       '@types/body-parser': 1.19.5
       '@types/express-serve-static-core': 4.19.5
-      '@types/qs': 6.9.15
-      '@types/serve-static': 1.15.7
-    dev: true
-
-  /@types/express@5.0.0:
-    resolution: {integrity: sha512-DvZriSMehGHL1ZNLzi6MidnsDhUZM/x2pRdDIKdwbUNqqwHxMlRdkxtn6/EPKyqKpHqTl/4nRZsRNLpZxZRpPQ==}
-    dependencies:
-      '@types/body-parser': 1.19.5
-      '@types/express-serve-static-core': 5.0.5
       '@types/qs': 6.9.15
       '@types/serve-static': 1.15.7
 
@@ -13694,26 +13629,6 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vercel/nft@0.23.1:
-    resolution: {integrity: sha512-NE0xSmGWVhgHF1OIoir71XAd0W0C1UE3nzFyhpFiMr3rVhetww7NvM1kc41trBsPG37Bh+dE5FYCTMzM/gBu0w==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dependencies:
-      '@mapbox/node-pre-gyp': 1.0.11
-      '@rollup/pluginutils': 4.2.1
-      acorn: 8.14.0
-      async-sema: 3.1.1
-      bindings: 1.5.0
-      estree-walker: 2.0.2
-      glob: 7.2.3
-      graceful-fs: 4.2.11
-      micromatch: 4.0.8
-      node-gyp-build: 4.8.2
-      resolve-from: 5.0.0
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
   /@vercel/nft@0.23.1(supports-color@9.4.0):
     resolution: {integrity: sha512-NE0xSmGWVhgHF1OIoir71XAd0W0C1UE3nzFyhpFiMr3rVhetww7NvM1kc41trBsPG37Bh+dE5FYCTMzM/gBu0w==}
     engines: {node: '>=14'}
@@ -13722,27 +13637,6 @@ packages:
       '@mapbox/node-pre-gyp': 1.0.11(supports-color@9.4.0)
       '@rollup/pluginutils': 4.2.1
       acorn: 8.14.0
-      async-sema: 3.1.1
-      bindings: 1.5.0
-      estree-walker: 2.0.2
-      glob: 7.2.3
-      graceful-fs: 4.2.11
-      micromatch: 4.0.8
-      node-gyp-build: 4.8.2
-      resolve-from: 5.0.0
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
-  /@vercel/nft@0.26.5:
-    resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}
-    engines: {node: '>=16'}
-    hasBin: true
-    dependencies:
-      '@mapbox/node-pre-gyp': 1.0.11
-      '@rollup/pluginutils': 4.2.1
-      acorn: 8.14.0
-      acorn-import-attributes: 1.9.5(acorn@8.14.0)
       async-sema: 3.1.1
       bindings: 1.5.0
       estree-walker: 2.0.2
@@ -22684,7 +22578,7 @@ packages:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.7(supports-color@5.5.0)
+      debug: 4.4.0(supports-color@9.4.0)
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
@@ -26424,16 +26318,16 @@ packages:
       - supports-color
     dev: true
 
-  /http-proxy-middleware@2.0.6(@types/express@5.0.0)(debug@4.3.4):
+  /http-proxy-middleware@2.0.6(@types/express@4.17.21)(debug@4.3.4):
     resolution: {integrity: sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
-      '@types/express': ^4.17.13
+      '@types/express': '4'
     peerDependenciesMeta:
       '@types/express':
         optional: true
     dependencies:
-      '@types/express': 5.0.0
+      '@types/express': 4.17.21
       '@types/http-proxy': 1.17.15
       http-proxy: 1.18.1(debug@4.3.4)
       is-glob: 4.0.3
@@ -26525,21 +26419,12 @@ packages:
     resolution: {integrity: sha512-J+FkSdyD+0mA0N+81tMotaRMfSL9SGi+xpD3T6YApKsc3bGSXJlfXri3VyFOeYkfLRQisDk1W+jIFFKBeUBbBg==}
     dev: true
 
-  /https-proxy-agent@5.0.1:
-    resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
-    engines: {node: '>= 6'}
-    dependencies:
-      agent-base: 6.0.2(supports-color@9.4.0)
-      debug: 4.4.0(supports-color@9.4.0)
-    transitivePeerDependencies:
-      - supports-color
-
   /https-proxy-agent@5.0.1(supports-color@9.4.0):
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2(supports-color@9.4.0)
-      debug: 4.3.7(supports-color@9.4.0)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -28632,7 +28517,7 @@ packages:
       form-data: 4.0.0
       html-encoding-sniffer: 3.0.0
       http-proxy-agent: 5.0.0
-      https-proxy-agent: 5.0.1
+      https-proxy-agent: 5.0.1(supports-color@9.4.0)
       is-potential-custom-element-name: 1.0.1
       nwsapi: 2.2.12
       parse5: 7.1.2
@@ -29710,7 +29595,7 @@ packages:
       cacache: 17.1.4
       http-cache-semantics: 4.1.1
       http-proxy-agent: 5.0.0
-      https-proxy-agent: 5.0.1
+      https-proxy-agent: 5.0.1(supports-color@9.4.0)
       is-lambda: 1.0.1
       lru-cache: 7.18.3
       minipass: 5.0.0
@@ -29754,7 +29639,7 @@ packages:
       cacache: 15.3.0
       http-cache-semantics: 4.1.1
       http-proxy-agent: 4.0.1
-      https-proxy-agent: 5.0.1
+      https-proxy-agent: 5.0.1(supports-color@9.4.0)
       is-lambda: 1.0.1
       lru-cache: 6.0.0
       minipass: 3.3.6
@@ -31518,7 +31403,7 @@ packages:
   /nested-error-stacks@2.1.1:
     resolution: {integrity: sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==}
 
-  /netlify-cli@17.23.2(@types/express@5.0.0)(@types/node@16.18.97):
+  /netlify-cli@17.23.2(@types/express@4.17.21)(@types/node@16.18.97):
     resolution: {integrity: sha512-C/9gr4Gx5v4oONlzMGtk898AA6hIqe26XN4Fmbz537JIAIeJF86NoePljS4ukIlMu+5Kzr4J7maeDBhHVfRX1w==}
     engines: {node: '>=18.14.0'}
     hasBin: true
@@ -31530,7 +31415,7 @@ packages:
       '@netlify/build': 29.41.2(@opentelemetry/api@1.8.0)(@types/node@16.18.97)
       '@netlify/build-info': 7.13.2
       '@netlify/config': 20.12.3
-      '@netlify/edge-bundler': 12.0.0
+      '@netlify/edge-bundler': 12.0.0(supports-color@9.4.0)
       '@netlify/edge-functions': 2.5.1
       '@netlify/local-functions-proxy': 1.1.1
       '@netlify/zip-it-and-ship-it': 9.32.1
@@ -31580,7 +31465,7 @@ packages:
       hasbin: 1.2.3
       hasha: 5.2.2
       http-proxy: 1.18.1(debug@4.3.4)
-      http-proxy-middleware: 2.0.6(@types/express@5.0.0)(debug@4.3.4)
+      http-proxy-middleware: 2.0.6(@types/express@4.17.21)(debug@4.3.4)
       https-proxy-agent: 7.0.4
       inquirer: 6.5.2
       inquirer-autocomplete-prompt: 1.4.0(inquirer@6.5.2)
@@ -31674,7 +31559,7 @@ packages:
       '@netlify/build': 29.41.2(@opentelemetry/api@1.8.0)(@types/node@20.12.11)
       '@netlify/build-info': 7.13.2
       '@netlify/config': 20.12.3
-      '@netlify/edge-bundler': 12.0.0
+      '@netlify/edge-bundler': 12.0.0(supports-color@9.4.0)
       '@netlify/edge-functions': 2.5.1
       '@netlify/local-functions-proxy': 1.1.1
       '@netlify/zip-it-and-ship-it': 9.32.1
@@ -31724,7 +31609,7 @@ packages:
       hasbin: 1.2.3
       hasha: 5.2.2
       http-proxy: 1.18.1(debug@4.3.4)
-      http-proxy-middleware: 2.0.6(@types/express@5.0.0)(debug@4.3.4)
+      http-proxy-middleware: 2.0.6(@types/express@4.17.21)(debug@4.3.4)
       https-proxy-agent: 7.0.4
       inquirer: 6.5.2
       inquirer-autocomplete-prompt: 1.4.0(inquirer@6.5.2)
@@ -31818,7 +31703,7 @@ packages:
       '@netlify/build': 29.41.2(@opentelemetry/api@1.8.0)(@types/node@20.16.5)
       '@netlify/build-info': 7.13.2
       '@netlify/config': 20.12.3
-      '@netlify/edge-bundler': 12.0.0
+      '@netlify/edge-bundler': 12.0.0(supports-color@9.4.0)
       '@netlify/edge-functions': 2.5.1
       '@netlify/local-functions-proxy': 1.1.1
       '@netlify/zip-it-and-ship-it': 9.32.1
@@ -31868,7 +31753,7 @@ packages:
       hasbin: 1.2.3
       hasha: 5.2.2
       http-proxy: 1.18.1(debug@4.3.4)
-      http-proxy-middleware: 2.0.6(@types/express@5.0.0)(debug@4.3.4)
+      http-proxy-middleware: 2.0.6(@types/express@4.17.21)(debug@4.3.4)
       https-proxy-agent: 7.0.4
       inquirer: 6.5.2
       inquirer-autocomplete-prompt: 1.4.0(inquirer@6.5.2)
@@ -40574,7 +40459,7 @@ packages:
       '@verdaccio/config': 8.0.0-next-8.7
       '@verdaccio/core': 8.0.0-next-8.7
       express: 4.21.2
-      https-proxy-agent: 5.0.1
+      https-proxy-agent: 5.0.1(supports-color@9.4.0)
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding

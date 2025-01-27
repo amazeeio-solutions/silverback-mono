@@ -28,12 +28,6 @@ function HeightTransition({
   return (
     <Transition
       show={show}
-      style={{
-        transitionProperty: 'height',
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
-        transitionTimingFunction: 'ease-in-out',
-      }}
       enterFrom="!h-0"
       leaveTo="!h-0"
       beforeEnter={() => {
@@ -61,7 +55,16 @@ function HeightTransition({
         afterLeave?.();
       }}
     >
-      <div ref={ref}>{children}</div>
+      <div
+        style={{
+          transitionProperty: 'height',
+          transitionDuration: `${duration}ms`,
+          transitionDelay: `${delay}ms`,
+          transitionTimingFunction: 'ease-in-out',
+        }}
+      >
+        <div ref={ref}>{children}</div>
+      </div>
     </Transition>
   );
 }
