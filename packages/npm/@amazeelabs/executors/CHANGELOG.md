@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.12](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.11...@amazeelabs/executors@3.1.12) (2025-01-27)
+
+**Note:** Version bump only for package @amazeelabs/executors
+
+
+
+
+
 ## [3.1.11](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.10...@amazeelabs/executors@3.1.11) (2025-01-27)
 
 **Note:** Version bump only for package @amazeelabs/executors

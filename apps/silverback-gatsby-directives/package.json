@@ -2,7 +2,7 @@
   "name": "@-amazeelabs/silverback-gatsby-directives",
   "private": true,
   "description": "gatsby-graphql-toolkit example for drupal",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "author": "Amazee Labs <developers@amazeelabs.com>",
   "dependencies": {
     "@amazeelabs/gatsby-source-silverback": "workspace:*",

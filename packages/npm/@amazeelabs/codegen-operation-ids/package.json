@@ -1,7 +1,7 @@
 {
   "name": "@amazeelabs/codegen-operation-ids",
   "private": false,
-  "version": "0.2.5",
+  "version": "0.2.6",
   "type": "module",
   "types": "./src/types.d.ts",
   "main": "./dist/index.cjs",

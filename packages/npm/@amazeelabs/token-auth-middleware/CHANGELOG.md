@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.11](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/token-auth-middleware@1.1.10...@amazeelabs/token-auth-middleware@1.1.11) (2025-01-27)
+
+**Note:** Version bump only for package @amazeelabs/token-auth-middleware
+
+
+
+
+
 ## [1.1.10](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/token-auth-middleware@1.1.9...@amazeelabs/token-auth-middleware@1.1.10) (2025-01-27)
 
 **Note:** Version bump only for package @amazeelabs/token-auth-middleware

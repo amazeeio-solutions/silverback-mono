@@ -7,7 +7,7 @@
     "This package can be removed after that"
   ],
   "type": "library",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Proxy package for drupal/graphql.",
   "homepage": "https://silverback.netlify.app",
   "license": "GPL-2.0+",

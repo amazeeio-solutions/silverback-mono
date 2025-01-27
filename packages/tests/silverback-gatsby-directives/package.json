@@ -1,6 +1,6 @@
 {
   "name": "@-amazeelabs/silverback-gatsby-directives-tests",
-  "version": "1.1.186",
+  "version": "1.1.187",
   "description": "e2e tests for pure Gatsby schemas.",
   "author": "Amazee Labs",
   "license": "MIT",

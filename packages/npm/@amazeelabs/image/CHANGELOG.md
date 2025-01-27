@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/image@1.4.6...@amazeelabs/image@1.4.7) (2025-01-27)
+
+**Note:** Version bump only for package @amazeelabs/image
+
+
+
+
+
 ## [1.4.6](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/image@1.4.5...@amazeelabs/image@1.4.6) (2025-01-27)
 
 **Note:** Version bump only for package @amazeelabs/image

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/proxy-graphql@1.1.13...@-amazeelabs/proxy-graphql@1.1.14) (2025-01-27)
+
+**Note:** Version bump only for package @-amazeelabs/proxy-graphql
+
+
+
+
+
 ## [1.1.13](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/proxy-graphql@1.1.12...@-amazeelabs/proxy-graphql@1.1.13) (2024-09-26)
 
 **Note:** Version bump only for package @-amazeelabs/proxy-graphql

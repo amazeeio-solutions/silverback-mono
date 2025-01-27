@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/save-webpage",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "Saves a webpage with all resources.",
   "type": "module",
   "main": "./build/index.js",

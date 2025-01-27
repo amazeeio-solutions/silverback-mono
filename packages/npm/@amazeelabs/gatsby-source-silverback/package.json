@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/gatsby-source-silverback",
-  "version": "1.15.2",
+  "version": "1.15.3",
   "description": "Source data from a Silverback GraphQL schema.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
