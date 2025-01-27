@@ -19,7 +19,7 @@
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@types/website-scraper": "1.2.10",
-    "typescript": "5.4.5"
+    "typescript": "5.7.3"
   },
   "keywords": [],
   "author": "AmazeeLabs <development@amazeelabs.com>"

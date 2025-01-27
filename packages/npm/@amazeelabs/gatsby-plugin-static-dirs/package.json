@@ -16,10 +16,10 @@
   "license": "ISC",
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
-    "gatsby": "5.13.4",
-    "typescript": "5.4.5"
+    "gatsby": "5.14.1",
+    "typescript": "5.7.3"
   },
   "dependencies": {
-    "serve-static": "^1.15.0"
+    "serve-static": "^1.16.2"
   }
 }
