@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "php": "<8.5",
+    "php": "^8.3 <8.4",
     "amazeelabs/default-content": "@dev",
     "amazeelabs/graphql_directives": "@dev",
     "amazeelabs/silverback-cli": "@dev",
@@ -70,7 +70,8 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "phpstan/extension-installer": true,
       "fenetikm/autoload-drupal": true,
-      "php-http/discovery": true
+      "php-http/discovery": true,
+      "tbachert/spi": true
     }
   },
   "extra": {
