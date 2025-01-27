@@ -45,7 +45,7 @@
     "drupal/default_content": "^2.0.0-alpha2",
     "drupal/entity_usage": "^2.0.0-beta12",
     "drupal/graphql": "^4.7.0",
-    "drupal/gutenberg": "^3.0.0",
+    "drupal/gutenberg": "^2.14.0",
     "drupal/hal": "^2.0.2",
     "drupal/key_auth": "^2.1.0",
     "drupal/linkit": "^7.0.0",

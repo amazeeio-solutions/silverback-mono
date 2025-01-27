@@ -24,6 +24,6 @@
   ],
   "require": {
     "cweagans/composer-patches": "^1.7.3",
-    "drupal/gutenberg": "^3.0.6"
+    "drupal/gutenberg": "^2.8.0"
   }
 }
