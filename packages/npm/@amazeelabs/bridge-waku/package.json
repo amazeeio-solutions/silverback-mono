@@ -29,7 +29,7 @@
     "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "dependencies": {
-    "react-server-dom-webpack": "19.0.0-rc.0",
+    "react-server-dom-webpack": "19.0.0",
     "server-only-context": "^0.1.0"
   },
   "peerDependencies": {
@@ -42,9 +42,9 @@
     "@internal/eslint-config": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "prettier": "3.2.5",
-    "typescript": "5.4.5",
-    "waku": "0.21.1"
+    "prettier": "3.4.2",
+    "typescript": "5.7.3",
+    "waku": "0.21.17"
   },
   "keywords": [],
   "author": "",

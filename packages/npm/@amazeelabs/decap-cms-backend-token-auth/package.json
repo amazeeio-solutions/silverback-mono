@@ -34,10 +34,10 @@
   },
   "dependencies": {
     "@amazeelabs/token-auth-middleware": "workspace:*",
-    "@emotion/styled": "^11.11.5",
-    "decap-cms-backend-github": "^3.1.2",
-    "decap-cms-lib-util": "^3.0.4",
-    "decap-cms-ui-default": "^3.1.1"
+    "@emotion/styled": "^11.14.0",
+    "decap-cms-backend-github": "^3.2.2",
+    "decap-cms-lib-util": "^3.1.0",
+    "decap-cms-ui-default": "^3.1.4"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -45,13 +45,13 @@
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
-    "@octokit/types": "13.5.0",
+    "@octokit/types": "13.7.0",
     "@types/js-cookie": "3.0.6",
-    "@types/node": "18.19.33",
-    "@types/react": "18.3.1",
+    "@types/node": "18.19.74",
+    "@types/react": "18.3.18",
     "@types/semaphore": "1.1.4",
     "js-cookie": "3.0.5",
-    "typescript": "5.4.5",
+    "typescript": "5.7.3",
     "vitest": "2.1.8"
   },
   "keywords": [],

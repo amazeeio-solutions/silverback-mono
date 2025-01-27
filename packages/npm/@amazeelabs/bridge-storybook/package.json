@@ -15,16 +15,16 @@
     "test:static": "tsc --noEmit && eslint . --quiet"
   },
   "peerDependencies": {
-    "@storybook/addon-actions": ">=8.0.10",
+    "@storybook/addon-actions": ">=8.5.2",
     "react": ">=18.3.1"
   },
   "devDependencies": {
     "@amazeelabs/bridge": "workspace:*",
     "@internal/eslint-config": "workspace:*",
-    "@swc/cli": "0.3.12",
-    "@swc/core": "1.5.5",
-    "@types/react": "^18.3.1",
-    "typescript": "^5.4.5",
+    "@swc/cli": "0.6.0",
+    "@swc/core": "1.10.11",
+    "@types/react": "^18.3.3",
+    "typescript": "^5.7.3",
     "vitest": "^2.0.0"
   },
   "keywords": [],

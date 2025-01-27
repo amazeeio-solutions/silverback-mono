@@ -8,17 +8,17 @@
     "@amazeelabs/gatsby-source-silverback": "workspace:*",
     "@amazeelabs/graphql-directives": "workspace:*",
     "@amazeelabs/test-directives": "workspace:*",
-    "gatsby": "5.13.4",
+    "gatsby": "5.14.1",
     "gatsby-plugin-pnpm": "1.2.10",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
-    "@types/node": "16.18.97",
-    "@types/react": "18.3.1",
-    "husky": "9.0.11",
-    "typescript": "5.4.5"
+    "@types/node": "16.18.125",
+    "@types/react": "18.3.18",
+    "husky": "9.1.7",
+    "typescript": "5.7.3"
   },
   "keywords": [
     "gatsby"

@@ -11,14 +11,14 @@
     "access": "public"
   },
   "dependencies": {
-    "commander": "^12.0.0",
+    "commander": "^12.1.0",
     "diff": "^7.0.0",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.0",
     "js-yaml": "^4.1.0",
     "prompts": "^2.4.2",
     "remark-parse": "^10.0.2",
     "unified": "^10.1.2",
-    "zx": "^8.0.2"
+    "zx": "^8.3.0"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
@@ -29,10 +29,10 @@
     "@types/js-yaml": "4.0.9",
     "@types/mdast": "3.0.11",
     "@types/prompts": "2.4.9",
-    "rollup": "4.17.2",
+    "rollup": "4.32.0",
     "rollup-plugin-auto-external": "2.0.0",
-    "typescript": "5.4.5",
-    "vite": "6.0.5",
+    "typescript": "5.7.3",
+    "vite": "6.0.11",
     "vitest": "2.1.8"
   },
   "scripts": {
