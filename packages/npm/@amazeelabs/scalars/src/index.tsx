@@ -319,11 +319,7 @@ export type Markup = string & {
 };
 
 const rehypeAddClasses: Plugin<[{ [key: string]: string }], Element> =
-  (settings) =>
-  (
-    // @ts-expect-error TODO (Philipp): Take a look at this.
-    tree,
-  ) => {
+  (settings) => (tree) => {
     Object.keys(settings || {}).forEach((matcher) => {
       const cls = settings[matcher];
       selectAll(matcher, tree).forEach((node) => {

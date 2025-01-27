@@ -17,12 +17,12 @@
   "devDependencies": {
     "@-amazeelabs/silverback-drupal": "workspace:*",
     "@internal/eslint-config": "workspace:*",
-    "@types/node": "18.19.33",
-    "@vitest/ui": "1.6.0",
-    "got": "14.2.1",
-    "noop-tag": "2.0.0",
-    "start-server-and-test": "2.0.3",
-    "typescript": "5.4.5",
-    "vitest": "1.6.0"
+    "@types/node": "22.10.10",
+    "@vitest/ui": "3.0.4",
+    "got": "14.4.5",
+    "noop-tag": "2.0.1",
+    "start-server-and-test": "2.0.10",
+    "typescript": "5.7.3",
+    "vitest": "3.0.4"
   }
 }
