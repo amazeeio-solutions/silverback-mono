@@ -1,3 +1,5 @@
+Last working version: f0ae4b0c792bdfb7c8612fc508dae22612a32b64
+
 # Amazeelabs Estimator
 
 The `@amazeelabs/estimator` package allows to assess and monitor a projects
