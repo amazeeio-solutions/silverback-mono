@@ -18,6 +18,7 @@
   "scripts": {
     "test:static": "tsc --noEmit && eslint . --quiet",
     "test:integration": "playwright install chromium && pnpm test:readonly && pnpm test:mutating",
+    "test:integration:headed": "playwright install chromium && pnpm test:readonly --headed && pnpm test:mutating --headed",
     "test:readonly": "playwright test --pass-with-no-tests",
     "test:mutating": "playwright test --pass-with-no-tests -c playwright.config.mutating.ts",
     "headed:readonly": "pnpm test:readonly --headed",

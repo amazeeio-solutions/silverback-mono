@@ -171,7 +171,7 @@ const setConfirmationOption = async (
 
   if (options?.addMessage === true) {
     await page
-      .getByLabel('Editor editing area: main.')
+      .getByRole('textbox', { name: 'Rich Text Editor. Editing' })
       .fill('Test message with ');
     await page.getByLabel('Bold').click();
     await page.keyboard.type('some bold text.');
