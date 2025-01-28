@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "php": "8.3.16",
+    "php": "^8.3 <8.4",
     "amazeelabs/default-content": "@dev",
     "amazeelabs/graphql_directives": "@dev",
     "amazeelabs/silverback-cli": "@dev",
