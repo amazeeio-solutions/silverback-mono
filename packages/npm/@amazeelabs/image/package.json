@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/image",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "",
   "type": "module",
   "types": "./dist/src/client.d.ts",
