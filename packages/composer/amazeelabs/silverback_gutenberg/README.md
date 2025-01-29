@@ -28,11 +28,11 @@ structured block data. Allows to define `aggregated` and `ignored` blocks:
 type Page {
   title: String! @resolveProperty(path: "title.value")
   content: [Blocks!]!
-  @resolveEditorBlocks(
-    path: "body.value"
-    aggregated: ["core/paragraph", "core/list"]
-    ignored: ["core/group"]
-  )
+    @resolveEditorBlocks(
+      path: "body.value"
+      aggregated: ["core/paragraph", "core/list"]
+      ignored: ["core/group"]
+    )
 }
 ```
 
@@ -279,20 +279,20 @@ registerBlockType('custom/my-block', {
       blockCount: select('core/block-editor').getBlockCount(props.clientId),
     }));
     return (
-            <div>
-              <InnerBlocks
-                      templateLock={false}
-                      renderAppender={() => {
-                        if (blockCount >= MAX_BLOCKS) {
-                          return null;
-                        } else {
-                          return <InnerBlocks.ButtonBlockAppender />;
-                        }
-                      }}
-                      allowedBlocks={['core/block']}
-                      template={[]}
-              />
-            </div>
+      <div>
+        <InnerBlocks
+          templateLock={false}
+          renderAppender={() => {
+            if (blockCount >= MAX_BLOCKS) {
+              return null;
+            } else {
+              return <InnerBlocks.ButtonBlockAppender />;
+            }
+          }}
+          allowedBlocks={['core/block']}
+          template={[]}
+        />
+      </div>
     );
   },
   save: () => {
@@ -364,13 +364,14 @@ To enable the integration:
 Entity id references can be used as Gutenberg attributes.
 
 When using default content, we need to map the entity id with the uuid:
+
 - id to uuid on export
 - uuid to id on import
 
 This is especially useful for schema tests, when using entity reference.
 
-To facilitate this process, block mutator plugins can be used,
-the easiest way is to extend the `EntityBlockMutatorBase` base class.
+To facilitate this process, block mutator plugins can be used, the easiest way
+is to extend the `EntityBlockMutatorBase` base class.
 
 Example, with multi-valued Gutenberg attribute
 
@@ -406,7 +407,6 @@ class MediaBlockMutator extends EntityBlockMutatorBase {
 
 }
 ```
-
 
 Example, with single-valued Gutenberg attribute
 
