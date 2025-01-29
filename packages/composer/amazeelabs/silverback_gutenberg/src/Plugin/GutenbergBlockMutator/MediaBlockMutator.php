@@ -4,6 +4,7 @@ namespace Drupal\silverback_gutenberg\Plugin\GutenbergBlockMutator;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\silverback_gutenberg\BlockMutator\BlockMutatorBase;
 use Drupal\silverback_gutenberg\Attribute\GutenbergBlockMutator;
@@ -17,31 +18,30 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class MediaBlockMutator extends BlockMutatorBase implements ContainerFactoryPluginInterface {
 
   /**
-   * An entity repository to load entities from.
-   *
-   * @var \Drupal\Core\Entity\EntityRepositoryInterface
-   */
-  protected EntityRepositoryInterface $repository;
-
-  /**
    * MediaIdToUuidBlockMutator constructor.
    *
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $repository
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityRepositoryInterface $repository) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    private readonly EntityRepositoryInterface $entityRepository,
+    private readonly LoggerChannelFactoryInterface $loggerFactory,
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->repository = $repository;
   }
 
   /**
    * {@inheritDoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    return new self(
       $configuration,
       $plugin_id,
       $plugin_definition,
       $container->get('entity.repository'),
+      $container->get('logger.factory'),
     );
   }
 
@@ -61,7 +61,7 @@ class MediaBlockMutator extends BlockMutatorBase implements ContainerFactoryPlug
         $dependencies[$entity->uuid()] = 'media';
         return $entity->uuid();
       },
-      $this->repository
+      $this->entityRepository
         ->getCanonicalMultiple('media', $block['attrs']['mediaEntityIds'])
     ));
   }
@@ -73,11 +73,11 @@ class MediaBlockMutator extends BlockMutatorBase implements ContainerFactoryPlug
     $block['attrs']['mediaEntityIds'] = array_map(
       function (string $uuid) {
         try {
-          $entity = $this->repository->loadEntityByUuid('media', $uuid);
+          $entity = $this->entityRepository->loadEntityByUuid('media', $uuid);
           return $entity->id();
         }
         catch (\Throwable $e) {
-          \Drupal::logger('silverback_gutenberg')->warning(
+          $this->loggerFactory->get('silverback_gutenberg')->warning(
             "MediaBlockMutator: Could not load media by uuid '{$uuid}' on import."
           );
           return $uuid;
