@@ -5,6 +5,8 @@ namespace Drupal\silverback_gutenberg\BlockMutator;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
+use Drupal\silverback_gutenberg\BlockMutator\BlockMutatorInterface;
+use Drupal\silverback_gutenberg\Attribute\GutenbergBlockMutator;
 
 /**
  * The block mutator plugin manager class.
@@ -27,8 +29,10 @@ class BlockMutatorManager extends DefaultPluginManager implements BlockMutatorMa
       'Plugin/GutenbergBlockMutator',
       $namespaces,
       $module_handler,
-      'Drupal\silverback_gutenberg\BlockMutator\BlockMutatorInterface',
-      'Drupal\silverback_gutenberg\Annotation\GutenbergBlockMutator'
+      BlockMutatorInterface::class,
+      GutenbergBlockMutator::class,
+      // Keeping BC for deprecated Annotation
+      'Drupal\silverback_gutenberg\Annotation\GutenbergBlockMutator',
     );
     $this->alterInfo('gutenberg_block_mutator_info');
     $this->setCacheBackend($cache_backend, 'gutenberg_block_mutator_info_plugins');

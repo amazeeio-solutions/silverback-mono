@@ -6,6 +6,8 @@ use Drupal\Component\Annotation\Plugin;
 
 /**
  * @Annotation
+ * 
+ * @deprecated
  */
 class GutenbergBlockMutator extends Plugin {
 

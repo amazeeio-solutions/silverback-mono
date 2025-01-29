@@ -6,20 +6,16 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\silverback_gutenberg\BlockMutator\BlockMutatorBase;
+use Drupal\silverback_gutenberg\Attribute\GutenbergBlockMutator;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-/**
- * Class MediaBlockMutator
- *
- * Replace referenced media ids with uuids on export and the other way around on
- * import.
- *
- * @GutenbergBlockMutator(
- *   id="media_block_mutator",
- *   label = @Translation("Media ID to UUID and viceversa mutator")
- * )
- */
+#[GutenbergBlockMutator(
+  id: "media_block_mutator",
+  label: new TranslatableMarkup("Media ID to UUID and viceversa mutator"),
+)]
 class MediaBlockMutator extends BlockMutatorBase implements ContainerFactoryPluginInterface {
+
   /**
    * An entity repository to load entities from.
    *
