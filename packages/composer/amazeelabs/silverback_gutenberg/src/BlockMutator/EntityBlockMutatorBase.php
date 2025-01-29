@@ -14,11 +14,26 @@ abstract class EntityBlockMutatorBase extends PluginBase implements
   BlockMutatorInterface,
   ContainerFactoryPluginInterface {
 
+  /**
+   * The Gutenberg attribute id.
+   *
+   * @var string $gutenbergAttribute
+   */
   public string $gutenbergAttribute;
 
-  public string $entityTypeId;
-
+  /**
+   * Indicates if the Gutenberg attribute is a collection or a single value.
+   *
+   * @var bool $isMultiple
+   */
   public bool $isMultiple = FALSE;
+
+  /**
+   * The Drupal entity type id.
+   *
+   * @var string $entityTypeId
+   */
+  public string $entityTypeId;
 
   /**
    * EntityBlockMutatorBase constructor.
