@@ -7,24 +7,19 @@ use Drupal\silverback_gutenberg\BlockMutator\EntityBlockMutatorBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 #[GutenbergBlockMutator(
-  id: "media_block_mutator",
-  label: new TranslatableMarkup("Media IDs to UUIDs and viceversa."),
+  id: "node_block_mutator",
+  label: new TranslatableMarkup("Node ID to UUID and viceversa."),
 )]
-class MediaBlockMutator extends EntityBlockMutatorBase {
+class NodeBlockMutator extends EntityBlockMutatorBase {
 
   /**
    * {@inheritDoc}
    */
-  public bool $isMultiple = TRUE;
+  public string $gutenbergAttribute = 'nodeId';
 
   /**
    * {@inheritDoc}
    */
-  public string $gutenbergAttribute = 'mediaEntityIds';
-
-  /**
-   * {@inheritDoc}
-   */
-  public string $entityTypeId = 'media';
+  public string $entityTypeId = 'node';
 
 }
