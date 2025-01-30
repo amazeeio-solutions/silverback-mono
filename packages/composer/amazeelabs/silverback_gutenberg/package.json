@@ -1,6 +1,6 @@
 {
   "name": "@-amazeelabs/silverback_gutenberg",
-  "version": "2.5.22",
+  "version": "2.5.23",
   "author": "Amazee Labs <development@amazeelabs.com>",
   "publishConfig": {
     "access": "public",
