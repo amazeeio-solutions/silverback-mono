@@ -41,11 +41,6 @@ export const OperationExecutorsProvider: ProviderType = ({
   executors,
 }) => {
   const registry = getRegistry();
-  if (registry.length) {
-    throw new Error(
-      'OperationExecutor can only be used once in a server context.',
-    );
-  }
   setRegistry(mergeExecutors(registry, executors));
   return <>{children}</>;
 };
