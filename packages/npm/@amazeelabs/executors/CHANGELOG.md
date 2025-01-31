@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.14](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.13...@amazeelabs/executors@3.1.14) (2025-01-31)
+
+
+### Bug Fixes
+
+* allow multiple initializations of server context ([74d4a10](https://github.com/AmazeeLabs/silverback-mono/commit/74d4a10bc4922e7852916cdbfc7c979200e7f319))
+
+
+
+
+
 ## [3.1.13](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/executors@3.1.12...@amazeelabs/executors@3.1.13) (2025-01-28)
 
 **Note:** Version bump only for package @amazeelabs/executors
