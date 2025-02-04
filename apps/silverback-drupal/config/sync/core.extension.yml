@@ -42,6 +42,7 @@ module:
   path_alias: 0
   phpass: 0
   serialization: 0
+  silverback_autosave: 0
   silverback_campaign_urls: 0
   silverback_cloudinary: 0
   silverback_external_preview: 0
