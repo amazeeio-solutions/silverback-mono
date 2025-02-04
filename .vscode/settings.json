@@ -1,5 +1,4 @@
 {
   "composer.workingPath": "apps/silverback-drupal",
-  "php.validate.executablePath": "/usr/bin/php",
   "phpunit.phpunit": "apps/silverback-drupal/vendor/bin/phpunit"
 }
