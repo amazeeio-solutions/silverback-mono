@@ -19,6 +19,11 @@ function silverback_autosave_schema() {
   $schema[AutosaveEntityFormStorageInterface::AUTOSAVE_ENTITY_FORM_TABLE] = [
     'description' => 'Saves the form state of partially filled content entity form for restoration by the silverback_autosave module.',
     'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key',
+      ],
       'form_id' => [
         'type' => 'varchar_ascii',
         'length' => AutosaveEntityFormStorageInterface::SILVERBACK_AUTOSAVE_FORM_ID_LENGTH,
@@ -68,7 +73,7 @@ function silverback_autosave_schema() {
         'size' => 'big',
       ],
     ],
-    'primary key' => ['form_id', 'form_session_id', 'entity_type_id', 'entity_id', 'langcode', 'uid', 'timestamp'],
+    'primary key' => ['id'],
   ];
 
   return $schema;
@@ -108,4 +113,26 @@ function silverback_autosave_update_8002() {
     $config->set('only_on_form_change', FALSE);
     $config->save(TRUE);
   }
+}
+
+/**
+ * Add serial ID field as primary key to silverback_autosave_entity_form table.
+ */
+function silverback_autosave_update_9001() {
+  $schema = \Drupal::database()->schema();
+  $table_name = AutosaveEntityFormStorageInterface::AUTOSAVE_ENTITY_FORM_TABLE;
+
+  // Drop the existing primary key.
+  $schema->dropPrimaryKey($table_name);
+
+  // Add the new serial ID field with its primary key definition.
+  $spec = [
+    'type' => 'serial',
+    'not null' => TRUE,
+    'description' => 'Primary Key',
+  ];
+  $keys_new = [
+    'primary key' => ['id'],
+  ];
+  $schema->addField($table_name, 'id', $spec, $keys_new);
 }
