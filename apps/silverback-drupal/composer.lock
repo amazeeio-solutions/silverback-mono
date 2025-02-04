@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afc691d272e0467e627571741c6ac473",
+    "content-hash": "1a9539f6b98781b0b5b13e04369b71ef",
     "packages": [
         {
             "name": "amazeelabs/default-content",
@@ -136,6 +136,23 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Scaffolder for Amazee Silverback projects.",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "amazeelabs/silverback_autosave",
+            "version": "1.3.1",
+            "dist": {
+                "type": "path",
+                "url": "../../packages/composer/amazeelabs/silverback_autosave",
+                "reference": "84c6c04bd00bc521cb6d72b1bc264ebda8e794b6"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Adds autosave feature on forms.",
             "transport-options": {
                 "relative": true
             }
@@ -278,11 +295,11 @@
         },
         {
             "name": "amazeelabs/silverback_gutenberg",
-            "version": "2.5.22",
+            "version": "2.5.23",
             "dist": {
                 "type": "path",
                 "url": "../../packages/composer/amazeelabs/silverback_gutenberg",
-                "reference": "09e0d3c5d27e0880853fde95995e4382518a306c"
+                "reference": "a7a078a972b713823fa571b0ce737fa73d2bba3c"
             },
             "require": {
                 "drupal/gutenberg": "^2.14.0"
@@ -14771,6 +14788,7 @@
         "amazeelabs/graphql_directives": 20,
         "amazeelabs/netlify_cdn": 20,
         "amazeelabs/silverback-cli": 20,
+        "amazeelabs/silverback_autosave": 20,
         "amazeelabs/silverback_campaign_urls": 20,
         "amazeelabs/silverback_cdn_redirect": 20,
         "amazeelabs/silverback_cloudinary": 20,
@@ -14789,6 +14807,6 @@
     "platform": {
         "php": "^8.3 <8.4"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
