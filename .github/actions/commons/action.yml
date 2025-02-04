@@ -22,7 +22,7 @@ runs:
     - name: Check xdebug config
       shell: bash
       run: |
-        if ! php --info | grep 'xdebug.mode => develop => develop'; then
+        if ! php --info | grep 'xdebug.mode => no value => no value'; then
           echo 'Error: xdebug.mode should not be set in CI. Have you committed xdebug config by accident? Check devbox.d/php/php.ini'
           exit 1
         fi
