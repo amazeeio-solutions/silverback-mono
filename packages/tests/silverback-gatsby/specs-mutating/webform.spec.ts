@@ -185,7 +185,7 @@ const setConfirmationOption = async (
     await page.fill('input[name=confirmation_url]', options.setRedirectUrl);
   }
 
-  await page.click('text=Save');
+  await page.getByRole('button', { name: 'Save' }).click();
   await waitForGatsby();
   await drupalLogout(page);
 };
