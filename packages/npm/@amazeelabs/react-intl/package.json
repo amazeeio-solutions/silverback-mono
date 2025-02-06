@@ -3,7 +3,6 @@
   "version": "1.1.3",
   "description": "Minimal RSC-compatible wrapper around react-intl",
   "main": "client.js",
-  "types": "index.d.ts",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -24,6 +23,7 @@
   },
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "react-server": "./server.js",
       "default": "./client.js"
     }
