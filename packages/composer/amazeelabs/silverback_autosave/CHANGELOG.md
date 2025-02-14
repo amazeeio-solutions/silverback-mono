@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_autosave@1.3.1...@-amazeelabs/silverback_autosave@1.3.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* add primary key to avoid duplicate key error ([3b3d5dd](https://github.com/AmazeeLabs/silverback-mono/commit/3b3d5dd98be4b3da382c91dfc4cc9c93e734bea7))
+
+
+
+
+
 ## [1.3.1](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_autosave@1.3.0...@-amazeelabs/silverback_autosave@1.3.1) (2024-09-09)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_autosave
