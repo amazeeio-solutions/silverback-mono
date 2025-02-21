@@ -44,7 +44,7 @@
     "drupal/core-dev": "10.4.1",
     "drupal/core-recommended": "10.4.1",
     "drupal/default_content": "2.0.0-alpha3",
-    "drupal/entity_usage": "2.0.0-beta17",
+    "drupal/entity_usage": "2.0.0-beta19",
     "drupal/graphql": "4.10.0",
     "drupal/gutenberg": "2.14.0",
     "drupal/hal": "2.0.3",
