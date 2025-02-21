@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.25](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.5.24...@-amazeelabs/silverback_gutenberg@2.5.25) (2025-02-21)
+
+
+### Bug Fixes
+
+* make silverback_gutenberg compatible with latest entity_usage ([b1b369c](https://github.com/AmazeeLabs/silverback-mono/commit/b1b369ccb27dae27a917a1998eb46b189cf1a484))
+
+
+
+
+
 ## [2.5.24](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.5.23...@-amazeelabs/silverback_gutenberg@2.5.24) (2025-02-21)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_gutenberg
