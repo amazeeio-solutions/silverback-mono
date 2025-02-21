@@ -7,12 +7,12 @@ use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldItemInterface;
-use Drupal\Core\Path\PathValidatorInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperInterface;
 use Drupal\entity_usage\EntityUsageInterface;
 use Drupal\entity_usage\EntityUsageTrackBase;
+use Drupal\entity_usage\UrlToEntityInterface;
 use Drupal\silverback_gutenberg\LinkedContentExtractor;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Tracks usage of linked content in Gutenberg editor.
@@ -39,11 +39,23 @@ class GutenbergLinkedContent extends EntityUsageTrackBase {
     EntityFieldManagerInterface $entity_field_manager,
     ConfigFactoryInterface $config_factory,
     EntityRepositoryInterface $entity_repository,
-    PathValidatorInterface $path_validator,
-    StreamWrapperInterface $public_stream,
+    ?LoggerInterface $entityUsageLogger = NULL,
+    ?UrlToEntityInterface $urlToEntity = NULL,
+    ?array $always_track_base_fields = NULL,
     LinkedContentExtractor $linked_content_extractor
   ) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $usage_service, $entity_type_manager, $entity_field_manager, $config_factory, $entity_repository, $path_validator, $public_stream);
+    parent::__construct(
+      $configuration, $plugin_id,
+      $plugin_definition,
+      $usage_service,
+      $entity_type_manager,
+      $entity_field_manager,
+      $config_factory,
+      $entity_repository,
+      $entityUsageLogger,
+      $urlToEntity,
+      $always_track_base_fields
+    );
     $this->linkedContentExtractor = $linked_content_extractor;
   }
 
@@ -60,8 +72,9 @@ class GutenbergLinkedContent extends EntityUsageTrackBase {
       $container->get('entity_field.manager'),
       $container->get('config.factory'),
       $container->get('entity.repository'),
-      $container->get('path.validator'),
-      $container->get('stream_wrapper.public'),
+      $container->get('logger.channel.entity_usage'),
+      $container->get(UrlToEntityInterface::class),
+      $container->getParameter('entity_usage')['always_track_base_fields'] ?? [],
       $container->get('silverback_gutenberg.linked_content_extractor')
     );
   }
