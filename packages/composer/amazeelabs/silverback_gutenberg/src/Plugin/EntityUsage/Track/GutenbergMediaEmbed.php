@@ -21,7 +21,7 @@ class GutenbergMediaEmbed extends EntityUsageTrackBase {
   /**
    * {@inheritDoc}
    */
-  public function getTargetEntities(FieldItemInterface $item) {
+  public function getTargetEntities(FieldItemInterface $item): array {
     $itemValue = $item->getValue();
     if (empty($itemValue['value'])) {
       return [];
