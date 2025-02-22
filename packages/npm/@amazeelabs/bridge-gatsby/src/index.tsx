@@ -5,7 +5,7 @@ import type {
 } from '@amazeelabs/bridge';
 import { useLocation as gatsbyUseLocation } from '@reach/router';
 import { Link as GatsbyLink, navigate as gatsbyNavigate } from 'gatsby';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, useEffect } from 'react';
 
 export const Link: LinkType &
   Pick<ComponentProps<typeof GatsbyLink>, 'ref'> = ({ href, ...props }) => {
@@ -14,8 +14,17 @@ export const Link: LinkType &
 
 export const useLocation: useLocationType = () => {
   const location = gatsbyUseLocation();
+  const [updatedSearch, setUpdatedSearch] = React.useState('');
+  useEffect(() => {
+    if (location.search) setUpdatedSearch(location.search);
+  }, [location.search]);
+
   return [
-    new URL(location.href || location.pathname, 'relative:/'),
+    {
+      ...location,
+      search: updatedSearch,
+      searchParams: new URLSearchParams(updatedSearch),
+    },
     gatsbyNavigate,
   ];
 };
