@@ -11,6 +11,7 @@ import React, {
   ComponentType,
   createElement,
   DetailedHTMLProps,
+  forwardRef,
 } from 'react';
 import rehypeParse from 'rehype-parse';
 import rehypeReact from 'rehype-react';
@@ -105,12 +106,16 @@ export const isDownload = (url?: Url | LocationType) => {
 const isLocation = (input?: Url | LocationType): input is LocationType =>
   typeof input !== 'string';
 
-export function Link({ href, search, hash, target, ...props }: LinkProps) {
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  { href, search, hash, target, ...props }: LinkProps,
+  ref,
+) {
   if (isInternalTarget(target) && isRelative(href) && !isDownload(href)) {
     return (
       <LinkComponent
         href={overrideUrlParameters(href, search, hash)}
         target={target}
+        ref={ref}
         {...props}
       />
     );
@@ -120,13 +125,14 @@ export function Link({ href, search, hash, target, ...props }: LinkProps) {
         target={target || '_blank'}
         rel={props.rel || (isRelative(href) ? undefined : 'noreferrer')}
         href={overrideUrlParameters(href, search, hash)}
+        ref={ref}
         {...props}
       >
         {props.children}
       </a>
     );
   }
-}
+});
 
 export function useLocation(): [
   LocationType,

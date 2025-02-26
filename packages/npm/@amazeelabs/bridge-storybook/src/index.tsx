@@ -5,7 +5,13 @@ import type {
   useLocationType,
 } from '@amazeelabs/bridge';
 import { action } from '@storybook/addon-actions';
-import React, { createContext, useContext, useState } from 'react';
+import React, {
+  ComponentProps,
+  createContext,
+  forwardRef,
+  useContext,
+  useState,
+} from 'react';
 
 type SetLocation = (location: LocationType) => void;
 
@@ -49,11 +55,15 @@ export const useLocation: useLocationType = () => {
   ];
 };
 
-export const Link: LinkType = ({ onClick, ...props }) => {
+export const Link: LinkType = forwardRef<
+  HTMLAnchorElement,
+  ComponentProps<LinkType>
+>(function Link({ onClick, ...props }, ref) {
   const [, navigate] = useLocation();
   return (
     <a
       {...props}
+      ref={ref}
       onClick={
         onClick
           ? onClick
@@ -68,4 +78,4 @@ export const Link: LinkType = ({ onClick, ...props }) => {
       {props.children}
     </a>
   );
-};
+});
