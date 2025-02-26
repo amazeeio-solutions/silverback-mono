@@ -1,6 +1,6 @@
 {
   "name": "@amazeelabs/bridge-storybook",
-  "version": "1.2.25",
+  "version": "1.2.26",
   "description": "Bridge implementation for storybook.",
   "type": "module",
   "main": "./build/src/index.js",
