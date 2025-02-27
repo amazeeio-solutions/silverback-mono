@@ -235,3 +235,17 @@ Provided by the "graphql_directives" module.
 Implemented in "Drupal\graphql_directives\Plugin\GraphQL\Directive\DrupalView".
 """
 directive @drupalView(id: String!, args: String) repeatable on FIELD_DEFINITION
+
+"""
+Provided by the "graphql_directives" module.
+Implemented in "Drupal\graphql_directives\Plugin\GraphQL\Directive\CurrentUser".
+"""
+directive @currentUser repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+
+"""
+Retrieves the preferred langcode for a user entity.
+
+Provided by the "graphql_directives" module.
+Implemented in "Drupal\graphql_directives\Plugin\GraphQL\Directive\PreferredLanguage".
+"""
+directive @preferredLanguage repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
