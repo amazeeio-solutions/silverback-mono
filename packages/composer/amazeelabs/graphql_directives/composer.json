@@ -1,7 +1,7 @@
 {
   "name": "amazeelabs/graphql_directives",
   "type": "drupal-module",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Directive based GraphQL schemas for Drupal.",
   "homepage": "https://silverback.netlify.app",
   "license": "GPL-2.0+",
