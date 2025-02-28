@@ -10,6 +10,7 @@ import React, {
   createContext,
   forwardRef,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 
@@ -23,11 +24,23 @@ const LocationContext = createContext<
   | undefined
 >(undefined);
 
+let globalLocation: LocationType = new URL('/', 'relative:/');
+
+/**
+ * Access global location value in test cases.
+ */
+export function currentLocation(): LocationType {
+  return globalLocation;
+}
+
 export const LocationProvider: LocationProviderType = ({
   children,
   currentLocation = new URL('/', 'relative:/'),
 }) => {
   const [location, setLocation] = useState(currentLocation);
+  useEffect(() => {
+    globalLocation = location;
+  }, [location]);
   return (
     <LocationContext.Provider value={{ location, setLocation }}>
       {children}
