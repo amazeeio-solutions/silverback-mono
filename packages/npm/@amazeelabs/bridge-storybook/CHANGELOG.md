@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/bridge-storybook@1.2.26...@amazeelabs/bridge-storybook@1.3.0) (2025-02-28)
+
+
+### Features
+
+* **bridge:** expose current location to storybook test cases ([03f363a](https://github.com/AmazeeLabs/silverback-mono/commit/03f363a6174296d79b12381c9c9986f4ccfe6df7))
+
+
+
+
+
 ## [1.2.26](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/bridge-storybook@1.2.25...@amazeelabs/bridge-storybook@1.2.26) (2025-02-26)
 
 
