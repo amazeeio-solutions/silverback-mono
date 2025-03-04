@@ -5,6 +5,7 @@ namespace Drupal\silverback_gatsby\Plugin\GraphQL\DataProducer;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\TranslatableInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Path\PathValidatorInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -14,6 +15,8 @@ use Drupal\graphql\GraphQL\Execution\FieldContext;
 use Drupal\graphql\Plugin\GraphQL\DataProducer\DataProducerPluginBase;
 use GraphQL\Deferred;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @todo Add an option to upstream "entity_load" to return null on missing
@@ -64,13 +67,23 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *       required = FALSE,
  *       default_value = "view"
  *     ),
+ *     "real_time" = @ContextDefinition("boolean",
+ *       label = @Translation("Real time using the autosave feature"),
+ *       required = FALSE,
+ *       default_value = FALSE
+ *     ),
+ *     "load_latest_revision" = @ContextDefinition("boolean",
+ *       label = @Translation("Loads the latest revision of the entity"),
+ *       required = FALSE,
+ *       default_value = FALSE
+ *     ),
  *     "preview_user_id" = @ContextDefinition("string",
  *       label = @Translation("Get the live preview context for a given user id."),
  *       required = FALSE
  *     ),
  *     "preview_access_token" = @ContextDefinition("string",
- *        label = @Translation("Access token that authenticates the preview."),
- *        required = FALSE
+*        label = @Translation("Access token that authenticates the preview."),
+*        required = FALSE
  *      ),
  *   }
  * )
@@ -109,6 +122,16 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
   protected $pathValidator;
 
   /**
+   * @var \Symfony\Component\HttpFoundation\RequestStack
+   */
+  protected $requestStack;
+
+  /**
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * {@inheritdoc}
    *
    * @codeCoverageIgnore
@@ -122,7 +145,9 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       $container->get('entity.repository'),
       $container->get('graphql.buffer.entity'),
       $container->get('graphql.buffer.entity_revision'),
-      $container->get('path.validator')
+      $container->get('path.validator'),
+      $container->get('request_stack'),
+      $container->get('language_manager')
     );
   }
 
@@ -154,7 +179,9 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     EntityRepositoryInterface $entityRepository,
     EntityBuffer $entityBuffer,
     EntityRevisionBuffer $entityRevisionBuffer,
-    PathValidatorInterface $pathValidator
+    PathValidatorInterface $pathValidator,
+    RequestStack $request_stack,
+    LanguageManagerInterface $language_manager
   ) {
     parent::__construct($configuration, $pluginId, $pluginDefinition);
     $this->entityTypeManager = $entityTypeManager;
@@ -162,6 +189,8 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     $this->entityBuffer = $entityBuffer;
     $this->entityRevisionBuffer = $entityRevisionBuffer;
     $this->pathValidator = $pathValidator;
+    $this->requestStack = $request_stack;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -177,6 +206,8 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
    * @param string|null $accessOperation
    * @param string|null $previewUserId
    * @param string|null $previewAccessToken
+   * @param bool|null $realTime
+   * @param bool|null $loadLatestRevision
    * @param \Drupal\graphql\GraphQL\Execution\FieldContext $context
    *
    * @return \GraphQL\Deferred
@@ -190,6 +221,8 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     ?bool $access,
     ?AccountInterface $accessUser,
     ?string $accessOperation,
+    ?bool $realTime,
+    ?bool $loadLatestRevision,
     // Preview user id is different from accessUser
     // we don't want to substitute the current user
     // but get data for a specific user and leave the access token
@@ -199,7 +232,21 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     FieldContext $context
   ) {
     if ($id[0] === '/') {
-      // We are dealing with a path. Attempt to resolve it to an entity.
+      // We are dealing with a path. Attempt to resolve it to an entity. And if
+      // the language is not defined, then we try to extract it from the path.
+      if (empty($language)) {
+        // In order to extract the language we basically just push a temporary
+        // request to the stack, reset the language negotiation and get the
+        // current language again, which will use the request at the top of the
+        // stack. At the end, we pop the temporary request from the stack and
+        // reste the language negotiation again.ss
+        $tmpRequest = Request::create($id);
+        $this->requestStack->push($tmpRequest);
+        $this->languageManager->reset();
+        $language = $this->languageManager->getCurrentLanguage()->getId();
+        $this->requestStack->pop();
+        $this->languageManager->reset();
+      }
       $url = $this->pathValidator->getUrlIfValidWithoutAccessCheck($id);
       if (!($url && $url->isRouted() && $url->access())) {
         $context->addCacheTags(['4xx-response']);
@@ -227,7 +274,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       ? $this->entityRevisionBuffer->add($type, $revisionId)
       : $this->entityBuffer->add($type, $id);
 
-    return new Deferred(function () use ($type, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $previewUserId, $previewAccessToken) {
+    return new Deferred(function () use ($type, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $realTime, $loadLatestRevision, $previewUserId, $previewAccessToken) {
       /** @var $entity \Drupal\Core\Entity\EntityInterface */
       if (!$entity = $resolver()) {
         // If there is no entity with this id, add the list cache tags so that
@@ -246,8 +293,19 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
         return NULL;
       }
 
-      // Get the correct translation.
-      if (isset($language) && $language !== $entity->language()->getId() && $entity instanceof TranslatableInterface) {
+
+      if ($loadLatestRevision) {
+        $activeEntityContext = [];
+        if (isset($language) && $language !== $entity->language()->getId()) {
+          $activeEntityContext['langcode'] = $language;
+        }
+        $entity = $this->entityRepository->getActive($type, $entity->id(), $activeEntityContext);
+      }
+      // If we are not interested in the latest revision, then we try to get the
+      // correct translation of the entity. When the latest revision is fetched,
+      // the proper language is already set into the context, so we do not need
+      // to request the translation separately.
+      elseif (isset($language) && $language !== $entity->language()->getId() && $entity instanceof TranslatableInterface) {
         if (!$entity->hasTranslation($language)) {
           return NULL;
         }
@@ -277,7 +335,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       }
 
       // Autosave: get autosaved values.
-      if (\Drupal::service('module_handler')->moduleExists('silverback_autosave')) {
+      if ($realTime && \Drupal::service('module_handler')->moduleExists('silverback_autosave')) {
         $context->mergeCacheMaxAge(0);
         // @todo Add DI to both.
         /** @var \Drupal\silverback_autosave\Storage\AutosaveEntityFormStorageInterface $autoSaveFormStorage */
