@@ -18,6 +18,8 @@ use Drupal\graphql_directives\Plugin\GraphQL\Directive\ArgumentTrait;
  *     "rid" = "String",
  *     "language" = "String",
  *     "operation" = "String",
+ *     "real_time" = "Boolean",
+ *     "load_latest_revision" = "Boolean",
  *     "preview_user_id" = "String",
  *     "preview_access_token" = "String"
  *   }
@@ -33,15 +35,21 @@ class EntityFetch extends PluginBase implements DirectiveInterface {
   public function buildResolver(ResolverBuilder $builder, array $arguments): ResolverInterface {
     $resolver = $builder->produce('fetch_entity')
       ->map('type', $this->argumentResolver($arguments['type'], $builder))
-      ->map('id', $this->argumentResolver($arguments['id'], $builder))
-      ->map('revision_id', $this->argumentResolver($arguments['rid'], $builder))
-      ->map('language', $this->argumentResolver($arguments['language'], $builder))
-      ->map('preview_user_id', $this->argumentResolver($arguments['preview_user_id'], $builder))
-      ->map('preview_access_token', $this->argumentResolver($arguments['preview_access_token'], $builder));
-    // If empty, delegate to access_operation default value
-    // from the fetch_entity data producer.
-    if (!empty($arguments['operation'])) {
-      $resolver->map('access_operation', $this->argumentResolver($arguments['operation'], $builder));
+      ->map('id', $this->argumentResolver($arguments['id'], $builder));
+
+    $argsMap = [
+      'revision_id' => 'rid',
+      'language' => 'language',
+      'preview_user_id' => 'preview_user_id',
+      'preview_access_token' => 'preview_access_token',
+      'real_time' => 'real_time',
+      'access_operation' => 'operation',
+      'load_latest_revision' => 'load_latest_revision'
+    ];
+    foreach($argsMap as $argParameter => $argField) {
+      if (isset($arguments[$argField])) {
+        $resolver->map($argParameter, $this->argumentResolver($arguments[$argField], $builder));
+      }
     }
     return $resolver;
   }
