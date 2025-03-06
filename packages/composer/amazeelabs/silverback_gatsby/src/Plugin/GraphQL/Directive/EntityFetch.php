@@ -19,9 +19,7 @@ use Drupal\graphql_directives\Plugin\GraphQL\Directive\ArgumentTrait;
  *     "language" = "String",
  *     "operation" = "String",
  *     "real_time" = "Boolean",
- *     "load_latest_revision" = "Boolean",
- *     "preview_user_id" = "String",
- *     "preview_access_token" = "String"
+ *     "load_latest_revision" = "Boolean"
  *   }
  * )
  */
@@ -40,8 +38,6 @@ class EntityFetch extends PluginBase implements DirectiveInterface {
     $argsMap = [
       'revision_id' => 'rid',
       'language' => 'language',
-      'preview_user_id' => 'preview_user_id',
-      'preview_access_token' => 'preview_access_token',
       'real_time' => 'real_time',
       'access_operation' => 'operation',
       'load_latest_revision' => 'load_latest_revision'

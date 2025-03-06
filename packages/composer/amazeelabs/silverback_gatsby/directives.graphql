@@ -43,8 +43,8 @@ directive @fetchEntity(
   rid: String
   language: String
   operation: String
-  preview_user_id: String
-  preview_access_token: String
+  real_time: Boolean
+  load_latest_revision: Boolean
 ) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
