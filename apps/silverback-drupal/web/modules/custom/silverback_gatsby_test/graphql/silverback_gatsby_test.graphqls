@@ -18,7 +18,6 @@ type Query {
   contentHub(locale: String!, args: String): ContentHubView
     @lang(code: "$locale")
     @drupalView(id: "content_hub:default", args: "$args")
-  previewGutenbergPage(path: String): GutenbergPage @fetchEntity(type: "node", id: "$path", load_latest_revision: true)
 }
 
 type ContentHubView {
