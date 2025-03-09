@@ -20,3 +20,13 @@ services:
   logger.channel.silverback_preview_link:
     parent: logger.channel_base
     arguments: ['silverback_preview_link']
+  silverback_preview_link.authentication.preview_token:
+    class: Drupal\silverback_preview_link\Authentication\Provider\PreviewToken
+    tags:
+      - {
+          name: authentication_provider,
+          provider_id: 'preview_token',
+          priority: 0,
+          global: TRUE,
+        }
+      - { name: 'event_subscriber' }

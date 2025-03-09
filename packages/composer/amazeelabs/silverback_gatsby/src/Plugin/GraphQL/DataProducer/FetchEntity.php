@@ -77,14 +77,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *       required = FALSE,
  *       default_value = FALSE
  *     ),
- *     "preview_user_id" = @ContextDefinition("string",
- *       label = @Translation("Get the live preview context for a given user id."),
- *       required = FALSE
- *     ),
- *     "preview_access_token" = @ContextDefinition("string",
-*        label = @Translation("Access token that authenticates the preview."),
-*        required = FALSE
- *      ),
  *   }
  * )
  */
@@ -204,8 +196,6 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
    * @param bool|null $access
    * @param \Drupal\Core\Session\AccountInterface|null $accessUser
    * @param string|null $accessOperation
-   * @param string|null $previewUserId
-   * @param string|null $previewAccessToken
    * @param bool|null $realTime
    * @param bool|null $loadLatestRevision
    * @param \Drupal\graphql\GraphQL\Execution\FieldContext $context
@@ -223,12 +213,6 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     ?string $accessOperation,
     ?bool $realTime,
     ?bool $loadLatestRevision,
-    // Preview user id is different from accessUser
-    // we don't want to substitute the current user
-    // but get data for a specific user and leave the access token
-    // handle the access operation to the entity.
-    ?string $previewUserId,
-    ?string $previewAccessToken,
     FieldContext $context
   ) {
     if ($id[0] === '/') {
@@ -274,7 +258,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       ? $this->entityRevisionBuffer->add($type, $revisionId)
       : $this->entityBuffer->add($type, $id);
 
-    return new Deferred(function () use ($type, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $realTime, $loadLatestRevision, $previewUserId, $previewAccessToken) {
+    return new Deferred(function () use ($type, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $realTime, $loadLatestRevision) {
       /** @var $entity \Drupal\Core\Entity\EntityInterface */
       if (!$entity = $resolver()) {
         // If there is no entity with this id, add the list cache tags so that
@@ -316,21 +300,11 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       // Check if the passed user (or current user if none is passed) has access
       // to the entity, if not return NULL.
       if ($access) {
-        if ($previewAccessToken) {
-          \Drupal::service('page_cache_kill_switch')->trigger();
-          $previewAccessChecker = \Drupal::service('access_check.silverback_preview_link');
-          $accessResult = $previewAccessChecker->access($entity, $previewAccessToken);
-          if (!$accessResult->isAllowed()) {
-            return NULL;
-          }
-        }
-        else {
-          /** @var \Drupal\Core\Access\AccessResultInterface $accessResult */
-          $accessResult = $entity->access($accessOperation, $accessUser, TRUE);
-          $context->addCacheableDependency($accessResult);
-          if (!$accessResult->isAllowed()) {
-            return NULL;
-          }
+        /** @var \Drupal\Core\Access\AccessResultInterface $accessResult */
+        $accessResult = $entity->access($accessOperation, $accessUser, TRUE);
+        $context->addCacheableDependency($accessResult);
+        if (!$accessResult->isAllowed()) {
+          return NULL;
         }
       }
 
@@ -342,9 +316,6 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
         $autoSaveFormStorage = \Drupal::service('silverback_autosave.entity_form_storage');
 
         $autosaveUserId = \Drupal::currentUser()->id();
-        if ($previewUserId) {
-          $autosaveUserId = $previewUserId;
-        }
 
         /**
          * This causes leaked metadata error.
