@@ -133,7 +133,7 @@ Fetch an entity or entity revision based on id, rid or route
 Provided by the "silverback_gatsby" module.
 Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetch".
 """
-directive @fetchEntity(type: String, id: String, rid: String, language: String, operation: String, real_time: Boolean, load_latest_revision: Boolean, preview_user_id: String, preview_access_token: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+directive @fetchEntity(type: String, id: String, rid: String, language: String, operation: String, real_time: Boolean, load_latest_revision: Boolean) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
 Load a given entity by it's path or type and id or uuid
