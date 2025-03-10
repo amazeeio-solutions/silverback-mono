@@ -7,10 +7,12 @@ namespace Drupal\silverback_preview_link\Entity;
 use Drupal\Component\Assertion\Inspector;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 
 /**
  * Defines the Silverback preview link entity class.
@@ -40,6 +42,19 @@ class SilverbackPreviewLink extends ContentEntityBase implements SilverbackPrevi
    * @var bool
    */
   protected $needsNewToken = FALSE;
+  /**
+   * {@inheritDoc}
+   */
+  public function postCreate(EntityStorageInterface $storage) {
+    parent::postCreate($storage);
+    // If there is a default preview user set, then we add that user to the list
+    // of entities attached to the link.
+    $config = \Drupal::config('silverback_preview_link.settings');
+    $default_preview_user = $config->get('default_preview_user');
+    if ($default_preview_user) {
+      $this->addEntity(User::load($default_preview_user));
+    }
+  }
 
   /**
    * {@inheritdoc}

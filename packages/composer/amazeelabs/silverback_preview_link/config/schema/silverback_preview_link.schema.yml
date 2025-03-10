@@ -12,3 +12,5 @@ silverback_preview_link.settings:
     multiple_entities:
       label: Whether Preview Links can reference multiple entities.
       type: boolean
+    default_preview_user:
+      type: integer

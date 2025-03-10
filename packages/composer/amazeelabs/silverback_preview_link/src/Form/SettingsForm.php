@@ -10,6 +10,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\silverback_preview_link\PreviewLinkUtility;
+use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -106,6 +107,15 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('expiry_seconds') ?: 604800,
       '#min' => 1,
     ];
+    $preview_user_id = $config->get('default_preview_user');
+    $form['default_preview_user'] = [
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'user',
+      '#default_value' => $preview_user_id ? User::load($preview_user_id) : NULL,
+      '#selection_settings' => ['include_anonymous' => FALSE],
+      '#title' => $this->t('Default preview user'),
+      '#description' => $this->t('Attach a default user to all the preview links. By choosing an user, when the preview link will be accessed, the request will be authenticated using that user.'),
+    ];
 
     return $form;
   }
@@ -118,6 +128,7 @@ class SettingsForm extends ConfigFormBase {
 
     $config->set('multiple_entities', $form_state->getValue('multiple_entities'));
     $config->set('expiry_seconds', $form_state->getValue('expiry_seconds'));
+    $config->set('default_preview_user', $form_state->getValue('default_preview_user'));
 
     $config->clear('enabled_entity_types');
     foreach (array_keys(array_filter($form_state->getValue('enabled_entity_types'))) as $enabledBundle) {
