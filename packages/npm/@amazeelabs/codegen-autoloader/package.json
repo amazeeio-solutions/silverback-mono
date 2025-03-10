@@ -19,7 +19,7 @@
     "@graphql-codegen/core": "4.0.2",
     "@internal/eslint-config": "workspace:*",
     "typescript": "5.7.3",
-    "vitest": "2.1.8"
+    "vitest": "3.0.5"
   },
   "dependencies": {
     "@graphql-codegen/plugin-helpers": "^5.1.0",

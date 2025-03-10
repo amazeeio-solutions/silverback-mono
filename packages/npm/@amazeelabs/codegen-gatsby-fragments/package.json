@@ -19,7 +19,7 @@
   "optionalDependencies": {
     "@graphql-codegen/plugin-helpers": "^5.1.0",
     "typescript": "^5.7.3",
-    "vitest": "^2.1.8"
+    "vitest": "^3.0.5"
   },
   "keywords": [],
   "author": "AmazeeLabs <development@amazeelabs.com>",

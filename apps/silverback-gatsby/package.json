@@ -26,13 +26,13 @@
     "gatsby-plugin-sharp": "5.14.0",
     "gatsby-transformer-sharp": "5.14.0",
     "html-react-parser": "5.2.2",
-    "netlify-cli": "17.38.1",
+    "netlify-cli": "18.0.4",
     "postcss-import": "16.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-intl": "6.8.9",
     "react-query": "3.39.3",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "4.0.5",
     "tmp": "0.2.3"
   },
   "devDependencies": {

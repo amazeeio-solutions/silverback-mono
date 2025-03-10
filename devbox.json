@@ -6,7 +6,7 @@
     "PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS": "true"
   },
   "packages": [
-    "nodejs@18.19.0",
+    "nodejs@23.7.0",
     "php@8.3",
     "php83Packages.composer@2",
     "php83Extensions.xdebug@3"

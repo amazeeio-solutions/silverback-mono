@@ -6,7 +6,7 @@
   "homepage": "https://silverback.netlify.app",
   "license": "GPL-2.0+",
   "require": {
-    "cloudinary/cloudinary_php": "^2"
+    "cloudinary/cloudinary_php": "^3"
   },
   "extra": {
     "drush": {
