@@ -1,8 +1,0 @@
-iframe_resizer:
-  js:
-    js/iframeResizer.contentWindow.min.js: { preprocess: false }
-    js/iframeCommand.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/drupalSettings

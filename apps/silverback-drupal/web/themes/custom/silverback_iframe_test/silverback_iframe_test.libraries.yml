@@ -1,5 +1,0 @@
-global:
-  js:
-    setBodyClass.js: {}
-  dependencies:
-    - core/jquery

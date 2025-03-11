@@ -32,8 +32,6 @@
     "amazeelabs/silverback_gatsby": "@dev",
     "amazeelabs/silverback_graphql_persisted": "@dev",
     "amazeelabs/silverback_gutenberg": "@dev",
-    "amazeelabs/silverback_iframe": "@dev",
-    "amazeelabs/silverback_iframe_theme": "@dev",
     "amazeelabs/silverback_preview_link": "@dev",
     "amazeelabs/silverback_translations": "@dev",
     "composer/installers": "2.3.0",

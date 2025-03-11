@@ -50,7 +50,6 @@ module:
   silverback_gatsby_test: 0
   silverback_graphql_persisted: 0
   silverback_gutenberg: 0
-  silverback_iframe: 0
   silverback_translations: 0
   simple_oauth: 0
   sqlite: 0
@@ -70,6 +69,4 @@ module:
   minimal: 1000
 theme:
   claro: 0
-  silverback_iframe_theme: 0
-  silverback_iframe_test: 0
 profile: minimal

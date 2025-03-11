@@ -6,6 +6,7 @@ settings:
   default_reset_button_label: Zurücksetzen
   default_delete_button_label: Löschen
   default_form_confidential_message: 'Dieses Formular ist vertraulich. Sie müssen sich <a href="[site:login-url]/logout?destination=[current-page:url:relative]">abmelden</a>, um es abzuschicken.'
+  default_form_access_denied_message: 'Bitte melden Sie sich an, um auf dieses Formular zuzugreifen.'
   default_form_required_label: 'Kennzeichnet ein Pflichtfeld'
   default_wizard_prev_button_label: '< Zurück'
   default_wizard_next_button_label: 'Nächstes >'
@@ -26,6 +27,7 @@ settings:
   default_confirmation_message: 'Neue Eingabe zu [webform:title] hinzugefügt.'
   default_confirmation_back_label: 'Zurück zum Formular'
   default_submission_label: '[webform_submission:submitted-to]: Eingabe #[webform_submission:serial]'
+  default_submission_access_denied_message: 'Bitte melden Sie sich an, um auf diese Einsendung zuzugreifen.'
   default_submission_exception_message: 'Diese Eingabe kann nicht bearbeitet werden. Bitte kontaktieren Sie den Administrator der Website.'
   default_submission_locked_message: 'Diese Eingabe wurde gesperrt.'
   default_previous_submission_message: 'Sie haben dieses Webformular bereits abgeschickt. <a href="#">Sehen Sie sich Ihre vorherige Eingabe an</a>.'
@@ -44,6 +46,8 @@ element:
   empty_message: '{Leer}'
   default_more_title: Zusätzlich
   default_section_title_tag: h2
+file:
+  file_private_redirect_message: 'Bitte melden Sie sich an, um auf die hochgeladene Datei zuzugreifen.'
 mail:
   default_from_name: '[site:name]'
   default_subject: 'Webformulareingabe von: [webform_submission:source-title]'

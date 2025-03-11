@@ -1,9 +1,0 @@
-silverback_iframe.settings:
-  type: config_object
-  label: 'Silverback Iframe settings'
-  mapping:
-    limit_webform_confirmation_options:
-      type: boolean
-      label:
-        'Indicates whether to limit the Webform confirmation options to only
-        supported ones.'

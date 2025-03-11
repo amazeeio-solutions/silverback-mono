@@ -24,7 +24,6 @@ display:
         tid:
           exception:
             title: Tout
-          title: '{{ arguments.tid }}'
   feed_1:
     display_title: Flux
   page_1:

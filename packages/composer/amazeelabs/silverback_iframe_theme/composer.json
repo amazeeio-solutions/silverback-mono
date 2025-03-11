@@ -1,8 +1,0 @@
-{
-  "name": "amazeelabs/silverback_iframe_theme",
-  "type": "drupal-theme",
-  "version": "1.4.3",
-  "description": "Theme for amazeelabs/silverback_iframe module.",
-  "homepage": "https://github.com/AmazeeLabs/silverback-mono/tree/development/packages/composer/amazeelabs/silverback_iframe_theme#readme",
-  "license": "GPL-2.0+"
-}

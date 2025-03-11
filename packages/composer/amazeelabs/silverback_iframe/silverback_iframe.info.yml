@@ -1,5 +1,0 @@
-name: Silverback Iframe
-description: Provides a way for displaying Drupal content/forms in iframes.
-type: module
-package: Silverback
-core_version_requirement: ^8 || ^9 || ^10 || ^11

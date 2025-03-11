@@ -19,9 +19,6 @@ display:
           label: Rôles
         created:
           label: 'Membre depuis'
-          settings:
-            future_format: '@interval'
-            past_format: '@interval'
         access:
           label: 'Dernier accès'
           settings:
