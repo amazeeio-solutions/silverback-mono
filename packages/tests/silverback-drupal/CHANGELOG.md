@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.164](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-drupal-tests@1.1.163...@-amazeelabs/silverback-drupal-tests@1.1.164) (2025-03-11)
+
+
+### Bug Fixes
+
+* reset drupal state after tests ([190c049](https://github.com/AmazeeLabs/silverback-mono/commit/190c049fa8aa09baefe174fb128e3b90d9ba92d5))
+
+
+
+
+
 ## [1.1.163](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-drupal-tests@1.1.162...@-amazeelabs/silverback-drupal-tests@1.1.163) (2025-03-09)
 
 **Note:** Version bump only for package @-amazeelabs/silverback-drupal-tests
