@@ -11,6 +11,9 @@ test.beforeAll(async () => {
   await resetDrupalState();
   await waitForGatsby();
 });
+test.afterAll(async () => {
+  await resetDrupalState();
+});
 
 test('references', async ({ page }) => {
   // Check the tag present on the page.
