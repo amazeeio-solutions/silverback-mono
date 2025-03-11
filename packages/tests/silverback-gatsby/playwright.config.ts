@@ -5,13 +5,13 @@ export const config: PlaywrightTestConfig = {
   webServer: [
     {
       command:
-        'pnpm run --filter "@-amazeelabs/silverback-drupal" start > /tmp/drupal.log 2>&1',
+        'pnpm run --filter "@-amazeelabs/silverback-drupal" start >> /tmp/drupal.log 2>&1',
       port: 8888,
       reuseExistingServer: !process.env.CI,
     },
     {
       command:
-        'pnpm run --filter "@-amazeelabs/silverback-gatsby" start > /tmp/gatsby.log 2>&1',
+        'pnpm run --filter "@-amazeelabs/silverback-gatsby" start >> /tmp/gatsby.log 2>&1',
       port: 8000,
       reuseExistingServer: !process.env.CI,
     },
