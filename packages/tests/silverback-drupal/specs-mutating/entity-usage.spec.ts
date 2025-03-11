@@ -8,6 +8,9 @@ import { expect, test } from '@playwright/test';
 test.beforeAll(async () => {
   await resetDrupalState();
 });
+test.afterAll(async () => {
+  await resetDrupalState();
+});
 
 test('test gutenberg media entity usage', async ({ page }) => {
   await drupalLogin(page);

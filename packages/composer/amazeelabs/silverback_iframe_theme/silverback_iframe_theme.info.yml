@@ -1,9 +1,0 @@
-name: Silverback Iframe Theme
-type: theme
-base theme: false
-description: 'Theme for amazeelabs/silverback_iframe module.'
-package: Silverback
-core_version_requirement: ^9 || ^10 || ^11
-
-regions:
-  content: Content

@@ -3,7 +3,8 @@ import { expect, test } from '@playwright/test';
 
 import { getIframe } from '../../silverback-drupal/common';
 
-test('injected CSS styles', async ({ page }) => {
+// TODO: Move to silverback-template.
+test.skip('injected CSS styles', async ({ page }) => {
   // Check if it isn't green by default.
   await page.goto(`${gatsby.baseUrl}/en/form/for-testing-confirmation-options`);
   await expect((await getIframe(page)).locator('h1')).not.toHaveCSS(

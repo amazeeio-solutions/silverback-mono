@@ -78,7 +78,6 @@ display:
             alt: 'Supprimer {{ name }}'
           text: Supprimer
   widget:
-    display_title: Widget
     display_options:
       arguments:
         bundle:

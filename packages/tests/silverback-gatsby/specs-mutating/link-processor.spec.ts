@@ -13,6 +13,9 @@ test.beforeAll(async () => {
   await resetDrupalState();
   await waitForGatsby();
 });
+test.afterAll(async () => {
+  await resetDrupalState();
+});
 
 test('test LinkProcessor', async ({ page }) => {
   const selectFirstAutocompleteResult = async () =>

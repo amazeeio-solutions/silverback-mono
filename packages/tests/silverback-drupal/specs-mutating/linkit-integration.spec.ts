@@ -9,6 +9,9 @@ import { platform } from 'os';
 test.beforeAll(async () => {
   await resetDrupalState();
 });
+test.afterAll(async () => {
+  await resetDrupalState();
+});
 
 test('linkit content sorting', async ({ page }) => {
   await drupalLogin(page);

@@ -20,7 +20,7 @@
     "test:integration": "pnpm test:integration:all --since",
     "test:integration:all": "pnpm lerna run test:integration --stream --concurrency=1 --ignore '@-amazeelabs/example-tests'",
     "git-registry": "pnpm verdaccio -l 127.0.0.1:4873 -c config.yml",
-    "git-registry:with-logs": "pnpm verdaccio -l 127.0.0.1:4873 -c config.yml > /tmp/verdaccio.log 2>&1",
+    "git-registry:with-logs": "pnpm verdaccio -l 127.0.0.1:4873 -c config.yml >> /tmp/verdaccio.log 2>&1",
     "kill-php-deps": "pnpm -r --shell-mode exec 'for DIR in ls node_modules/@-*; do rm -rf $DIR; done' # Remove internal PHP dependencies from node_modules. Otherwise Drupal tests are either failing or running crazy slow.",
     "prepare": "pnpm kill-php-deps",
     "postinstall": "husky install"

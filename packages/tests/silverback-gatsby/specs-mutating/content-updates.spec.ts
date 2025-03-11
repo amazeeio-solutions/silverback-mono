@@ -11,6 +11,9 @@ test.beforeAll(async () => {
   await resetDrupalState();
   await waitForGatsby();
 });
+test.afterAll(async () => {
+  await resetDrupalState();
+});
 
 test('basic updates', async ({ page }) => {
   const title = 'Test update';

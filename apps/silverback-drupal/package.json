@@ -7,7 +7,7 @@
     "build": "composer install && SB_SETUP=1 pnpm run setup && pnpm snapshot-create && pnpm schema:export && pnpm prepare:directives",
     "prepare:directives": "rm -f web/modules/custom/silverback_gatsby_test/graphql/directives.graphqls && pnpm drush graphql:directives > web/modules/custom/silverback_gatsby_test/graphql/directives.graphqls",
     "start": "cd web && SB_ENVIRONMENT=development SIMPLETEST_DB=sqlite://localhost/sites/default/files/.sqlite DRUSH_OPTIONS_URI=http://127.0.0.1:8888 php -S 127.0.0.1:8888 .ht.router.php",
-    "start:silent": "pnpm start > /tmp/drupal.log 2>&1",
+    "start:silent": "pnpm start >> /tmp/drupal.log 2>&1",
     "drush": "SB_ENVIRONMENT=development DRUSH_OPTIONS_URI=http://127.0.0.1:8888 SIMPLETEST_DB=sqlite://localhost/sites/default/files/.sqlite vendor/bin/drush",
     "silverback": "SB_ENVIRONMENT=development DRUSH_OPTIONS_URI=http://127.0.0.1:8888 SIMPLETEST_DB=sqlite://localhost/sites/default/files/.sqlite SB_ADMIN_USER=admin SB_ADMIN_PASS=admin vendor/bin/silverback",
     "login": "pnpm drush uli",
@@ -25,8 +25,6 @@
     "@-amazeelabs/silverback-cli": "workspace:*",
     "@-amazeelabs/silverback_gatsby": "workspace:*",
     "@-amazeelabs/silverback_gutenberg": "workspace:*",
-    "@-amazeelabs/silverback_iframe": "workspace:*",
-    "@-amazeelabs/silverback_iframe_theme": "workspace:*",
     "@-silverback-drupal/gutenberg_custom_blocks": "workspace:*"
   }
 }
