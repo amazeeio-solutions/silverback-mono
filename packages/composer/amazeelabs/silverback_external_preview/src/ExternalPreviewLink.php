@@ -149,21 +149,21 @@ class ExternalPreviewLink {
    * @return \Drupal\Core\Url|null
    */
   public function createPreviewUrlFromEntity(ContentEntityInterface $entity, $external_url_type = 'preview') {
-    if ($this->isUnpublished($entity)) {
-      return $this->getUnpublishedPreviewUrl($entity);
-    }
-    elseif ($this->isNodeRevisionRoute()) {
+    if ($this->isNodeRevisionRoute()) {
       return $this->getRevisionPreviewUrl($entity);
+    }
+    elseif ($this->isUnpublished($entity)) {
+      return $this->getUnpublishedPreviewUrl($entity);
     }
     else {
       try {
         $path = $entity->toUrl('canonical')->toString(TRUE)->getGeneratedUrl();
-        $base_url = $external_url_type === 'preview' ? $this->getPreviewBaseUrl() . '/__preview/' . $entity->bundle() : $this->getLiveBaseUrl() . $path;
+        $base_url = ($external_url_type === 'preview' ? $this->getPreviewBaseUrl() : $this->getLiveBaseUrl()) . $path;
         $url_object = Url::fromUri($base_url, $this->getUrlOptions($external_url_type, $entity));
         // Allow for altering the url object via a hook.
         $this->moduleHandler->alter('silverback_external_preview_entity_url', $entity, $url_object);
         return $url_object;
-      } catch (UndefinedLinkTemplateException|EntityMalformedException $e) {
+      } catch (UndefinedLinkTemplateException | EntityMalformedException $e) {
         return NULL;
       }
     }
@@ -174,12 +174,7 @@ class ExternalPreviewLink {
   }
 
   private function getUnpublishedPreviewUrl(ContentEntityInterface $entity) {
-    return Url::fromUri(
-      $this->buildEntityPreviewUri($entity),
-      [
-        'query' => $this->buildPreviewQuery($entity)
-      ]
-    );
+    return Url::fromUri($this->buildEntityPreviewUri($entity));
   }
 
   public function isNodeRevisionRoute() {
@@ -228,10 +223,8 @@ class ExternalPreviewLink {
   }
 
   private function buildEntityPreviewUri(ContentEntityInterface $entity) {
-    //all preview displays should go to [external_preview_host]/__preview/[bundle machine name]?nid=1&rid=1&lang=en
-    $uri_parts = [ $this->getPreviewBaseUrl() ];
-    $uri_parts[] = '__preview';
-    $uri_parts[] = $entity->bundle();
+    $uri_parts = [$this->getPreviewBaseUrl()];
+    $uri_parts[] = ltrim($entity->toUrl('canonical')->toString(), '/');
     return implode('/', $uri_parts);
   }
 
@@ -245,9 +238,7 @@ class ExternalPreviewLink {
 
   private function buildPreviewQuery(ContentEntityInterface $entity, $revision_id = NULL) {
     return [
-      'nid' => $entity->id(),
       'rid' => $revision_id ?? $entity->getRevisionId(),
-      'lang' => $entity instanceof ContentEntityInterface && $entity->isTranslatable() ? $entity->language()->getId() : $this->languageManager->getCurrentLanguage()->getId(),
     ];
   }
 
