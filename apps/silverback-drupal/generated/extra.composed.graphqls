@@ -128,12 +128,12 @@ Implemented in "Drupal\graphql_directives\Plugin\GraphQL\Directive\DrupalView".
 directive @drupalView(id: String!, args: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
-Fetch an entity or entity revision based on path and optionally a revision id
+Fetch an entity or entity revision based on id, rid or route
 
 Provided by the "silverback_gatsby" module.
-Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetchByPath".
+Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetch".
 """
-directive @fetchEntityByPath(type: String, path: String, rid: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+directive @fetchEntity(type: String, id: String, rid: String, language: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
 Load a given entity by it's path or type and id or uuid

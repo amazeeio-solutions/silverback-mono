@@ -136,14 +136,6 @@ Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetch".
 directive @fetchEntity(type: String, id: String, rid: String, language: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
-Fetch an entity or entity revision based on id, rid or route
-
-Provided by the "silverback_gatsby" module.
-Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetchByPath".
-"""
-directive @fetchEntityByPath(type: String, path: String, rid: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
-
-"""
 Load a given entity by it's path or type and id or uuid
 
 Provided by the "graphql_directives" module.
@@ -341,7 +333,7 @@ type Query {
   autoloadStatic: String @autoloadStatic
   autoloadService: String @autoloadService
   contentHub(locale: String!, args: String): ContentHubView @lang(code: "$locale") @drupalView(id: "content_hub:default", args: "$args")
-  previewByPath(path: String!, rid: String): GutenbergPage @fetchEntityByPath(type: "node", path: "$path", rid: "$rid")
+  previewGutenbergPage(path: String!, rid: String): GutenbergPage @fetchEntity(type: "node", id: "$path", rid: "$rid")
 }
 
 type ContentHubView {
@@ -730,14 +722,6 @@ Provided by the "silverback_gatsby" module.
 Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetch".
 """
 directive @fetchEntity(type: String, id: String, rid: String, language: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
-
-"""
-Fetch an entity or entity revision based on path.
-
-Provided by the "silverback_gatsby" module.
-Implemented in "Drupal\silverback_gatsby\Plugin\GraphQL\Directive\EntityFetchByPath".
-"""
-directive @fetchEntityByPath(type: String, path: String, rid: String, operation: String) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """
 Retrieve the properties of an image.
