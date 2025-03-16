@@ -285,6 +285,11 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
         if (!empty($additionalCacheContexts)) {
           $entity->addCacheContexts($additionalCacheContexts);
         }
+        // If the language of the found revision does not match the requested
+        // language, then we just return NULL.
+        if (isset($language) && $language !== $entity->language()->getId()) {
+          return NULL;
+        }
       }
       // If we are not interested in the latest revision, then we try to get the
       // correct translation of the entity. When the latest revision is fetched,
