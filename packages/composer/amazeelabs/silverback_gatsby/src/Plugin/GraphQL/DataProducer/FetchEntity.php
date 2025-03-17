@@ -67,16 +67,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *       required = FALSE,
  *       default_value = "view"
  *     ),
- *     "real_time" = @ContextDefinition("boolean",
- *       label = @Translation("Real time using the autosave feature"),
- *       required = FALSE,
- *       default_value = FALSE
- *     ),
- *     "load_latest_revision" = @ContextDefinition("boolean",
- *       label = @Translation("Loads the latest revision of the entity"),
- *       required = FALSE,
- *       default_value = FALSE
- *     ),
  *   }
  * )
  */
@@ -196,8 +186,6 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
    * @param bool|null $access
    * @param \Drupal\Core\Session\AccountInterface|null $accessUser
    * @param string|null $accessOperation
-   * @param bool|null $realTime
-   * @param bool|null $loadLatestRevision
    * @param \Drupal\graphql\GraphQL\Execution\FieldContext $context
    *
    * @return \GraphQL\Deferred
@@ -211,8 +199,6 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     ?bool $access,
     ?AccountInterface $accessUser,
     ?string $accessOperation,
-    ?bool $realTime,
-    ?bool $loadLatestRevision,
     FieldContext $context
   ) {
     if ($id[0] === '/') {
@@ -258,7 +244,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       ? $this->entityRevisionBuffer->add($type, $revisionId)
       : $this->entityBuffer->add($type, $id);
 
-    return new Deferred(function () use ($type, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $realTime, $loadLatestRevision) {
+    return new Deferred(function () use ($type, $id, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation) {
       /** @var $entity \Drupal\Core\Entity\EntityInterface */
       if (!$entity = $resolver()) {
         // If there is no entity with this id, add the list cache tags so that
@@ -272,18 +258,38 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       }
 
       $context->addCacheableDependency($entity);
+
+      // Make sure that the loaded entity has the exact same id as the one which
+      // was computed from the route. It maybe be that a wrong revision was sent
+      // as parameter. In that case, return NULL.
+      if ($entity->id() !== $id) {
+        return NULL;
+      }
+
       if (isset($bundles) && !in_array($entity->bundle(), $bundles)) {
         // If the entity is not among the allowed bundles, don't return it.
         return NULL;
       }
 
 
-      if ($loadLatestRevision) {
+      // If we did not request a specific revision, then we just load the most
+      // up to date one (the latest/active revision).
+      if (empty($revisionId)) {
         $activeEntityContext = [];
+        $additionalCacheContexts = [];
         if (isset($language) && $language !== $entity->language()->getId()) {
           $activeEntityContext['langcode'] = $language;
+          $additionalCacheContexts[] = "static:language:{$language}";
         }
         $entity = $this->entityRepository->getActive($type, $entity->id(), $activeEntityContext);
+        if (!empty($additionalCacheContexts)) {
+          $entity->addCacheContexts($additionalCacheContexts);
+        }
+        // If the language of the found revision does not match the requested
+        // language, then we just return NULL.
+        if (isset($language) && $language !== $entity->language()->getId()) {
+          return NULL;
+        }
       }
       // If we are not interested in the latest revision, then we try to get the
       // correct translation of the entity. When the latest revision is fetched,
@@ -308,13 +314,18 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
         }
       }
 
+      // If a specific revision was requested, we show that one and do not check
+      // further for autosaved values.
+      if (!empty($revisionId)) {
+        return $entity;
+      }
+
       // Autosave: get autosaved values.
-      if ($realTime && \Drupal::service('module_handler')->moduleExists('silverback_autosave')) {
+      if (\Drupal::service('module_handler')->moduleExists('silverback_autosave')) {
         $context->mergeCacheMaxAge(0);
         // @todo Add DI to both.
         /** @var \Drupal\silverback_autosave\Storage\AutosaveEntityFormStorageInterface $autoSaveFormStorage */
         $autoSaveFormStorage = \Drupal::service('silverback_autosave.entity_form_storage');
-
         $autosaveUserId = \Drupal::currentUser()->id();
 
         /**
