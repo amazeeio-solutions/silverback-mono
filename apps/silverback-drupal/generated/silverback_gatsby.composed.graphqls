@@ -333,7 +333,6 @@ type Query {
   autoloadStatic: String @autoloadStatic
   autoloadService: String @autoloadService
   contentHub(locale: String!, args: String): ContentHubView @lang(code: "$locale") @drupalView(id: "content_hub:default", args: "$args")
-  previewGutenbergPage(path: String!, rid: String): GutenbergPage @fetchEntity(type: "node", id: "$path", rid: "$rid")
 }
 
 type ContentHubView {
