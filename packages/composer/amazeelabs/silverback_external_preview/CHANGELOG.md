@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_external_preview@2.0.8...@-amazeelabs/silverback_external_preview@3.0.0) (2025-03-17)
+
+
+* chore!: replace the __preview route with the node canonical path which can be used with the entity_fetch_by_path directive ([b5e757d](https://github.com/AmazeeLabs/silverback-mono/commit/b5e757dba0c000083cf006464c9a06558086209a))
+
+
+### BREAKING CHANGES
+
+* the preview routes should now just use the canonical path of an entity
+
+
+
+
+
 ## [2.0.8](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_external_preview@2.0.7...@-amazeelabs/silverback_external_preview@2.0.8) (2025-01-17)
 
 

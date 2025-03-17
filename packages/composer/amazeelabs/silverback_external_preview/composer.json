@@ -1,7 +1,7 @@
 {
   "name": "amazeelabs/silverback_external_preview",
   "type": "drupal-module",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "description": "Provides a UI to preview pages (published and draft) on external websites - usually a Gatsby or NextJS frontend.",
   "homepage": "https://github.com/AmazeeLabs/silverback-mono/tree/development/packages/composer/amazeelabs/silverback_external_preview#readme",
   "license": "GPL-2.0+"
