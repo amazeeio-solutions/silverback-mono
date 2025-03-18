@@ -128,7 +128,6 @@ final class PreviewLinkForm extends ContentEntityForm {
       $externalPreviewLink = \Drupal::service('silverback_external_preview.external_preview_link');
       $externalPreviewUrl = $externalPreviewLink->createPreviewUrlFromEntity($host);
       $query = $externalPreviewUrl->getOption('query') ?? [];
-      $query['preview_user_id'] = $this->currentUser()->id();
       $query['preview_access_token'] = $silverbackPreviewLink->getToken();
       $externalPreviewUrl->setOption('query', $query);
       $externalPreviewUrlString = $externalPreviewUrl->setAbsolute()->toString();
