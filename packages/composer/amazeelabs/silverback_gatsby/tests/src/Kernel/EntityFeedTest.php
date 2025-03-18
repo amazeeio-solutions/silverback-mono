@@ -91,7 +91,7 @@ class EntityFeedTest extends EntityFeedTestBase {
 
     $query = $this->getQueryFromFile('translatable.gql');
     $metadata = $this->defaultCacheMetaData();
-    $metadata->addCacheContexts(['user.node_grants:view']);
+    $metadata->addCacheContexts(['user.node_grants:view', 'static:language:zxx']);
     $metadata->addCacheTags(['node:1', 'node_list']);
     $this->assertResults($query, ['id' => '1:zxx'], [
       '_loadPage' => [
@@ -123,7 +123,7 @@ class EntityFeedTest extends EntityFeedTestBase {
 
     $query = $this->getQueryFromFile('translatable.gql');
     $metadata = $this->defaultCacheMetaData();
-    $metadata->addCacheContexts(['user.node_grants:view']);
+    $metadata->addCacheContexts(['user.node_grants:view', 'static:language:und']);
     $metadata->addCacheTags(['node:1', 'node_list']);
     $this->assertResults($query, ['id' => '1:und'], [
       '_loadPage' => [
@@ -431,6 +431,7 @@ class EntityFeedTest extends EntityFeedTestBase {
     $node->save();
     $metadata = $this->defaultCacheMetaData();
     $metadata->addCacheTags(['node:1']);
+    $metadata->addCacheContexts(['static:language:en']);
     $query = $this->getQueryFromFile('load-entity.gql');
     $this->assertResults($query, ['input' => '1:en'], [
       '_loadPage' => [
@@ -447,6 +448,7 @@ class EntityFeedTest extends EntityFeedTestBase {
     $node->save();
     $metadata = $this->defaultCacheMetaData();
     $metadata->addCacheTags(['node:1']);
+    $metadata->addCacheContexts(['static:language:en']);
     $query = $this->getQueryFromFile('load-entity.gql');
     $this->assertResults($query, ['input' => $node->uuid() . ':en'], [
       '_loadPage' => [
@@ -463,6 +465,7 @@ class EntityFeedTest extends EntityFeedTestBase {
     $node->save();
     $metadata = $this->defaultCacheMetaData();
     $metadata->addCacheTags(['node:1']);
+    $metadata->addCacheContexts(['static:language:en']);
     $query = $this->getQueryFromFile('load-entity.gql');
     $this->assertResults($query, ['input' => '/node/1:en'], [
       '_loadPage' => [
@@ -480,6 +483,7 @@ class EntityFeedTest extends EntityFeedTestBase {
     $this->createPathAlias('/node/1', '/test');
     $metadata = $this->defaultCacheMetaData();
     $metadata->addCacheTags(['node:1']);
+    $metadata->addCacheContexts(['static:language:en']);
     $query = $this->getQueryFromFile('load-entity.gql');
     $this->assertResults($query, ['input' => '/test:en'], [
       '_loadPage' => [
