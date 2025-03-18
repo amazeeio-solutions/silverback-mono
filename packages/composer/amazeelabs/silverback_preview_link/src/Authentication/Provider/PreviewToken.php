@@ -79,9 +79,9 @@ class PreviewToken implements AuthenticationProviderInterface, EventSubscriberIn
    * @return bool|float|int|string|null
    */
   protected function getPreviewTokenFromRequest(Request $request) {
-    $previewToken = $request->query->get('preview_user_token');
+    $previewToken = $request->query->get('preview_access_token');
     if (empty($previewToken)) {
-      $previewToken = $request->cookies->get('preview_user_token');
+      $previewToken = $request->cookies->get('preview_access_token');
     }
     return $previewToken;
   }
@@ -131,7 +131,7 @@ class PreviewToken implements AuthenticationProviderInterface, EventSubscriberIn
       $response = $event->getResponse();
       $previewLinkLifetimeSetting = $this->previewLinkExpiry->getLifetime();
       $cookieExpiry = $previewLinkLifetimeSetting > 0 ? $previewLinkLifetimeSetting . ' seconds' : 0;
-      $response->headers->setCookie(new Cookie('preview_user_token', $previewToken, $cookieExpiry, '/', NULL, TRUE, TRUE, FALSE, 'Strict'));
+      $response->headers->setCookie(new Cookie('preview_access_token', $previewToken, $cookieExpiry, '/', NULL, TRUE, TRUE, FALSE, 'Strict'));
     }
   }
 
