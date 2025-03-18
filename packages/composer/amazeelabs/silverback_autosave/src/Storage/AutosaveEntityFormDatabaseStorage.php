@@ -109,7 +109,6 @@ class AutosaveEntityFormDatabaseStorage implements AutosaveEntityFormStorageInte
             'entity_type_id' => $entity_type_id,
             'entity_id' => $entity_id,
             'langcode' => $langcode,
-            'preview_user_id' => $uid,
           ],
         ]);
       } catch (GuzzleException $exc) {
