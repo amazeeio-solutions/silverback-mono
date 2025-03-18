@@ -277,7 +277,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       if (empty($revisionId)) {
         $activeEntityContext = [];
         $additionalCacheContexts = [];
-        if (isset($language) && $language !== $entity->language()->getId()) {
+        if (isset($language)) {
           $activeEntityContext['langcode'] = $language;
           $additionalCacheContexts[] = "static:language:{$language}";
         }
