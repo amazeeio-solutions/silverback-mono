@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "test:unit:all",
+      "type": "shell",
+      "command": "devbox run 'pnpm test:unit:all'"
+    },
+    {
+      "label": "test:static:all",
+      "type": "shell",
+      "command": "devbox run 'pnpm test:static:all'"
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "devbox run 'pnpm build'"
+    },
+    {
+      "label": "pnpm install",
+      "type": "shell",
+      "command": "devbox run 'pnpm i'"
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "devbox run clean"
+    }
+  ]
+}
