@@ -1,6 +1,7 @@
 import { ApplicationState } from '@amazeelabs/publisher-shared';
 import { BehaviorSubject, Subject } from 'rxjs';
 
+import { getConfigGithubWorkflow as config } from '../tools/config';
 import { Core } from '../tools/core';
 import { OutputSubject } from '../tools/output';
 import { Queue } from '../tools/queue';
@@ -21,6 +22,9 @@ class CoreGithubWorkflow implements Core {
   queue = new Queue();
 
   start = () => {
+    if (config().cleanBuildOnStart) {
+      this.queue.add({ job: buildTask({ clean: true }) });
+    }
     this.queue.run();
   };
 

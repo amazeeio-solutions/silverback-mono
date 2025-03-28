@@ -214,6 +214,19 @@ export type PublisherConfigGithubWorkflow = PublisherConfigBase & {
    * Example: 1000 * 60 * 30
    */
   workflowTimeout: number;
+  /**
+   * If true, a clean build will be triggered right after the application is
+   * started.
+   *
+   * Default: false
+   *
+   * This option is not recommended. It is better to trigger a clean build
+   * from the outside with a POST request. E.g. as a Drupal post-rollout task.
+   * Example: curl -X POST "$PUBLISHER_URL/___status/clean"
+   * However, this option can be used on the setups where Publisher and Drupal
+   * deployments aren't synchronized and finish at different times.
+   */
+  cleanBuildOnStart?: boolean;
 };
 
 export type PublisherConfig =
