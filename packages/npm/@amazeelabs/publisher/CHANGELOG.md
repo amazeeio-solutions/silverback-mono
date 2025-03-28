@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.5.10...@amazeelabs/publisher@2.6.0) (2025-03-28)
+
+
+### Features
+
+* add cleanBuildOnStart option ([693be94](https://github.com/AmazeeLabs/silverback-mono/commit/693be946292b6d99dac4191bd91f7fccc8c555e0))
+
+
+
+
+
 ## [2.5.10](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.5.9...@amazeelabs/publisher@2.5.10) (2025-01-30)
 
 **Note:** Version bump only for package @amazeelabs/publisher
