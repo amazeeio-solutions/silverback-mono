@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.4](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/graphql_directives@2.6.3...@-amazeelabs/graphql_directives@2.6.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* extracting label option from object ([8fb92b2](https://github.com/AmazeeLabs/silverback-mono/commit/8fb92b2ab3c8f93e7f23bc6b853d2ec61f77eac0))
+
+
+
+
+
 ## [2.6.3](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/graphql_directives@2.6.2...@-amazeelabs/graphql_directives@2.6.3) (2025-02-27)
 
 **Note:** Version bump only for package @-amazeelabs/graphql_directives
