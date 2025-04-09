@@ -29,4 +29,3 @@ services:
           priority: 0,
           global: TRUE,
         }
-      - { name: 'event_subscriber' }
