@@ -7,16 +7,12 @@ use Drupal\Core\PageCache\ResponsePolicy\KillSwitch;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\silverback_preview_link\PreviewLinkExpiry;
 use Drupal\silverback_preview_link\PreviewLinkStorageInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Authentication provider based on a token from a preview link.
  */
-class PreviewToken implements AuthenticationProviderInterface, EventSubscriberInterface {
+class PreviewToken implements AuthenticationProviderInterface {
 
   /**
    * The preview link storage service.
@@ -72,18 +68,14 @@ class PreviewToken implements AuthenticationProviderInterface, EventSubscriberIn
   }
 
   /**
-   * Returns a preview token from the request. The preview token could appear in
-   * the query parameter or in the cookie.
+   * Returns a preview token from the request (the preview_access_token query
+   * parameter).
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
    * @return bool|float|int|string|null
    */
   protected function getPreviewTokenFromRequest(Request $request) {
-    $previewToken = $request->query->get('preview_access_token');
-    if (empty($previewToken)) {
-      $previewToken = $request->cookies->get('preview_access_token');
-    }
-    return $previewToken;
+    return $request->query->get('preview_access_token');
   }
 
   /**
@@ -123,28 +115,4 @@ class PreviewToken implements AuthenticationProviderInterface, EventSubscriberIn
     }
     return $referencedUser;
   }
-
-  public function storeTokenInCookies(ResponseEvent $event) {
-    $request = $event->getRequest();
-    $previewToken = $this->getPreviewTokenFromRequest($request);
-    if (!empty($previewToken)) {
-      $response = $event->getResponse();
-      $previewLinkLifetimeSetting = $this->previewLinkExpiry->getLifetime();
-      $cookieExpiry = $previewLinkLifetimeSetting > 0 ? $previewLinkLifetimeSetting . ' seconds' : 0;
-      $response->headers->setCookie(new Cookie('preview_access_token', $previewToken, $cookieExpiry, '/', NULL, TRUE, TRUE, FALSE, 'Strict'));
-    }
-  }
-
-  /**
-   * Registers the methods in this class that should be listeners.
-   *
-   * @return array
-   *   An array of event listener definitions.
-   */
-  public static function getSubscribedEvents(): array {
-    return [
-      KernelEvents::RESPONSE => 'storeTokenInCookies',
-    ];
-  }
-
 }
