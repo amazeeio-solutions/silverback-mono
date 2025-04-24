@@ -43,6 +43,7 @@ directive @fetchEntity(
   rid: String
   language: String
   operation: String
+  loadLatestRevision: Boolean
 ) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
 
 """

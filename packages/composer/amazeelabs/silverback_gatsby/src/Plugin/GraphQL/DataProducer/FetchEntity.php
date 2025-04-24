@@ -67,6 +67,11 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *       required = FALSE,
  *       default_value = "view"
  *     ),
+ *     "load_latest_revision" = @ContextDefinition("boolean",
+ *       label = @Translation("Load latest revision"),
+ *       required = FALSE,
+ *       default_value = FALSE
+ *     ),
  *   }
  * )
  */
@@ -186,6 +191,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
    * @param bool|null $access
    * @param \Drupal\Core\Session\AccountInterface|null $accessUser
    * @param string|null $accessOperation
+   * @param bool|null $loadLatestRevision
    * @param \Drupal\graphql\GraphQL\Execution\FieldContext $context
    *
    * @return \GraphQL\Deferred
@@ -199,6 +205,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
     ?bool $access,
     ?AccountInterface $accessUser,
     ?string $accessOperation,
+    ?bool $loadLatestRevision,
     FieldContext $context
   ) {
     if ($id[0] === '/') {
@@ -244,7 +251,7 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
       ? $this->entityRevisionBuffer->add($type, $revisionId)
       : $this->entityBuffer->add($type, $id);
 
-    return new Deferred(function () use ($type, $id, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation) {
+    return new Deferred(function () use ($type, $id, $revisionId, $language, $bundles, $resolver, $context, $access, $accessUser, $accessOperation, $loadLatestRevision) {
       /** @var $entity \Drupal\Core\Entity\EntityInterface */
       if (!$entity = $resolver()) {
         // If there is no entity with this id, add the list cache tags so that
@@ -273,8 +280,9 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
 
 
       // If we did not request a specific revision, then we just load the most
-      // up to date one (the latest/active revision).
-      if (empty($revisionId)) {
+      // up to date one (the latest/active revision), but only if the flag is
+      // set.
+      if (empty($revisionId) && $loadLatestRevision) {
         $activeEntityContext = [];
         $additionalCacheContexts = [];
         if (isset($language)) {

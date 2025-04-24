@@ -17,7 +17,8 @@ use Drupal\graphql_directives\Plugin\GraphQL\Directive\ArgumentTrait;
  *     "id" = "String",
  *     "rid" = "String",
  *     "language" = "String",
- *     "operation" = "String"
+ *     "operation" = "String",
+ *     "loadLatestRevision" = "Boolean"
  *   }
  * )
  */
@@ -37,6 +38,7 @@ class EntityFetch extends PluginBase implements DirectiveInterface {
       'revision_id' => 'rid',
       'language' => 'language',
       'access_operation' => 'operation',
+      'load_latest_revision' => 'loadLatestRevision',
     ];
     foreach($argsMap as $argParameter => $argField) {
       if (isset($arguments[$argField])) {
