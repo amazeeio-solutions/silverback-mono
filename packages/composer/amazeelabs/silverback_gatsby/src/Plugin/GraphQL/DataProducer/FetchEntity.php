@@ -280,7 +280,8 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
 
 
       // If we did not request a specific revision, then we just load the most
-      // up to date one (the latest/active revision).
+      // up to date one (the latest/active revision), but only if the flag is
+      // set.
       if (empty($revisionId) && $loadLatestRevision) {
         $activeEntityContext = [];
         $additionalCacheContexts = [];
