@@ -1,7 +1,7 @@
 {
   "name": "amazeelabs/silverback_gatsby",
   "type": "drupal-module",
-  "version": "3.7.8",
+  "version": "3.7.9",
   "description": "Bridge module between Gatsby and Drupal.",
   "homepage": "https://silverback.netlify.app",
   "license": "GPL-2.0+",

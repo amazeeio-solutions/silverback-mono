@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.9](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gatsby@3.7.8...@-amazeelabs/silverback_gatsby@3.7.9) (2025-04-26)
+
+
+### Bug Fixes
+
+* prettier ([4912fd7](https://github.com/AmazeeLabs/silverback-mono/commit/4912fd780734b71949abfe6dd63cfce580d888cd))
+
+
+
+
+
 ## [3.7.8](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gatsby@3.7.7...@-amazeelabs/silverback_gatsby@3.7.8) (2025-04-24)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_gatsby

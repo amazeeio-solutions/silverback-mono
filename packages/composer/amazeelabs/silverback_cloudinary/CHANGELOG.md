@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_cloudinary@1.4.5...@-amazeelabs/silverback_cloudinary@1.4.6) (2025-04-26)
+
+**Note:** Version bump only for package @-amazeelabs/silverback_cloudinary
+
+
+
+
+
 ## [1.4.5](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_cloudinary@1.4.4...@-amazeelabs/silverback_cloudinary@1.4.5) (2024-09-09)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_cloudinary

@@ -1,7 +1,7 @@
 {
   "name": "amazeelabs/silverback_cloudinary",
   "type": "drupal-module",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "A module that creates a graphql field to expose cloudinary image urls based on a config input.",
   "homepage": "https://silverback.netlify.app",
   "license": "GPL-2.0+",
