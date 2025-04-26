@@ -38,4 +38,3 @@ directive @resolveEditorBlockAttribute(
   key: String!
   plainText: Boolean
 ) repeatable on FIELD_DEFINITION | UNION | INTERFACE
-
