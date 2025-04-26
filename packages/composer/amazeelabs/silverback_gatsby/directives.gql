@@ -62,4 +62,3 @@ Retrieve focal point coordinates for an image source.
 implementation(drupal): \Drupal\silverback_gatsby\Directives::focalPoint
 """
 directive @focalPoint repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
-
