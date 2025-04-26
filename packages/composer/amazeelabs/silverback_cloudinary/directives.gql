@@ -1,0 +1,12 @@
+"""
+Directive for the responsive_image data producer.
+
+implementation(gatsby): ./image.js#responsiveImage
+implementation(drupal): \Drupal\silverback_cloudinary\Directives::responsiveImage
+"""
+directive @responsiveImage(
+  width: String
+  height: String
+  sizes: String
+  transform: String
+) repeatable on FIELD_DEFINITION

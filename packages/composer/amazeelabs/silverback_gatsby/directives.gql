@@ -1,0 +1,65 @@
+directive @sourceFrom(fn: String) on OBJECT
+directive @resolveBy(fn: String) repeatable on FIELD_DEFINITION
+directive @gatsbyNodes(type: String) on FIELD_DEFINITION
+directive @gatsbyNode(type: String, id: String) on FIELD_DEFINITION
+
+"""
+Associate a type with a Drupal entity type.
+"""
+directive @entity(type: String!, bundle: String, access: Boolean) on OBJECT
+
+"""
+Directive for the "MenuFeed" plugin.
+menu_id: The internal menu id.
+menu_ids: Internal menu id's. The first one the current user has access to will be picked.
+item_type: GraphQL type for menu items.
+           **DEPRECATED**: Explicitly define Menu item types with `resolveMenu*`
+           directives instead.
+max_level: The maximum level to be fetched.
+           This can be used to optimizing caching. Most of the time only one or two
+           levels of menus are immediately visible on the page. By declaring multiple
+           types, we can generate different cache buckets, so a new menu item on a low
+           level does not require a full rebuild of every page.
+"""
+directive @menu(
+  menu_id: String
+  menu_ids: [String!]
+  item_type: String
+  max_level: Int
+) on OBJECT
+
+directive @isPath on FIELD_DEFINITION
+directive @isTemplate on FIELD_DEFINITION
+directive @stringTranslation(contextPrefix: String) on OBJECT
+directive @translatableString(contextPrefix: String) on OBJECT
+
+"""
+Fetch an entity or entity revision based on id, rid or route
+
+implementation(drupal): \Drupal\silverback_gatsby\Directives::fetchEntity
+"""
+directive @fetchEntity(
+  type: String
+  id: String
+  rid: String
+  language: String
+  operation: String
+  preview_user_id: String
+  preview_access_token: String
+) repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+
+"""
+Retrieve the properties of an image.
+
+implementation(drupal): \Drupal\silverback_gatsby\Directives::imageProps
+implementation(gatsby): ./image.js#imageProps
+"""
+directive @imageProps repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+
+"""
+Retrieve focal point coordinates for an image source.
+
+implementation(drupal): \Drupal\silverback_gatsby\Directives::focalPoint
+"""
+directive @focalPoint repeatable on FIELD_DEFINITION | SCALAR | UNION | ENUM | INTERFACE | OBJECT
+
