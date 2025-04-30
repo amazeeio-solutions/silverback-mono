@@ -3,6 +3,7 @@
 namespace Drupal\silverback_gutenberg;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -30,6 +31,8 @@ class LinkProcessor {
   protected array $linkPatterns = [];
   protected array $idToUuidMapping = [];
 
+  protected CacheableMetadata $cacheableMetadata;
+
   public function __construct(
     AliasManagerInterface      $pathAliasManager,
     ConfigFactoryInterface     $configFactory,
@@ -46,6 +49,7 @@ class LinkProcessor {
     $this->localHosts = $this->configFactory->get('silverback_gutenberg.settings')->get('local_hosts');
     $this->entityRepository = $entityRepository;
     $this->entityTypeManager = $entityTypeManager;
+    $this->cacheableMetadata = new CacheableMetadata();
 
     foreach ($entityTypeManager->getDefinitions() as $entityType) {
       $linkTemplate = $entityType->getLinkTemplate('canonical');
@@ -53,6 +57,18 @@ class LinkProcessor {
         $this->linkPatterns[$entityType->id()] = '~(^' . preg_replace('~\{[^}]+}~', ')([^/]+)(', $linkTemplate, 1) . '$)~';
       }
     }
+  }
+
+  public function getCacheableMetadata(): CacheableMetadata {
+    return $this->cacheableMetadata;
+  }
+
+  public function resetCacheableMetadata() {
+    $this->cacheableMetadata = new CacheableMetadata();
+  }
+
+  public function addCacheableDependency($other_object) {
+    $this->cacheableMetadata->addCacheableDependency($other_object);
   }
 
   public function processLinks(string $html, string $direction, LanguageInterface $language = NULL) {
@@ -102,6 +118,7 @@ class LinkProcessor {
         'processLinksCallback' => $processLinksCallback,
         'direction' => $direction,
         'language' => $language,
+        'linkProcessor' => $this,
       ];
       $this->moduleHandler->alter(
         'silverback_gutenberg_link_processor_block_attrs',

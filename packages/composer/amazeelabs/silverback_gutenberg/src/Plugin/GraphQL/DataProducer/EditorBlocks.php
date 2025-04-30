@@ -96,6 +96,7 @@ class EditorBlocks extends DataProducerPluginBase {
     }
 
     $linkProcessor = \Drupal::service(LinkProcessor::class);
+    $linkProcessor->resetCacheableMetadata();
 
     $context = new RenderContext();
     $result = \Drupal::service('renderer')->executeInRenderContext(
@@ -109,6 +110,8 @@ class EditorBlocks extends DataProducerPluginBase {
     if (!$context->isEmpty()) {
       $field->addCacheableDependency($context->pop());
     }
+    $field->addCacheableDependency($linkProcessor->getCacheableMetadata());
+    $linkProcessor->resetCacheableMetadata();
 
     $ignored = array_merge(['core/group'], $ignored ?? []);
 
