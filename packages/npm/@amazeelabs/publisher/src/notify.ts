@@ -28,8 +28,14 @@ const processMessage = (notificationText: string): string => {
 };
 
 const notify = async (notificationText: string): Promise<void> => {
-  if (slackWebhookUrl === '' || slackChannel === '') {
-    // Slack webhook and channel are not configured yet.
+  if (
+    slackWebhookUrl === '' ||
+    slackChannel === '' ||
+    publisherUrl === '' ||
+    lagoonEnvironment === '' ||
+    lagoonProject === ''
+  ) {
+    // Environment is not configured yet, do not notify.
   } else {
     await slackWebhook.send({
       username: 'Publisher Bot',
