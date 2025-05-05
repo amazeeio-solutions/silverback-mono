@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.6.0...@amazeelabs/publisher@3.0.0) (2025-05-05)
+
+
+* chore!: remove proxy option ([0d58da1](https://github.com/AmazeeLabs/silverback-mono/commit/0d58da12ff85b23f4a908b6dc60e580030522c2f))
+
+
+### BREAKING CHANGES
+
+* The `proxy` option has been removed.
+
+
+
+
+
 # [2.6.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.5.10...@amazeelabs/publisher@2.6.0) (2025-03-28)
 
 
