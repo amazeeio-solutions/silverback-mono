@@ -159,25 +159,6 @@ const runServer = async (): Promise<HttpTerminator> => {
     res.json(result);
   });
 
-  getConfig().proxy?.forEach(({ prefix, target }) => {
-    app.use(
-      prefix,
-      authMiddleware,
-      createProxyMiddleware({
-        target,
-        changeOrigin: true,
-        on: {
-          proxyReq: (proxyReq) => {
-            // Add a header to identify the request as a proxy request.
-            // This can be used to prevent redirect loops when the proxy target
-            // redirects to the proxy itself.
-            proxyReq.setHeader('SLB-Publisher-Proxy', 'true');
-          },
-        },
-      }),
-    );
-  });
-
   // ---------------------------------------------------------------------------
   // OAuth2 routes
   // ---------------------------------------------------------------------------
