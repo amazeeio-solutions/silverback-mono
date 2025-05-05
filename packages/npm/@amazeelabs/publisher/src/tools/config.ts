@@ -59,25 +59,6 @@ type PublisherConfigBase = {
    * The above would set the "X-Frame-Options" response header to "deny".
    */
   responseHeaders?: Map<string, string>;
-  /**
-   * Proxy settings.
-   *
-   * Example:
-   * [
-   *   {
-   *     prefix: "/sites/default/files",
-   *     target: "https://drupal.site",
-   *   },
-   *   {
-   *     prefix: "/graphql",
-   *     target: "https://drupal.site",
-   *   },
-   * ],
-   */
-  proxy?: Array<{
-    prefix: string;
-    target: string;
-  }>;
 };
 
 export type PublisherConfigLocal = PublisherConfigBase & {
