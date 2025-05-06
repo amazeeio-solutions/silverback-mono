@@ -26,6 +26,6 @@ services:
       - {
           name: authentication_provider,
           provider_id: 'preview_token',
-          priority: 0,
+          priority: -10000,
           global: TRUE,
         }
