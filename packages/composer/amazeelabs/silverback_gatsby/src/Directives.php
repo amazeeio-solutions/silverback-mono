@@ -32,15 +32,18 @@ class Directives {
   public static function fetchEntity(ResolverBuilder $builder): ResolverInterface {
     $resolver = $builder->produce('fetch_entity')
       ->map('type', $builder->fromArgument('type'))
-      ->map('id', $builder->fromArgument('id'))
-      ->map('revision_id', $builder->fromArgument('rid'))
-      ->map('language', $builder->fromArgument('language'))
-      ->map('preview_user_id', $builder->fromArgument('preview_user_id'))
-      ->map('preview_access_token', $builder->fromArgument('preview_access_token'));
-    // If empty, delegate to access_operation default value
-    // from the fetch_entity data producer.
-    if ($op = $builder->fromArgument('operation')) {
-      $resolver->map('access_operation', $op);
+      ->map('id', $builder->fromArgument('id'));
+
+    $argsMap = [
+      'revision_id' => 'rid',
+      'language' => 'language',
+      'access_operation' => 'operation',
+      'load_latest_revision' => 'loadLatestRevision',
+    ];
+    foreach ($argsMap as $argParameter => $argField) {
+      if ($op = $builder->fromArgument($argField)) {
+        $resolver->map($argParameter, $op);
+      }
     }
     return $resolver;
   }
