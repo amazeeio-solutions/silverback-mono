@@ -1,6 +1,6 @@
 {
   "name": "@-amazeelabs/silverback-gatsby-tests",
-  "version": "1.2.106",
+  "version": "1.2.107",
   "description": "e2e tests for Drupal-Gatsby connection.",
   "author": "Amazee Labs",
   "license": "MIT",
