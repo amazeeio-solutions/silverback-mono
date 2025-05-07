@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.44](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-gatsby@3.3.43...@-amazeelabs/silverback-gatsby@3.3.44) (2025-05-07)
+
+**Note:** Version bump only for package @-amazeelabs/silverback-gatsby
+
+
+
+
+
 ## [3.3.43](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-gatsby@3.3.42...@-amazeelabs/silverback-gatsby@3.3.43) (2025-05-05)
 
 **Note:** Version bump only for package @-amazeelabs/silverback-gatsby
