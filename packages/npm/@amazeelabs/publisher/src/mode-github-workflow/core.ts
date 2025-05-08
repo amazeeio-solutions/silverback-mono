@@ -5,7 +5,7 @@ import { getConfigGithubWorkflow as config } from '../tools/config';
 import { Core } from '../tools/core';
 import { OutputSubject } from '../tools/output';
 import { Queue } from '../tools/queue';
-import { buildTask } from './build';
+import { buildTask, cancelWorkflowTask } from './tasks';
 
 type WorkflowState = 'unknown' | 'started' | 'success' | 'failure';
 
@@ -22,6 +22,7 @@ class CoreGithubWorkflow implements Core {
   queue = new Queue();
 
   start = () => {
+    this.queue.add({ job: cancelWorkflowTask });
     if (config().cleanBuildOnStart) {
       this.queue.add({ job: buildTask({ clean: true }) });
     }
@@ -41,8 +42,11 @@ class CoreGithubWorkflow implements Core {
 
   clean = async (): Promise<void> => {
     await this.queue.clear();
+    this.state.buildNumber = 0;
     this.queue.add({ job: buildTask({ clean: true }) });
   };
+
+  getBuildNumber = () => this.state.buildNumber;
 }
 
 const core = new CoreGithubWorkflow();

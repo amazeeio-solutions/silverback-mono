@@ -28,6 +28,7 @@ const processMessage = (notificationText: string): string => {
 };
 
 const notify = async (notificationText: string): Promise<void> => {
+  console.log('📢 Slack notification:', notificationText);
   if (slackWebhookUrl === '' || slackChannel === '') {
     // Slack webhook and channel are not configured yet.
   } else {
@@ -40,10 +41,42 @@ const notify = async (notificationText: string): Promise<void> => {
   }
 };
 
-export const stateNotify = (state: ApplicationState): void => {
+export const stateNotify = (
+  stateHistory: ApplicationState[],
+  buildNumber: number,
+): void => {
+  const state =
+    stateHistory[stateHistory.length - 1] || ApplicationState.Starting;
+
   if (state === ApplicationState.Error) {
     notify('🛑 Error');
-  } else if (state === ApplicationState.Fatal) {
+    return;
+  }
+
+  if (state === ApplicationState.Fatal) {
     notify('😱 Fatal error');
+    return;
+  }
+
+  // Notify on the first successful build after a deployment or a clean build.
+  if (buildNumber === 1 && state === ApplicationState.Ready) {
+    notify('✅ Success');
+    return;
+  }
+
+  // Notify on the first successful build after a failed build.
+  const previousResolution = stateHistory.findLast(
+    (state) =>
+      state === ApplicationState.Error ||
+      state === ApplicationState.Fatal ||
+      state === ApplicationState.Ready,
+  );
+  if (
+    (previousResolution === ApplicationState.Error ||
+      previousResolution === ApplicationState.Fatal) &&
+    state === ApplicationState.Ready
+  ) {
+    notify('✅ Success');
+    return;
   }
 };

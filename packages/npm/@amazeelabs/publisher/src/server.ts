@@ -10,7 +10,7 @@ import { createHttpTerminator } from 'http-terminator';
 import { HttpTerminator } from 'http-terminator/src/types';
 import path, { dirname } from 'path';
 import referrerPolicy from 'referrer-policy';
-import { map, shareReplay, Subject } from 'rxjs';
+import { map, scan, shareReplay, Subject } from 'rxjs';
 import { fileURLToPath } from 'url';
 
 import { stateNotify } from './notify';
@@ -91,10 +91,21 @@ const runServer = async (): Promise<HttpTerminator> => {
     next();
   });
 
-  core.state.applicationState$.subscribe((state) => {
-    app.locals.isReady = state === ApplicationState.Ready;
-    stateNotify(state);
-  });
+  core.state.applicationState$
+    .pipe(
+      scan<ApplicationState, ApplicationState[]>(
+        (history, state) =>
+          // Keep the last 10 states in the history.
+          history.concat([state]).slice(-10),
+        [],
+      ),
+    )
+    .subscribe((stateHistory) => {
+      const state =
+        stateHistory[stateHistory.length - 1] || ApplicationState.Starting;
+      app.locals.isReady = state === ApplicationState.Ready;
+      stateNotify(stateHistory, core.getBuildNumber());
+    });
 
   const updates$ = new Subject();
   app.post('/___status/update', (req, res) => {
