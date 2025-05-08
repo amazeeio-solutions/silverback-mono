@@ -40,6 +40,8 @@ class CoreLocal implements Core {
     this.queue.add({ job: cleanRunTask });
     this.queue.add({ job: buildTask() });
   };
+
+  getBuildNumber = () => this.state.getBuildNumber();
 }
 
 export const core = new CoreLocal();

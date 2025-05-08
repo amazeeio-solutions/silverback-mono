@@ -15,6 +15,7 @@ export type Core = {
   stop: () => Promise<void>;
   build: () => void;
   clean: () => Promise<void>;
+  getBuildNumber: () => number;
 };
 
 export type CoreGithubWorkflow = typeof coreGithubWorkflow;

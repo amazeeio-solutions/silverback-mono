@@ -44,6 +44,8 @@ class CoreGithubWorkflow implements Core {
     this.state.buildNumber = 0;
     this.queue.add({ job: buildTask({ clean: true }) });
   };
+
+  getBuildNumber = () => this.state.buildNumber;
 }
 
 const core = new CoreGithubWorkflow();
