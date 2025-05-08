@@ -41,6 +41,7 @@ class CoreGithubWorkflow implements Core {
 
   clean = async (): Promise<void> => {
     await this.queue.clear();
+    this.state.buildNumber = 0;
     this.queue.add({ job: buildTask({ clean: true }) });
   };
 }
