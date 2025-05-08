@@ -59,6 +59,38 @@ type PublisherConfigBase = {
    * The above would set the "X-Frame-Options" response header to "deny".
    */
   responseHeaders?: Map<string, string>;
+  /**
+   * The Slack notification settings.
+   *
+   * If omitted, can be set via environment variables for BC.
+   */
+  slackNotifications?: {
+    /**
+     * Example: "https://hooks.slack.com/services/T00000000/B00000000/X00000000"
+     * Default: process.env.PUBLISHER_SLACK_WEBHOOK
+     */
+    webhookUrl: string;
+    /**
+     * Example: "#general"
+     * Default: process.env.PUBLISHER_SLACK_CHANNEL
+     */
+    channel: string;
+    /**
+     * Example: "https://build.example.com"
+     * Default: process.env.PUBLISHER_URL
+     */
+    publisherBaseUrl?: string;
+    /**
+     * Example: "project"
+     * Default: process.env.LAGOON_PROJECT
+     */
+    projectName?: string;
+    /**
+     * Example: "dev-cb"
+     * Default: process.env.LAGOON_ENVIRONMENT
+     */
+    environmentName?: string;
+  };
 };
 
 export type PublisherConfigLocal = PublisherConfigBase & {
@@ -249,6 +281,19 @@ export const getConfigGithubWorkflow = (): PublisherConfigGithubWorkflow => {
 
 export const setConfig = (config: PublisherConfig): void => {
   _config = config;
+  if (
+    !_config.slackNotifications &&
+    process.env.PUBLISHER_SLACK_WEBHOOK &&
+    process.env.PUBLISHER_SLACK_CHANNEL
+  ) {
+    _config.slackNotifications = {
+      webhookUrl: process.env.PUBLISHER_SLACK_WEBHOOK,
+      channel: process.env.PUBLISHER_SLACK_CHANNEL,
+      publisherBaseUrl: process.env.PUBLISHER_URL || undefined,
+      projectName: process.env.LAGOON_PROJECT || undefined,
+      environmentName: process.env.LAGOON_ENVIRONMENT || undefined,
+    };
+  }
 };
 
 export const clearConfig = (): void => {
