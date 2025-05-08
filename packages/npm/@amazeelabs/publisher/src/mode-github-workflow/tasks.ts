@@ -133,6 +133,11 @@ async function runWorkflow(args: {
   });
 }
 
+export const cancelWorkflowTask: TaskJob = async () => {
+  await cancelWorkflow();
+  return true;
+};
+
 async function cancelWorkflow(): Promise<void> {
   type Run = { name: string; conclusion: string; databaseId: number };
 
