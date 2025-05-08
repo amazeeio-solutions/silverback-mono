@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.1.0...@amazeelabs/publisher@3.2.0) (2025-05-08)
+
+
+### Features
+
+* configure slack notifications via config ([aa48090](https://github.com/AmazeeLabs/silverback-mono/commit/aa48090ca327ab05bc86ba5a2493128a6e574b36))
+
+
+
+
+
 # [3.1.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.0.0...@amazeelabs/publisher@3.1.0) (2025-05-08)
 
 
