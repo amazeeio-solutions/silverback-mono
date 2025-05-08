@@ -1,26 +1,22 @@
 import { ApplicationState } from '@amazeelabs/publisher-shared';
 import { IncomingWebhook } from '@slack/webhook';
 
-const slackWebhookUrl = process.env.PUBLISHER_SLACK_WEBHOOK || '';
-const slackChannel: string = process.env.PUBLISHER_SLACK_CHANNEL || '';
-const slackWebhook = new IncomingWebhook(slackWebhookUrl);
-const publisherUrl: string = process.env.PUBLISHER_URL || '';
-const lagoonProject: string = process.env.LAGOON_PROJECT || '';
-const lagoonEnvironment: string = process.env.LAGOON_ENVIRONMENT || '';
+import { getConfig } from './tools/config';
 
 const processMessage = (notificationText: string): string => {
+  const config = getConfig().slackNotifications;
   let result: string = notificationText;
 
-  if (publisherUrl !== '') {
-    const publisherStatusLink: string = `<${publisherUrl}/___status/|Status>`;
+  if (config?.publisherBaseUrl) {
+    const publisherStatusLink: string = `<${config.publisherBaseUrl}/___status/|Status>`;
     result = `${result}. ${publisherStatusLink}`;
   }
-  if (lagoonEnvironment !== '') {
-    const formattedEnvironment: string = '`' + lagoonEnvironment + '`';
+  if (config?.environmentName) {
+    const formattedEnvironment: string = '`' + config.environmentName + '`';
     result = `${formattedEnvironment} ${result}`;
   }
-  if (lagoonProject !== '') {
-    const formattedProject: string = `*[${lagoonProject}]*`;
+  if (config?.projectName) {
+    const formattedProject: string = `*[${config.projectName}]*`;
     result = `${formattedProject} ${result}`;
   }
 
@@ -29,16 +25,18 @@ const processMessage = (notificationText: string): string => {
 
 const notify = async (notificationText: string): Promise<void> => {
   console.log('📢 Slack notification:', notificationText);
-  if (slackWebhookUrl === '' || slackChannel === '') {
-    // Slack webhook and channel are not configured yet.
-  } else {
-    await slackWebhook.send({
-      username: 'Publisher Bot',
-      text: processMessage(notificationText),
-      channel: slackChannel,
-      icon_emoji: ':robot_face:',
-    });
+  const config = getConfig().slackNotifications;
+  if (!config) {
+    return;
   }
+
+  const slackWebhook = new IncomingWebhook(config.webhookUrl);
+  await slackWebhook.send({
+    username: 'Publisher Bot',
+    text: processMessage(notificationText),
+    channel: config.channel,
+    icon_emoji: ':robot_face:',
+  });
 };
 
 export const stateNotify = (
