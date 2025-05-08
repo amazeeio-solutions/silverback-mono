@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.0...@amazeelabs/publisher@3.2.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* fix the workflow subscription logic ([f2c8e7f](https://github.com/AmazeeLabs/silverback-mono/commit/f2c8e7f553d294688b65a2c0ba2a3c72ed5e9602))
+
+
+
+
+
 # [3.2.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.1.0...@amazeelabs/publisher@3.2.0) (2025-05-08)
 
 
