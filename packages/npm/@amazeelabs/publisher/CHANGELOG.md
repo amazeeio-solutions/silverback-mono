@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.0.0...@amazeelabs/publisher@3.1.0) (2025-05-08)
+
+
+### Bug Fixes
+
+* clean command should reset the build number ([ad1b0c7](https://github.com/AmazeeLabs/silverback-mono/commit/ad1b0c75f6c8eabda93d4c12e0bb1fe2c451472f))
+* do not check if the previous state is "started" ([ad0eef6](https://github.com/AmazeeLabs/silverback-mono/commit/ad0eef6d6750ffa67dc5474b8b9fc87c1130231b))
+
+
+### Features
+
+* cancel workflows on start ([7712303](https://github.com/AmazeeLabs/silverback-mono/commit/77123034f7f4c59379886a593fad87292b660b3c))
+* new slack notifications ([7cb9f37](https://github.com/AmazeeLabs/silverback-mono/commit/7cb9f3774a3de97bf5eb271295b88241f5b33e1e))
+
+
+
+
+
 # [3.0.0](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@2.6.0...@amazeelabs/publisher@3.0.0) (2025-05-05)
 
 
