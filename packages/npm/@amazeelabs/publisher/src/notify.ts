@@ -45,6 +45,7 @@ export const stateNotify = (
 ): void => {
   const state =
     stateHistory[stateHistory.length - 1] || ApplicationState.Starting;
+  const previousStates = stateHistory.slice(0, -1);
 
   if (state === ApplicationState.Error) {
     notify('🛑 Error');
@@ -63,7 +64,7 @@ export const stateNotify = (
   }
 
   // Notify on the first successful build after a failed build.
-  const previousResolution = stateHistory.findLast(
+  const previousResolution = previousStates.findLast(
     (state) =>
       state === ApplicationState.Error ||
       state === ApplicationState.Fatal ||
