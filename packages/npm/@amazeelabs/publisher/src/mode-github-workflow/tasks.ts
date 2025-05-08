@@ -4,6 +4,7 @@ import {
   ApplicationState,
   WorkflowPublisherPayload,
 } from '@amazeelabs/publisher-shared';
+import { skip } from 'rxjs';
 
 import { getConfigGithubWorkflow as config } from '../tools/config';
 import { saveBuildInfo } from '../tools/database';
@@ -105,25 +106,29 @@ async function runWorkflow(args: {
       return resolve(false);
     }
 
-    const subscription = core.state.workflowState$.subscribe((state) => {
-      if (state === 'started') {
-        core.output$.next('Workflow started', 'info');
-        core.output$.next('Logs: ' + core.state.workflowRunUrl);
-        return;
-      }
-      if (state === 'success' || state === 'failure') {
-        subscription.unsubscribe();
-        if (state === 'success') {
-          core.output$.next('Workflow succeeded', 'success');
-        } else {
-          core.output$.next('Workflow failed or cancelled', 'error');
+    const subscription = core.state.workflowState$
+      .pipe(
+        // Ignore the initial state, or the state coming from the previous build.
+        skip(1),
+      )
+      .subscribe((state) => {
+        if (state === 'started') {
+          core.output$.next('Workflow started', 'info');
+          core.output$.next('Logs: ' + core.state.workflowRunUrl);
+          return;
         }
-        core.output$.next('Logs: ' + core.state.workflowRunUrl);
-
-        clearTimeout(timeout);
-        return resolve(state === 'success');
-      }
-    });
+        if (state === 'success' || state === 'failure') {
+          subscription.unsubscribe();
+          if (state === 'success') {
+            core.output$.next('Workflow succeeded', 'success');
+          } else {
+            core.output$.next('Workflow failed or cancelled', 'error');
+          }
+          core.output$.next('Logs: ' + core.state.workflowRunUrl);
+          clearTimeout(timeout);
+          return resolve(state === 'success');
+        }
+      });
   });
 }
 
