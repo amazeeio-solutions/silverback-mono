@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.1...@amazeelabs/publisher@3.2.2) (2025-05-08)
+
+
+### Bug Fixes
+
+* fix notification logic ([caadf41](https://github.com/AmazeeLabs/silverback-mono/commit/caadf41f62bda31c83835956077a2dc80fd7adf9))
+
+
+
+
+
 ## [3.2.1](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.0...@amazeelabs/publisher@3.2.1) (2025-05-08)
 
 
