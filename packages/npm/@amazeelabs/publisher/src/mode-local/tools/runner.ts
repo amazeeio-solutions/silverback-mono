@@ -98,9 +98,12 @@ export const run = (options: {
       try {
         await terminate(process.pid, signal, { timeout: 1000 });
         return;
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (e) {
-        // Ignore.
+      } catch (error) {
+        console.log('An attempt to kill the process failed:', {
+          command: options.command,
+          signal,
+          error,
+        });
       }
     }
     throw new Error(`Failed to kill "${options.command}" process.`);
