@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.11](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_preview_link@1.6.10...@-amazeelabs/silverback_preview_link@1.6.11) (2025-05-12)
+
+**Note:** Version bump only for package @-amazeelabs/silverback_preview_link
+
+
+
+
+
 ## [1.6.10](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_preview_link@1.6.9...@-amazeelabs/silverback_preview_link@1.6.10) (2025-05-06)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_preview_link
