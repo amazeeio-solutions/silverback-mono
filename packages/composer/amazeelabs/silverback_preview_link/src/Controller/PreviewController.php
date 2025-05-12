@@ -4,7 +4,6 @@ namespace Drupal\silverback_preview_link\Controller;
 
 use Drupal\Core\Cache\CacheableResponse;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\silverback_preview_link\QRCodeWithLogo;
 use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,26 +32,34 @@ class PreviewController extends ControllerBase {
 
   /**
    * Skip Drupal authentication if there is a valid preview token.
+   *
+   * @todo: previously, this method used to also check if the preview access
+   * token has been attached to an entity (the entity type and entity ids were
+   * sent as parameters). This approach will change in the future (as part of a
+   * bigger refactoring) where preview links won't be attached to content
+   * entities anymore, so this method might change again.
    */
   public function hasLinkAccess() {
     $requestContent = \Drupal::request()->getContent();
     $body = json_decode($requestContent, TRUE);
-    if (
-      !empty($body['preview_access_token']) &&
-      !empty($body['entity_id']) &&
-      !empty($body['entity_type_id'])
-    ) {
+    if (!empty($body['preview_access_token'])) {
       try {
-        $entity = \Drupal::entityTypeManager()->getStorage($body['entity_type_id'])->load($body['entity_id']);
-        if ($entity instanceof ContentEntityInterface) {
-          $previewAccessChecker = \Drupal::service('access_check.silverback_preview_link');
-          $accessResult = $previewAccessChecker->access($entity, $body['preview_access_token']);
-          if ($accessResult->isAllowed()) {
-            return new JsonResponse([
-              'access' => TRUE,
-            ], 200);
-          }
+        $storage = \Drupal::entityTypeManager()->getStorage('silverback_preview_link');
+        $previewLink = $storage->loadByProperties(['token' => $body['preview_access_token']]);
+        if (empty($previewLink)) {
+          return new JsonResponse([
+            'access' => FALSE,
+          ], 403);
         }
+
+        // @todo: optionally, we could also check if the link has expired.
+        // Expired links should be, however, deleted by the cron job. As this
+        // part of the code will probably suffer modifications during the next
+        // bigger refactoring (see the todo in the method's description), we
+        // will just check for now if the link simply exists.
+        return new JsonResponse([
+          'access' => TRUE,
+        ], 200);
       }
       catch (\Exception $e) {
         $this->getLogger('silverback_preview_link')->error($e->getMessage());
