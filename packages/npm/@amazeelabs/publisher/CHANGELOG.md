@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.3...@amazeelabs/publisher@3.2.4) (2025-05-12)
+
+
+### Bug Fixes
+
+* prevent double kills on clean in local mode ([03f3a0a](https://github.com/AmazeeLabs/silverback-mono/commit/03f3a0a7ed78d2129ab53353e65bb13b43a5a059))
+
+
+
+
+
 ## [3.2.3](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.2...@amazeelabs/publisher@3.2.3) (2025-05-09)
 
 **Note:** Version bump only for package @amazeelabs/publisher
