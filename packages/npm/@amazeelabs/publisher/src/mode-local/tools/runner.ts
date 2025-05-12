@@ -64,6 +64,7 @@ export const run = (options: {
 
   const result = new Promise<Result>((resolve) => {
     process.on('exit', (code): void => {
+      options.controller.offCancel(kill);
       if (killSignal) {
         core.output$.next(
           `Command killed with ${killSignal} signal: "${options.command}"`,
@@ -109,7 +110,7 @@ export const run = (options: {
     throw new Error(`Failed to kill "${options.command}" process.`);
   };
 
-  options.controller?.onCancel(() => kill());
+  options.controller.onCancel(kill);
 
   return {
     output,

@@ -6,6 +6,9 @@ export class TaskController {
   onCancel = (callback: () => void): void => {
     this.cancelCallbacks.push(callback);
   };
+  offCancel = (callback: () => void): void => {
+    this.cancelCallbacks = this.cancelCallbacks.filter((cb) => cb !== callback);
+  };
 }
 
 export type TaskResult = Promise<boolean>;
