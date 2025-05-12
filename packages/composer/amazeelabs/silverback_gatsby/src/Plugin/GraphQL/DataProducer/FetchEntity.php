@@ -334,7 +334,8 @@ class FetchEntity extends DataProducerPluginBase implements ContainerFactoryPlug
         // @todo Add DI to both.
         /** @var \Drupal\silverback_autosave\Storage\AutosaveEntityFormStorageInterface $autoSaveFormStorage */
         $autoSaveFormStorage = \Drupal::service('silverback_autosave.entity_form_storage');
-        $autosaveUserId = \Drupal::currentUser()->id();
+        $currentUser = \Drupal::currentUser();
+        $autosaveUserId = $currentUser->hasPermission('fetch any autosaved entity') ? NULL : $currentUser->id();
 
         /**
          * This causes leaked metadata error.

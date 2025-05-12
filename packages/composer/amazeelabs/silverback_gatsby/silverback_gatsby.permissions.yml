@@ -4,3 +4,5 @@ trigger a gatsby build:
   title: 'Trigger a Gatsby Build'
 access publisher:
   title: 'Access Publisher'
+fetch any autosaved entity:
+  title: 'Fetch any autosaved entity'

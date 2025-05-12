@@ -63,7 +63,7 @@ interface AutosaveEntityFormStorageInterface {
    *   An array containing the entity object and the form state object, keyed
    *   accordingly with 'entity' and 'form_state'.
    */
-  public function getEntityAndFormState($form_id, $entity_type_id, $entity_id, $langcode, $uid, $form_session_id = NULL, $timestamp = NULL);
+  public function getEntityAndFormState($form_id, $entity_type_id, $entity_id, $langcode, $uid = NULL, $form_session_id = NULL, $timestamp = NULL);
 
   /**
    * Retrieves the stored entity.
