@@ -121,7 +121,7 @@ class AutosaveEntityFormDatabaseStorage implements AutosaveEntityFormStorageInte
   /**
    * {@inheritdoc}
    */
-  public function getEntityAndFormState($form_id, $entity_type_id, $entity_id, $langcode, $uid, $form_session_id = NULL, $autosaved_timestamp = NULL) {
+  public function getEntityAndFormState($form_id, $entity_type_id, $entity_id, $langcode, $uid = NULL, $form_session_id = NULL, $autosaved_timestamp = NULL) {
     $result = NULL;
     $query = $this->connection->select(static::AUTOSAVE_ENTITY_FORM_TABLE, 'cefa')
       ->fields('cefa', ['entity', 'form_state', 'timestamp'])
@@ -134,8 +134,11 @@ class AutosaveEntityFormDatabaseStorage implements AutosaveEntityFormStorageInte
 
     $query->condition('entity_type_id', $entity_type_id)
       ->condition('entity_id', $entity_id)
-      ->condition('langcode', $langcode)
-      ->condition('uid', $uid);
+      ->condition('langcode', $langcode);
+
+    if (isset($uid)) {
+      $query->condition('uid', $uid);
+    }
 
     if (isset($autosaved_timestamp)) {
       $query->condition('timestamp', $autosaved_timestamp);
