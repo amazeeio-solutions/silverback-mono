@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.5](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.4...@amazeelabs/publisher@3.2.5) (2025-05-13)
+
+**Note:** Version bump only for package @amazeelabs/publisher
+
+
+
+
+
 ## [3.2.4](https://github.com/AmazeeLabs/silverback-mono/compare/@amazeelabs/publisher@3.2.3...@amazeelabs/publisher@3.2.4) (2025-05-12)
 
 
