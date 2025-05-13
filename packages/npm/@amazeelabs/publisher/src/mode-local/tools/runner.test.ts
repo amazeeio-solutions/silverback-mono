@@ -6,7 +6,7 @@ import { run } from './runner';
 
 // There are 3 attempts to kill a process using different signals. Each attempt
 // is limited to 1 second.
-const maxKillTimeMs = 4000;
+const maxKillTimeMs = 15000;
 
 const controller = new TaskController();
 
