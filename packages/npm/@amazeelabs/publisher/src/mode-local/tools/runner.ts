@@ -100,6 +100,10 @@ export const run = (options: {
         await terminate(process.pid, signal, { timeout: 5000 });
         return;
       } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ESRCH') {
+          // Process already exited.
+          return;
+        }
         console.log('An attempt to kill the process failed:', {
           command: options.command,
           signal,
