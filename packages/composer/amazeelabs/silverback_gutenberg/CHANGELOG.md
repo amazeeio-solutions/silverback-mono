@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.5.27...@-amazeelabs/silverback_gutenberg@2.6.0) (2025-05-22)
+
+
+### Features
+
+* added the ability to convert tid to uuid and vice versa ([5de326b](https://github.com/AmazeeLabs/silverback-mono/commit/5de326b283191f5032c8f2f612152f6515f447ab))
+
+
+
+
+
 ## [2.5.27](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.5.26...@-amazeelabs/silverback_gutenberg@2.5.27) (2025-04-30)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_gutenberg
