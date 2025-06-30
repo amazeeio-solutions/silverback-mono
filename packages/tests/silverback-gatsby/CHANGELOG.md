@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.117](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-gatsby-tests@1.2.116...@-amazeelabs/silverback-gatsby-tests@1.2.117) (2025-06-30)
+
+**Note:** Version bump only for package @-amazeelabs/silverback-gatsby-tests
+
+
+
+
+
 ## [1.2.116](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback-gatsby-tests@1.2.115...@-amazeelabs/silverback-gatsby-tests@1.2.116) (2025-05-22)
 
 **Note:** Version bump only for package @-amazeelabs/silverback-gatsby-tests
