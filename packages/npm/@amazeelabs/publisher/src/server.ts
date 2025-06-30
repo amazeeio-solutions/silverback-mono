@@ -222,7 +222,11 @@ const runServer = async (): Promise<HttpTerminator> => {
 
     // Check if the state matches.
     if (!stateMatches(req)) {
-      return res.status(500).json('State does not match.');
+      return res
+        .status(400)
+        .json(
+          'State does not match. Check if the Drupal Consumer entity redirect URI is properly set.',
+        );
     }
 
     const { code } = req.query;
