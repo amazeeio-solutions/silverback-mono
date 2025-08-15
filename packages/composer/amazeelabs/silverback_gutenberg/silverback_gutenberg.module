@@ -46,7 +46,7 @@ function silverback_gutenberg_form_node_form_alter(&$form, FormStateInterface $f
   /** @var \Drupal\node\NodeInterface $node */
   $node = $form_state->getFormObject()->getEntity();
   foreach (Utils::getGutenbergFields($node) as $field) {
-      if (is_string($form[$field]['widget'][0]['#default_value'])) {
+      if (isset($form[$field]['widget'][0]) && is_array($form[$field]['widget'][0]) && is_string($form[$field]['widget'][0]['#default_value'])) {
         $form[$field]['widget'][0]['#default_value'] =
           Utils::linkProcessor()->processLinks(
             $form[$field]['widget'][0]['#default_value'],
