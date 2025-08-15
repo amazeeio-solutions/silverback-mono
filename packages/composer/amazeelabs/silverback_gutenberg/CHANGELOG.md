@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.6.0...@-amazeelabs/silverback_gutenberg@2.6.1) (2025-08-15)
+
+
+### Bug Fixes
+
+* additional checks for form widget being array in gutenberg form alter ([038f2cc](https://github.com/AmazeeLabs/silverback-mono/commit/038f2cc8089d2c5d1e24f1c36da5ac7bd6afd0f9))
+
+
+
+
+
 # [2.6.0](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_gutenberg@2.5.27...@-amazeelabs/silverback_gutenberg@2.6.0) (2025-05-22)
 
 
