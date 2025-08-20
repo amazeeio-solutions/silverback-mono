@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.11](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_graphql_persisted@1.1.10...@-amazeelabs/silverback_graphql_persisted@1.1.11) (2025-08-20)
+
+**Note:** Version bump only for package @-amazeelabs/silverback_graphql_persisted
+
+
+
+
+
 ## [1.1.10](https://github.com/AmazeeLabs/silverback-mono/compare/@-amazeelabs/silverback_graphql_persisted@1.1.9...@-amazeelabs/silverback_graphql_persisted@1.1.10) (2024-09-09)
 
 **Note:** Version bump only for package @-amazeelabs/silverback_graphql_persisted
