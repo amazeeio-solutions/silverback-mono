@@ -15,7 +15,7 @@ class FixGraphQLCachingSubscriber implements EventSubscriberInterface {
 
   public function onBeforeOperation(OperationEvent $event): void {
     $event->getContext()->addCacheContexts(
-      ['url.query_args:variables', 'url.query_args:extensions']
+      ['url.query_args:variables', 'url.query_args:extensions', 'url.query_args:queryId']
     );
   }
 
