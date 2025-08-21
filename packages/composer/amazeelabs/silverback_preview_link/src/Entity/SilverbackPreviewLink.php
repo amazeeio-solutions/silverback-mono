@@ -22,11 +22,22 @@ use Drupal\user\Entity\User;
  *   label = @Translation("Preview Link"),
  *   base_table = "silverback_preview_link",
  *   handlers = {
+ *     "views_data" = "Drupal\views\EntityViewsData",
  *     "storage" = "Drupal\silverback_preview_link\PreviewLinkStorage",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "form" = {
- *       "silverback_preview_link" = "Drupal\silverback_preview_link\Form\PreviewLinkForm"
- *     }
+ *       "silverback_preview_link" = "Drupal\silverback_preview_link\Form\PreviewLinkForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *     },
+ *    "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *     },
  *   },
+ *   links = {
+ *     "canonical" = "/admin/content/preview-link/{silverback_preview_link}",
+ *     "delete-form" = "/admin/content/preview-link/{silverback_preview_link}/delete",
+ *   },
+ *   admin_permission = "administer site configuration",
  *   entity_keys = {
  *     "id" = "id"
  *   }
