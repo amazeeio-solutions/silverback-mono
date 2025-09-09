@@ -27,7 +27,7 @@ class PreviewLinkHooks implements ContainerInjectionInterface {
    */
   public static function create(ContainerInterface $container) {
     /** @var \Drupal\silverback_preview_link\PreviewLinkStorageInterface $storage */
-    $storage = $container->get('entity_type.manager')->getStorage('silverack_preview_link');
+    $storage = $container->get('entity_type.manager')->getStorage('silverback_preview_link');
     return new static(
       $storage,
       $container->get('datetime.time'),
