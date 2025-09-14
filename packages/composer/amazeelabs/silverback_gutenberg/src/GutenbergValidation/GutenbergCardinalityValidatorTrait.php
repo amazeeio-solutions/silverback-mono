@@ -79,7 +79,27 @@ trait GutenbergCardinalityValidatorTrait {
       if (!isset($countInnerBlockInstances[$innerBlock['blockName']])) {
         $countInnerBlockInstances[$innerBlock['blockName']] = 0;
       }
-      $countInnerBlockInstances[$innerBlock['blockName']]++;
+
+      $hasContent = FALSE;
+
+      // Check if the inner blocks have content.
+      if (!empty($innerBlock['innerBlocks'])) {
+        foreach ($innerBlock['innerBlocks'] as $innerBlockContent) {
+          if (trim(strip_tags($innerBlockContent['innerHTML'])) !== '') {
+            $hasContent = TRUE;
+            break;
+          }
+        }
+      }
+      else {
+        // Check the content of the block itself if there are no inner blocks.
+        $hasContent = trim(strip_tags($innerBlock['innerHTML'])) !== '';
+      }
+
+      // Increment the counter if the block has meaningful content.
+      if ($hasContent) {
+        $countInnerBlockInstances[$innerBlock['blockName']]++;
+      }
     }
 
     foreach ($expected_children as $child) {
