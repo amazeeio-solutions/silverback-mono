@@ -1,6 +1,0 @@
-name: GraphQL Directives
-description: Directive-based GraphQL schema system.
-type: module
-dependencies:
-  - graphql:graphql
-core_version_requirement: ^8.8 || ^9 || ^10 || ^11

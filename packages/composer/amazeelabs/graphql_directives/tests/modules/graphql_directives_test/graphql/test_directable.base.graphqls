@@ -1,1 +1,0 @@
-directive @test_directable on OBJECT

@@ -1,8 +1,0 @@
-type Query {
-  currentUser: User @currentUser
-}
-
-type User {
-  id: ID! @resolveEntityId
-  preferredLanguage: String @preferredLanguage
-}

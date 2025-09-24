@@ -1,5 +1,0 @@
-services:
-  graphql_directives_test.test:
-    class: \Drupal\graphql_directives_test\TestResolvers
-    arguments:
-      - 'container value'

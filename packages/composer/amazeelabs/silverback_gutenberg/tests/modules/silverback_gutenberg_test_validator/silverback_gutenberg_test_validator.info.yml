@@ -1,9 +1,0 @@
-name: Silverback Gutenberg Test Validator
-type: module
-description:
-  'Support module for Silverback Gutenberg validators plugin system testing.'
-package: 'Silverback Testing'
-core_version_requirement: ^8 || ^9 || ^10 || ^11
-
-dependencies:
-  - silverback_gutenberg:silverback_gutenberg
