@@ -1,6 +1,0 @@
-name: GraphQL Directives Test
-type: module
-description: 'Test plugin implementations for GraphQL Directives.'
-dependencies:
-  - graphql_directives:graphql_directives
-core_version_requirement: ^8.8 || ^9 || ^10 || ^11

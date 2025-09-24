@@ -1,8 +1,0 @@
-name: Silverback Gutenberg
-type: module
-description: 'Adjusts Gutenberg for Amazee Labs needs.'
-package: Silverback
-core_version_requirement: ^8 || ^9 || ^10 || ^11
-
-dependencies:
-  - gutenberg:gutenberg (>=8.x-2.0-beta2)

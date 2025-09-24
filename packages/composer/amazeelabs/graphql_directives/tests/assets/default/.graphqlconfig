@@ -1,5 +1,0 @@
-{
-  "name": "Directives Test - Default",
-  "schemaPath": "./schema.graphqls",
-  "includes": ["./directives.graphqls"]
-}

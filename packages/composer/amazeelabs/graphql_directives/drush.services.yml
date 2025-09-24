@@ -1,7 +1,0 @@
-services:
-  graphql_directives.commands:
-    class: \Drupal\graphql_directives\Commands
-    arguments:
-      - '@graphql_directives.printer'
-    tags:
-      - { name: drush.command }
