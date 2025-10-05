@@ -12,6 +12,8 @@ silverback_gatsby.build:
   path: '/silverback_gatsby/ajax/build'
   defaults:
     _controller: '\Drupal\silverback_gatsby\Controller\BuildController::build'
+  options:
+    _auth: ['key_auth']
   requirements:
     _permission: 'trigger a gatsby build'
 publisher.access:
