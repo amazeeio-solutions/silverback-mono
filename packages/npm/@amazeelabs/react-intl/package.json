@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "react-intl": "^6.8.9",
-    "react-server-dom-webpack": "19.0.0"
+    "react-server-dom-webpack": "19.0.1"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*"
