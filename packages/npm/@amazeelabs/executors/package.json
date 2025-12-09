@@ -33,7 +33,7 @@
   "dependencies": {
     "@amazeelabs/codegen-operation-ids": "workspace:*",
     "lodash-es": "^4.17.21",
-    "react-server-dom-webpack": "19.0.0",
+    "react-server-dom-webpack": "19.0.1",
     "server-only-context": "^0.1.0"
   },
   "peerDependencies": {
